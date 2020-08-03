@@ -6,6 +6,8 @@ var bodyParser = require('body-parser');
 var home = require('./controllers/home');
 var signup = require('./controllers/signup');
 var login = require('./controllers/login');
+var adminDash = require('./controllers/adminDash');
+var changepassword = require('./controllers/changepassword');
 
 var app = express();
 
@@ -21,6 +23,8 @@ app.use('/', home);
 app.use('/home', home);
 app.use('/signup', signup);
 app.use('/login', login);
+app.use('/adminDash', adminDash);
+app.use('/changepassword', changepassword);
 
 
 app.listen(3333, function()
