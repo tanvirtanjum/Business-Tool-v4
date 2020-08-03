@@ -3,16 +3,21 @@ var router = express.Router();
 
 router.get('/', function(req, res)
 {
-/*	if(req.session.username != null)
-  {
-		res.render('home/index');
+  res.render('home/index');
+});
+
+router.post('/', function(req, res)
+{
+  //res.redirect('/signup');
+	if(req.body.hasOwnProperty("signup"))
+	{
+		res.redirect('/signup');
 	}
 
-  else
-  {
+	else if (req.body.hasOwnProperty("login"))
+	{
 		res.redirect('/login');
-	} */
-  res.render('home/index');
+	}
 });
 
 module.exports = router;
