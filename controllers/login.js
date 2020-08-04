@@ -10,6 +10,10 @@ router.post('/', function(req, res)
 {
   //res.redirect('/signup');
 	res.redirect('/adminDash');
+  //res.redirect('/managerDash');
+  //res.redirect('/salesmanDash');
+  //res.redirect('/deliverymanDash');
+  //res.redirect('/customerDash');
 });
 
 module.exports = router;
