@@ -7,6 +7,10 @@ var home = require('./controllers/home');
 var signup = require('./controllers/signup');
 var login = require('./controllers/login');
 var adminDash = require('./controllers/adminDash');
+var managerDash = require('./controllers/managerDash');
+var salesmanDash = require('./controllers/salesmanDash');
+var deliverymanDash = require('./controllers/deliverymanDash');
+var customerDash = require('./controllers/customerDash');
 var changepassword = require('./controllers/changepassword');
 
 var app = express();
@@ -19,11 +23,16 @@ app.use('/assets', express.static('assets'));
 //middleware
 app.use(bodyParser.urlencoded({extended: true}));
 //app.use(exSession({secret: 'my secret value', saveUninitialized: true, resave: false}));
+
 app.use('/', home);
 app.use('/home', home);
 app.use('/signup', signup);
 app.use('/login', login);
 app.use('/adminDash', adminDash);
+app.use('/managerDash', managerDash);
+app.use('/salesmanDash', salesmanDash);
+app.use('/deliverymanDash', deliverymanDash);
+app.use('/customerDash', customerDash);
 app.use('/changepassword', changepassword);
 
 
