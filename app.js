@@ -12,6 +12,7 @@ var salesmanDash = require('./controllers/salesmanDash');
 var deliverymanDash = require('./controllers/deliverymanDash');
 var customerDash = require('./controllers/customerDash');
 var changepassword = require('./controllers/changepassword');
+var empManageAdmin = require('./controllers/empManageAdmin');
 
 var app = express();
 
@@ -29,6 +30,7 @@ app.use('/home', home);
 app.use('/signup', signup);
 app.use('/login', login);
 app.use('/adminDash', adminDash);
+app.use('/adminDash/empManageAdmin', empManageAdmin);
 app.use('/managerDash', managerDash);
 app.use('/salesmanDash', salesmanDash);
 app.use('/deliverymanDash', deliverymanDash);
