@@ -10,18 +10,42 @@
 <body>
 	<div class="wrap">
 		<h2>Sign Up</h2>
-		<form method="post">
+		<form method="post" onsubmit="return validateForm()" name="myForm">
 			<input type="text" name="username" placeholder="Username" value=""><span style="color:red;"></span>
 			<input type="Password" name="password" placeholder="Password"><span style="color:red;"></span>
 			<input type="text" name="fullname" placeholder="Full Name" value=""> <span style="color:red;"></span>
 			<input type="email" name="email" placeholder="Email" value=""><span style="color:red;"></span>
 			<input type="number" name="mobilenumber" placeholder="Mobile Number" value=""><span style="color:red;"> </span>
-			<input type="Password" name="password" placeholder="Password"><span style="color:red;"></span>
 			<input type="submit" value="Submit"><br>
 			<p><b>Or Log In <a href="/login">here</a></b></p>
 
 		</form>
 	</div>
+	<!-- <script>
+		function validateForm(){
+			var u =document.forms["myForm"]["username"].value;
+			var p =document.forms["myForm"]["password"].value;
+			var f =document.forms["myForm"]["fullname"].value;
+			var e =document.forms["myForm"]["email"].value;
+			var n =document.forms["myForm"]["number"].value;
+			if (u==""){
+				alert("Username must be filled out");
+				return false;
+			}if (p==""){
+				alert("Password must be filled out");
+				return false;
+			}if (f==""){
+				alert("FullName must be filled out");
+				return false;
+			}if (e==""){
+				alert("Email must be filled out");
+				return false;
+			}if (n==""){
+				alert("Mobile Number must be filled out");
+				return false;
+			}
+		}
+	</script> -->
 </body>
 
 </html>
