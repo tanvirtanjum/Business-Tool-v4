@@ -13,6 +13,9 @@ var deliverymanDash = require('./controllers/deliverymanDash');
 var customerDash = require('./controllers/customerDash');
 var changepassword = require('./controllers/changepassword');
 var empManageAdmin = require('./controllers/empManageAdmin');
+var prodManageAdmin = require('./controllers/prodManageAdmin');
+var regManageAdmin = require('./controllers/regManageAdmin');
+var orderManageAdmin = require('./controllers/orderManageAdmin');
 
 var app = express();
 
@@ -31,6 +34,9 @@ app.use('/signup', signup);
 app.use('/login', login);
 app.use('/adminDash', adminDash);
 app.use('/adminDash/empManageAdmin', empManageAdmin);
+app.use('/adminDash/prodManageAdmin', prodManageAdmin);
+app.use('/adminDash/regManageAdmin', regManageAdmin);
+app.use('/adminDash/orderManageAdmin', orderManageAdmin);
 app.use('/managerDash', managerDash);
 app.use('/salesmanDash', salesmanDash);
 app.use('/deliverymanDash', deliverymanDash);
