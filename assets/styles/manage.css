@@ -43,6 +43,11 @@ h1 {
     margin-bottom: 20px;
 }
 
+.box input[type="email"] {
+    width: 32%;
+    margin-bottom: 20px;
+}
+
 .box input[type="text"] {
     background: transparent;
     height: 30px;
@@ -59,6 +64,13 @@ h1 {
 }
 
 .box input[type="number"] {
+    background: transparent;
+    height: 30px;
+    color: #fff;
+    font-size: 16px;
+}
+
+.box input[type="email"] {
     background: transparent;
     height: 30px;
     color: #fff;

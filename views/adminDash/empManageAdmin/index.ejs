@@ -2,21 +2,19 @@
 
 <%-include('../common.ejs') -%>
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Manage Employees</title>
     <link rel="stylesheet" type="text/css" href="../assets/styles/common.css">
     <link rel="stylesheet" type="text/css" href="../assets/styles/manage.css">
-    
 </head>
 <body>
     <div class="box">
-       
-        <input style="width: 20%; margin-left: 580px;" id="search" type="text" name="Search" placeholder="Search Here">
+
+        <input style="width: 20%; margin-left: 580px;" id="search" type="text" name="Search" placeholder="Search By ID" value="">
         <input id="btnSearch"type="submit" value="Search">
         <form action="post" name="manage" onsubmit="return validForm()">
             <p>Employee ID</p>
@@ -26,16 +24,17 @@
             <p>Designation</p>
             <select id="designation" name="designation">
                 <option selected="" disabled="">--SELECT--</option>
-                <option id="manager" value="manager">Manager</option>
-                <option id="admin" value="admin">Admin</option>
-                <option id="salesman" value="salesman">SalesMan</option>
+                <option id="admin" value="1">Admin</option>
+                <option id="manager" value="2">Manager</option>
+                <option id="salesman" value="3">SalesMan</option>
+                <option id="admin" value="4">DevileryMan</option>
             </select><br>
             <p>Salary</p>
-            <input type="text" name="empSalary" placeholder="Enter Employee Salary" value="" >
+            <input type="number" name="empSalary" placeholder="Enter Employee Salary" value="" >
             <p>Mobile No.</p>
             <input type="text" name="empMobileNo" placeholder="Enter Employee Mobile No" value="" >
             <p>E-mail</p>
-            <input type="text" name="empEmail" placeholder="Enter Employee Email" value="" >
+            <input type="email" name="empEmail" placeholder="Enter Employee Email" value="" >
             <p>Join Date</p>
             <input type="text" name="empJoinDate" value="" disabled>
             <p>Added By</p>
@@ -55,10 +54,10 @@
                         <th>AddedBy</th>
                     </tr>
                 </thead>
+
                 <!-- <tbody>
                     ejs code here
                 </tbody> -->
-                
             </table>
         </div>
         <input style="margin-top: 10px; margin-left: 480px;" type="submit" name="refresh" value="Refresh">
