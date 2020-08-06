@@ -1,33 +1,32 @@
-var express    			 = require('express');
-var exSession 		 	 = require('express-session');
-var bodyParser			 = require('body-parser');
+var express = require('express');
+var exSession = require('express-session');
+var bodyParser = require('body-parser');
 
 
-var home                 = require('./controllers/home');
-var signup               = require('./controllers/signup');
-var login                = require('./controllers/login');
-var logout				 = require('./controllers/logout');
-var adminDash            = require('./controllers/adminDash');
-var managerDash          = require('./controllers/managerDash');
-var salesmanDash 		 = require('./controllers/salesmanDash');
-var deliverymanDash 	 = require('./controllers/deliverymanDash');
-var customerDash 		 = require('./controllers/customerDash');
-var changepassword 		 = require('./controllers/changepassword');
-var empManageAdmin 		 = require('./controllers/empManageAdmin');
-var prodManageAdmin		 = require('./controllers/prodManageAdmin');
-var regManageAdmin 		 = require('./controllers/regManageAdmin');
-var orderManageAdmin	 = require('./controllers/orderManageAdmin');
+var home = require('./controllers/home');
+var signup = require('./controllers/signup');
+var login  = require('./controllers/login');
+var logout = require('./controllers/logout');
+var adminDash = require('./controllers/adminDash');
+var managerDash = require('./controllers/managerDash');
+var salesmanDash = require('./controllers/salesmanDash');
+var deliverymanDash = require('./controllers/deliverymanDash');
+var customerDash = require('./controllers/customerDash');
+var changepassword = require('./controllers/changepassword');
+var empManageAdmin = require('./controllers/empManageAdmin');
+var prodManageAdmin	= require('./controllers/prodManageAdmin');
+var regManageAdmin = require('./controllers/regManageAdmin');
+var orderManageAdmin = require('./controllers/orderManageAdmin');
 
 var app = express();
 
 //config
 app.set('view engine', 'ejs');
-
 app.use('/assets', express.static('assets'));
 
 //middleware
 app.use(bodyParser.urlencoded({extended: true}));
-app.use(exSession({secret: 'my secret value', saveUninitialized: true, resave: false}));
+app.use(exSession({secret: ' ', saveUninitialized: true, resave: false}));
 
 app.use('/', home);
 app.use('/home', home);
