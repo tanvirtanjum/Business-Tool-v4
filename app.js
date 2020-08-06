@@ -8,6 +8,8 @@ var signup = require('./controllers/signup');
 var login  = require('./controllers/login');
 var logout = require('./controllers/logout');
 var adminDash = require('./controllers/adminDash');
+var aboutAdminUser = require('./controllers/aboutAdminUser');
+var salesHistoryAdmin = require('./controllers/salesHistoryAdmin');
 var managerDash = require('./controllers/managerDash');
 var salesmanDash = require('./controllers/salesmanDash');
 var deliverymanDash = require('./controllers/deliverymanDash');
@@ -17,6 +19,9 @@ var empManageAdmin = require('./controllers/empManageAdmin');
 var prodManageAdmin	= require('./controllers/prodManageAdmin');
 var regManageAdmin = require('./controllers/regManageAdmin');
 var orderManageAdmin = require('./controllers/orderManageAdmin');
+var notice = require('./controllers/notice');
+var notes = require('./controllers/notes');
+var chatBox = require('./controllers/chatBox');
 
 var app = express();
 
@@ -34,6 +39,8 @@ app.use('/signup', signup);
 app.use('/login', login);
 app.use('/logout',logout);
 app.use('/adminDash', adminDash);
+app.use('/adminDash/aboutAdminUser', aboutAdminUser);
+app.use('/adminDash/salesHistoryAdmin', salesHistoryAdmin);
 app.use('/adminDash/empManageAdmin', empManageAdmin);
 app.use('/adminDash/prodManageAdmin', prodManageAdmin);
 app.use('/adminDash/regManageAdmin', regManageAdmin);
@@ -43,6 +50,9 @@ app.use('/salesmanDash', salesmanDash);
 app.use('/deliverymanDash', deliverymanDash);
 app.use('/customerDash', customerDash);
 app.use('/changepassword', changepassword);
+app.use('/notice', notice);
+app.use('/notes', notes);
+app.use('/chatBox', chatBox);
 
 
 app.listen(3333, function()
