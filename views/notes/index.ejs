@@ -4,10 +4,37 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Notes</title>
+		<link rel="stylesheet" type="text/css" href="../assets/styles/notes.css">
 	</head>
 	<body>
-		<form method='post'>
-
-		</form>
+		<div class="box">
+			<h1>Take your Note</h1>
+			<form method='post'>
+				<input type="text" name="name" placeholder="Note name">
+				<input style="margin-left: 150px;width: 20%;" type="text" placeholder="Search by id" name="search">
+				<input style="margin-left: 5px;width: 15%;" type="Submit" value="See"><br>
+				<textarea placeholder="write here..." name="notes" id="notes" cols="46" rows="20"></textarea><br>
+				<input style="margin-left: 100px;" type="submit" value="Save"><br><br>
+				<input type="submit" value="Refresh">
+				<input style="margin-left: 30px;" type="submit" value="Update"><br><br>
+				<input type="submit" value="Delete">
+				<input style="margin-left: 30px;" type="submit" value="Print">
+				<div align="right" class="table">
+					<table class="content-table">
+						<thead>
+							<tr>
+								<th>Note Id</th>
+								<th>Note Name</th>
+								<th>Owner Id</th>
+							</tr>
+						</thead>
+		
+						<!-- <tbody>
+							ejs code here
+						</tbody> -->
+					</table>
+				</div>
+			</form>
+		</div>
 	</body>
 </html>
