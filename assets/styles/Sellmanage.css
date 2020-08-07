@@ -8,12 +8,12 @@ body {
 }
 
 .box {
-    width: 1320px;
-    height: 800px;
+    width: 1200px;
+    height: 750px;
     background: #000;
     color: #fff;
     top: 50%;
-    left: 57%;
+    left: 60%;
     position: absolute;
     transform: translate(-50%, -50%);
     box-sizing: border-box;
@@ -26,17 +26,17 @@ body {
 }
 
 .box input[type="text"] {
-    width: 32%;
+    width: 25%;
     margin-bottom: 20px;
 }
 
 .box input[type="number"] {
-    width: 32%;
+    width: 25%;
     margin-bottom: 20px;
 }
 
 .box input[type="email"] {
-    width: 32%;
+    width: 25%;
     margin-bottom: 20px;
 }
 
@@ -48,7 +48,7 @@ body {
 }
 
 .box select {
-    width: 32%;
+    width: 25.5%;
     height: 30px;
     background: whitesmoke;
     font-size: 16px;
@@ -106,8 +106,8 @@ body {
 .table {
     width: 830px;
     height: 570px;
-    top: 48%;
-    left: 67%;
+    top: 52%;
+    left: 63%;
     position: absolute;
     transform: translate(-50%, -50%);
     box-sizing: border-box;
