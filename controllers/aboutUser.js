@@ -7,6 +7,6 @@ router.get('/', function(req, res)
 });
 router.get('/editProfile', function(req, res)
 {
-  res.render('aboutUser/editProfile/index');
+  res.render('aboutUser/edit');
 });
 module.exports = router;
