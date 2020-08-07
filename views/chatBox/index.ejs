@@ -14,16 +14,69 @@
 <% if (username == 4) { %>
   <%-include('../DeliverymanDash/common.ejs') -%>
 <% } %>
-
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="UTF-8">
 		<title>Chat Box</title>
 		<link rel="stylesheet" type="text/css" href="../assets/styles/common.css">
-		<link rel="stylesheet" type="text/css" href="../assets/styles/manage.css">
+		<link rel="stylesheet" type="text/css" href="../assets/styles/chatBox.css">
 	</head>
 	<body>
-		
+		<form method="POST">
+			<div class="table">
+				<h1>ChatBox</h1>
+				<input checked="chechked" id="tab1" type="radio" name="history">
+				<input id="tab2" type="radio" name="history">
+				<nav>
+					<ul>
+						<li class="tab1"><label for="tab1">Inbox</label></li>
+						<li class="tab2"><label for="tab2">Send Message</label></li>
+					</ul>
+				</nav>
+				<section>
+					<div class=tab1>
+						<table class="content-table">
+							<thead>
+								<p style="margin-left: 140px;color:#00f7c5;">Unseen Message</p>
+								<tr>
+									<th>Message ID</th>
+									<th>Sender</th>
+									<th>Subject</th>
+									<th>Date</th>
+								</tr>
+							</thead>
+							<!-- <tbody>
+								ejs here
+							</tbody> -->
+						</table>
+						<hr>
+						<table class="content-table">
+							<thead>
+								<p style="margin-left: 140px;color:#00f7c5;margin-top: 2px;">Seen Message</p>
+								<tr>
+									<th>Message ID</th>
+									<th>Sender</th>
+									<th>Subject</th>
+									<th>Date</th>
+								</tr>
+							</thead>
+							<!-- <tbody>
+								ejs here
+							</tbody> -->
+						</table>
+						<hr>
+						<textarea style="margin-top: 5px;margin-left: 10px;" placeholder="Message Body" name="see" id="see" cols="80" rows="20"></textarea><br>
+						<input style="margin-top: 5px;margin-left: 10px;" type="submit" value="Refresh" name="refresh">
+					</div>
+					<div class="tab2">
+						<p>Reciever</p><input type="text" placeholder="Enter valid user Id" name="reciever" id=""><br>
+						<p>Subject</p><input type="text" placeholder="Enter your message Subject" name="subject">
+						<textarea name="" id="" cols="80" rows="20" placeholder="Write your message here...."></textarea><br>
+						<input type="submit" value="Refresh"><input style="margin-left: 7px;" type="submit" value="Send">
+					</div>	
+				</section>		
+			</div>
+		</form>
 	</body>
 </html>
