@@ -3,7 +3,7 @@ var router = express.Router();
 
 router.get('/', function(req, res)
 {
-  res.render('adminDash/aboutAdminUser/index');
+  res.render('aboutUser/index');
 });
 
 module.exports = router;

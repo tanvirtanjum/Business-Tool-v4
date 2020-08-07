@@ -3,7 +3,7 @@ var router = express.Router();
 
 router.get('/', function(req, res)
 {
-  res.render('adminDash/salesHistoryAdmin/index');
+  res.render('managerDash/orderManageManager/index');
 });
 
 module.exports = router;

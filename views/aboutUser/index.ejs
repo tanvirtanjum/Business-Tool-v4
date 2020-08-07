@@ -1,6 +1,10 @@
-<!-- sidebar Included -->
+<% if (username == 1) { %>
+  <%-include('../adminDash/common.ejs') -%>
+<% } %>
 
-<%-include('../common.ejs') -%>
+<% if (username == 2) { %>
+  <%-include('../managerDash/common.ejs') -%>
+<% } %>
 
 <!DOCTYPE html>
 <html lang="en">
