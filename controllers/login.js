@@ -8,12 +8,35 @@ router.get('/', function(req, res)
 
 router.post('/', function(req, res)
 {
-  //res.redirect('/signup');
-	res.redirect('/adminDash');
-  //res.redirect('/managerDash');
-  //res.redirect('/salesmanDash');
-  //res.redirect('/deliverymanDash');
-  //res.redirect('/customerDash');
+  if(req.body.username == '1' && req.body.password == '1')
+  {
+		req.session.username = req.body.username;
+		res.redirect('/adminDash');
+	}
+  else if(req.body.username == '2' && req.body.password == '2')
+  {
+		req.session.username = req.body.username;
+		res.redirect('/managerDash');
+	}
+  else if(req.body.username == '3' && req.body.password == '3')
+  {
+		req.session.username = req.body.username;
+		res.redirect('/salesmanDash');
+	}
+  else if(req.body.username == '4' && req.body.password == '4')
+  {
+		req.session.username = req.body.username;
+		res.redirect('/deliverymanDash');
+	}
+  else if(req.body.username == '5' && req.body.password == '5')
+  {
+		req.session.username = req.body.username;
+		res.redirect('/customerDash');
+	}
+  else
+  {
+		res.send('invalid username/password');
+	}
 });
 
 module.exports = router;
