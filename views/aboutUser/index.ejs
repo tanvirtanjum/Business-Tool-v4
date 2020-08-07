@@ -5,7 +5,6 @@
 <% if (username == 2) { %>
   <%-include('../managerDash/common.ejs') -%>
 <% } %>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,8 +12,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Profile</title>
     <link rel="stylesheet" type="text/css" href="../assets/styles/common.css">
+    <link rel="stylesheet" type="text/css" href="../assets/styles/about.css">
 </head>
 <body>
-
+  <div class="box">
+    <form method="POST">
+        <h1>Profile Info <i class="fas fa-users"></i></h1>
+        <p></p>Username<br>
+        <input type="text" name="username" disabled value=""><br>
+        <p>Full Name</p><br>
+        <input type="text" name="fullname" disabled value=""><br>
+        <p>Designation</p><br>
+        <input type="text" name="designation" disabled value=""><br>
+        <p>Email<i class="far fa-envelope"></i></p><br>
+        <input type="email" name="email" disabled value=""><br>
+        <p>Mobile No.</p><br>
+        <input type="number" name="mobile" disabled value=""><br>
+        <p>Join Date</p>
+        <input type="text" name="joinDate" disabled value=""><br>
+    </form>
+    <input type="submit" value="Edit Profile" onclick="edit()">
+  </div>
+  <script>
+    function edit(){
+      window.location.href="/aboutUser/editProfile";
+    }
+  </script>
 </body>
 </html>
