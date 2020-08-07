@@ -7,6 +7,10 @@
   <%-include('../managerDash/common.ejs') -%>
 <% } %>
 
+<% if (username == 3) { %>
+  <%-include('../salesmanDash/common.ejs') -%>
+<% } %>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -16,8 +20,10 @@
 		<link rel="stylesheet" type="text/css" href="../assets/styles/manage.css">
 	</head>
 	<body>
-		<div class="box">
-			
-		</div>
+		<form method='post'>
+			<div class="box">
+
+			</div>
+		</form>
 	</body>
 </html>
