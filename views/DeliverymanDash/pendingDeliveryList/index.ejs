@@ -6,10 +6,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../assets/styles/Delivery.css">
     <link rel="stylesheet" type="text/css" href="../assets/styles/common.css">
     <title>Pending Delivery List</title>
 </head>
 <body>
+  <div class="box">
 
+      <input style="width: 20%; margin-left: 150px;" id="search" type="text" name="Search" placeholder="Search By Order ID" value="">
+      <input id="btnSearch"type="submit" value="Search">
+      <div align="right" class="table">
+          <table class="content-table">
+              <thead>
+                  <tr>
+                      <th>Order#</th>
+                      <th>Date</th>
+                      <th>Ship to</th>
+                      <th>Order Total</th>
+                      <th>Status</th>
+                      <th>Action</th>
+                  </tr>
+              </thead>
+
+              <!-- <tbody>
+                  ejs code here
+              </tbody> -->
+          </table>
+      </div>
+  </div>
 </body>
 </html>
