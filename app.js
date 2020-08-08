@@ -43,7 +43,8 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(exSession({secret: ' ', saveUninitialized: true, resave: false}));
 app.use(function(req, res, next)
 {
-  res.locals.username = req.session.username;
+  res.locals.uid = req.session.uid;
+  res.locals.type = req.session.type;
   next();
 });
 
