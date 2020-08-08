@@ -1,0 +1,63 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(36, 35, 35);
+    background-size: cover;
+    font-family: sans-serif;
+    overflow: hidden;
+}
+
+.box {
+    width: 1000px;
+    height: 700px;
+    background: #000;
+    color: #fff;
+    top: 50%;
+    left: 57%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    padding: 40px 30px;
+    overflow: scroll;
+}
+
+h1 {
+    margin: 0;
+    padding: 0 0 10px;
+    text-align: center;
+    font-size: 22px;
+}
+.cart{
+    margin-top: 15px;
+    background-color: rgb(3, 201, 250);
+    width: 200px;
+    height: 180px;
+}
+p{
+    margin-top: 5px;
+    color: #000;
+    text-align: left;
+    font-weight: bold;
+}
+hr{
+    margin-top: 7px;
+}
+input{
+    margin-top: 10px;
+    margin-left: 20px;
+}
+input[type="submit"] {
+    border: none;
+    outline: none;
+    height: 40px;
+    width: 150px;
+    background: #fb2525;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 20px;
+}
+input[type="submit"]:hover {
+    cursor: pointer;
+    background: #ffc107;
+    color: #000;
+}
