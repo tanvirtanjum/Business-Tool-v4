@@ -3,10 +3,24 @@ var router = express.Router();
 
 router.get('/', function(req, res)
 {
-  res.render('aboutUser/index');
+  if(req.session.type == 1 || req.session.type == 2 || req.session.type == 3 || req.session.type == 4 || req.session.type == 5)
+  {
+    res.render('aboutUser/index');
+  }
+  else
+  {
+    res.redirect('/login');
+  }
 });
 router.get('/editProfile', function(req, res)
 {
-  res.render('aboutUser/edit');
+  if(req.session.type == 1 || req.session.type == 2 || req.session.type == 3 || req.session.type == 4 || req.session.type == 5)
+  {
+    res.render('aboutUser/edit');
+  }
+  else
+  {
+    res.redirect('/login');
+  }
 });
 module.exports = router;

@@ -3,7 +3,14 @@ var router = express.Router();
 
 router.get('/', function(req, res)
 {
-  res.render('customerDash/confirmedOrders/index');
+  if(req.session.type == 5)
+  {
+    res.render('customerDash/confirmedOrders/index');
+  }
+  else
+  {
+    res.redirect('/login');
+  }
 });
 
 module.exports = router;

@@ -3,7 +3,14 @@ var router = express.Router();
 
 router.get('/', function(req, res)
 {
-  res.render('DeliverymanDash/deliveryRecords/index');
+  if(req.session.type == 5)
+  {
+    res.render('DeliverymanDash/deliveryRecords/index');
+  }
+  else
+  {
+    res.redirect('/login');
+  }
 });
 
 module.exports = router;

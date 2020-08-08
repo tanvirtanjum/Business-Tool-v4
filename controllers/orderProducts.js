@@ -3,7 +3,15 @@ var router = express.Router();
 
 router.get('/', function(req, res)
 {
-  res.render('customerDash/orderProducts/index');
+  if(req.session.type == 5)
+  {
+    res.render('customerDash/orderProducts/index');
+  }
+  else
+  {
+    res.redirect('/login');
+  }
+
 });
 router.get('/Buy', function(req, res)
 {

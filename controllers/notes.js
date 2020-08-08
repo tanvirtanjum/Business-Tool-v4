@@ -3,7 +3,14 @@ var router = express.Router();
 
 router.get('/', function(req, res)
 {
-  res.render('notes/index');
+  if(req.session.type == 1 || req.session.type == 2 || req.session.type == 3 || req.session.type == 4)
+  {
+    res.render('notes/index');
+  }
+  else
+  {
+    res.redirect('/login');
+  }
 });
 
 module.exports = router;
