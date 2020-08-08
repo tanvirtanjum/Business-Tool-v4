@@ -1,0 +1,26 @@
+<!-- sidebar Included -->
+
+<%-include('../common.ejs') -%>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../assets/styles/common.css">
+    <link rel="stylesheet" type="text/css" href="../assets/styles/complainBox.css">
+    <title>Confirmed Order List</title>
+</head>
+<body>
+    <div class="box">
+        <h1>Complain Box</h1>
+        <hr>
+        <p style="margin-top: 5px;">Product Id</p>
+        <input type="text" placeholder="Enter Product Id" name="id">
+        <p>Product Name</p>
+        <input type="text" placeholder="Enter Product Name" name="name">
+        <p>Your Complain</p>
+        <textarea style="margin-top: 5px;" name="complain" id="complain" cols="50" rows="20"></textarea><br>
+        <input type="submit" value="Send">
+    </div>
+</body>
+</html>

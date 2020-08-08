@@ -11,22 +11,25 @@
     <title>Confirmed Order List</title>
 </head>
 <body>
-  <div align="right" class="table">
-      <table class="content-table">
-          <thead>
-              <tr>
-                  <th>Order#</th>
-                  <th>Items</th>
-                  <th>Total Ammount</th>
-                  <th>Recieve time</th>
-                  <th>Bill</th>
-              </tr>
-          </thead>
+  <div align="center" class="table">
+        <input style="width: 25%; margin-left: 70px;" id="search" type="text" name="Search" placeholder="Search" value="">
+        <input id="search" type="submit" value="Search">
+        <table class="content-table">
+            <thead>
+                <tr>
+                   <th>Order#</th>
+                   <th>Items</th>
+                   <th>Total Ammount</th>
+                   <th>Recieve time</th>
+                   <th>Bill</th>
+                  <!-- <th>Action</th> for cancel order -->
+                </tr>
+            </thead>
 
           <!-- <tbody>
               ejs code here
           </tbody> -->
-      </table>
+        </table>
   </div>
 </body>
 </html>

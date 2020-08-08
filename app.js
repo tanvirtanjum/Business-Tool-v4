@@ -31,6 +31,7 @@ var recievedOrders = require('./controllers/recievedOrders');
 var notice = require('./controllers/notice');
 var notes = require('./controllers/notes');
 var chatBox = require('./controllers/chatBox');
+var complainBox = require('./controllers/complainBox');
 
 var app = express();
 
@@ -76,6 +77,7 @@ app.use('/salesHistory', salesHistory);
 app.use('/notice', notice);
 app.use('/notes', notes);
 app.use('/chatBox', chatBox);
+app.use('/customerDash/complainBox',complainBox);
 
 
 app.listen(3333, function()
