@@ -13,9 +13,17 @@ router.get('/', function(req, res)
   }
 
 });
-router.get('/Buy', function(req, res)
+router.get('/buy', function(req, res)
 {
-  res.render('customerDash/orderProducts/buy');
+  if(req.session.type == 5)
+  {
+    res.render('customerDash/orderProducts/buy/index');
+  }
+  else
+  {
+    res.redirect('/login');
+  }
+
 });
 
 module.exports = router;
