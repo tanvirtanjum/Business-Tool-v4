@@ -23,10 +23,7 @@ h1{
     font-size: 30px;
 
 }
-input[type="text"],
-input[type="password"],
-input[type="email"],
-input[type="number"] {
+input[type="text"]{
     width: 100%;
     box-sizing: border-box;
     /*padding: 12px 5px;*/
