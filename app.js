@@ -40,7 +40,7 @@ app.set('view engine', 'ejs');
 app.use('/assets', express.static('assets'));
 
 //middleware
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(exSession({secret: ' ', saveUninitialized: true, resave: false}));
 app.use(function(req, res, next)
 {
