@@ -3,7 +3,15 @@ var router = express.Router();
 
 router.get('/', function(req, res)
 {
-  res.render('managerDash/index');
+  if(req.session.type == 2)
+  {
+    res.render('managerDash/index');
+  }
+  else
+  {
+    res.redirect('/login');
+  }
+
 });
 
 module.exports = router;

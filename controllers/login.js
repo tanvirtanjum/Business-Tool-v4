@@ -20,24 +20,25 @@ router.post('/', function(req, res)
   {
 		if(response.length > 0)
     {
-			req.session.uid = response[0].SID;
-      if(req.session.uid == '1')
+      req.session.uid = response[0].LID
+			req.session.type = response[0].SID;
+      if(req.session.type == '1')
       {
     		res.redirect('/adminDash');
     	}
-      if(req.session.uid == '2')
+      if(req.session.type == '2')
       {
     		res.redirect('/managerDash');
     	}
-      if(req.session.uid == '3')
+      if(req.session.type == '3')
       {
     		res.redirect('/salesmanDash');
     	}
-      if(req.session.uid == '4')
+      if(req.session.type == '4')
       {
     		res.redirect('/deliverymanDash');
     	}
-      if(req.session.uid == '5')
+      if(req.session.type == '5')
       {
     		res.redirect('/customerDash');
     	}

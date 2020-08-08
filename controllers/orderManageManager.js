@@ -3,7 +3,14 @@ var router = express.Router();
 
 router.get('/', function(req, res)
 {
-  res.render('managerDash/orderManageManager/index');
+  if(req.session.type == 1)
+  {
+    res.render('managerDash/orderManageManager/index');
+  }
+  else
+  {
+    res.redirect('/login');
+  }
 });
 
 module.exports = router;
