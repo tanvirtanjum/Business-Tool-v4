@@ -1,17 +1,17 @@
 
-<% if (username == 1) { %>
+<% if (uid == 1) { %>
   <%-include('../adminDash/common.ejs') -%>
 <% } %>
 
-<% if (username == 2) { %>
+<% if (uid == 2) { %>
   <%-include('../managerDash/common.ejs') -%>
 <% } %>
 
-<% if (username == 3) { %>
+<% if (uid == 3) { %>
   <%-include('../salesmanDash/common.ejs') -%>
 <% } %>
 
-<% if (username == 4) { %>
+<% if (uid == 4) { %>
   <%-include('../DeliverymanDash/common.ejs') -%>
 <% } %>
 <!DOCTYPE html>
@@ -74,8 +74,8 @@
 						<p>Subject</p><input type="text" placeholder="Enter your message Subject" name="subject">
 						<textarea name="" id="" cols="80" rows="20" placeholder="Write your message here...."></textarea><br>
 						<input type="submit" value="Refresh"><input style="margin-left: 7px;" type="submit" value="Send">
-					</div>	
-				</section>		
+					</div>
+				</section>
 			</div>
 		</form>
 	</body>

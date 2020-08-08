@@ -1,13 +1,21 @@
-<% if (username == 1) { %>
+<% if (uid == 1) { %>
   <%-include('../adminDash/common.ejs') -%>
 <% } %>
 
-<% if (username == 2) { %>
+<% if (uid == 2) { %>
   <%-include('../managerDash/common.ejs') -%>
 <% } %>
 
-<% if (username == 4) { %>
+<% if (uid == 3) { %>
+  <%-include('../salesmanDash/common.ejs') -%>
+<% } %>
+
+<% if (uid == 4) { %>
   <%-include('../DeliverymanDash/common.ejs') -%>
+<% } %>
+
+<% if (uid == 5) { %>
+  <%-include('../customerDash/common.ejs') -%>
 <% } %>
   <!DOCTYPE html>
   <html lang="en">
