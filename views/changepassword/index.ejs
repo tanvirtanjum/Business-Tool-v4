@@ -11,12 +11,12 @@
 		<h1>Password Change</h1>
 		<form method="POST">
 			<p>Old Password</p>
-			<input type="password" name="oldpassword" placeholder="Enter Old Password" required><br>
+			<input type="password" name="oldpassword" placeholder="Enter Old Password" required value="<%= user[0].oldPassword%>"><br><span></span>
 			<p>New Password</p>
-			<input type="password" name="newpassword" placeholder="Enter New password" required><br>
+			<input type="password" name="newpassword" placeholder="Enter New password" required value="<%= user[0].newPassword%>"><br><span></span>
 			<p>Confirm New Password</p>
-			<input type="password" name="confirmnewpassword" placeholder="Confirm New password" required><br>
-			<input type="submit" name="" value="Submit">
+			<input type="password" name="confirmnewpassword" placeholder="Confirm New password" required value="<%= user[0].confirmNewPassword%>"><br><span></span>
+			<input type="submit" name="" value="Submit"><span></span>
 		</form>
 	</div>
 </body>
