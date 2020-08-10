@@ -31,18 +31,18 @@
       <form method="POST">
           <h1>Profile Info <i class="fas fa-users"></i></h1>
           <p></p>Username<br>
-          <input type="text" name="username" value=""><br>
+          <input type="text" name="username" readonly value="<%= user[0].EmpID %><%= user[0].cusid %>"><br>
           <p>Full Name</p><br>
-          <input type="text" name="fullname" value=""><br>
+          <input type="text" name="fullname" value="<%= user[0].E_NAME %><%= user[0].name %>"><br>
           <p>Designation</p><br>
-          <input type="text" name="designation" value=""><br>
+          <input type="text" name="designation" <%if(uid!=5){%>readonly<%}%> value="<%= user[0].DID %><%= user[0].design %>"><br>
           <p>Email<i class="far fa-envelope"></i></p><br>
-          <input type="email" name="email" value=""><br>
+          <input type="email" name="email" value="<%= user[0].E_MAIL %><%= user[0].email %>"><br>
           <p>Mobile No.</p><br>
-          <input type="number" name="mobile" value=""><br>
+          <input type="number" name="mobile" value="<%= user[0].E_MOB %><%= user[0].mobile %>"><br>
           <p>Join Date</p>
-          <input type="text" name="joinDate" disabled value=""><br>
-          <input type="submit" value="Save">
+          <input type="text" name="joinDate" readonly value="<%= user[0].JOIN_DATE %><%= user[0].reg_date %>"><br>
+          <input type="submit" name="save" value="Save Edit">
       </form>
     </div>
   </body>
