@@ -25,21 +25,23 @@ router.post('/',function(req,res)
       {
         lid : req.session.uid,
         oldPassword : req.body.oldpassword,
+        newPassword : req.body.newpassword,
         confirmNewPassword: req.body.confirmnewpassword
       }
-
-      log_in.changePass(info,function(result)
-      {
-        if(result == true)
+      if(info.newPassword==info.confirmNewPassword && info.newPassword.length>=4){
+        log_in.changePass(info,function(result)
         {
-          console.log("password Change successfully");
-          res.redirect('/login');
-        }
-        else
-        {
-          console.log("Something Went Wrong...");
-        }
-      });
+          if(result == true)
+          {
+            console.log("password Change successfully");
+            res.redirect('/login');
+          }
+          else
+          {
+            console.log("Something Went Wrong...");
+          }
+        });
+      }
     }
   }
 });
