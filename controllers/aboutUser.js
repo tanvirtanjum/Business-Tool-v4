@@ -72,15 +72,21 @@ router.post('/editProfile', function(req, res)
 {
   if(req.session.type == 1 || req.session.type == 2 || req.session.type == 3 || req.session.type == 4)
   {
-      var user =
-      {
-        EmpID : req.session.uid
-      }
+    if(req.body.hasOwnProperty("save"))
+    {
+        var info =
+        {
+          EmpID : req.session.uid,
+          Ename : req.body.fullname,
+          Email : req.body.email,
+          Emob : req.body.mobile
+        }
 
-      employee.getEmployee(user,function(results)
-      {
-        res.render('aboutUser/index');
-      });
+        employee.updateOwnProfileEmployee(info,function(results)
+        {
+          res.redirect('/aboutUser');
+        });
+    }
   }
   else if(req.session.type == 5)
   {
