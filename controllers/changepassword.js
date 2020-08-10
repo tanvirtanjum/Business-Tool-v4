@@ -24,9 +24,6 @@ router.get('/', function(req, res)
 router.post('/',function(req,res){
   if(req.session.type == 1 || req.session.type == 2 || req.session.type == 3 || req.session.type == 4 || req.session.type == 5)
   {
-    var user={
-      id : req.session.uid
-    }
     if(req.body.hasOwnProperty("save"))
     {
       var info={
