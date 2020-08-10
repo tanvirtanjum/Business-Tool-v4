@@ -18,6 +18,8 @@ var empManageAdmin = require('./controllers/empManageAdmin');
 var prodManageAdmin	= require('./controllers/prodManageAdmin');
 var regManageAdmin = require('./controllers/regManageAdmin');
 var orderManageAdmin = require('./controllers/orderManageAdmin');
+var customerManageAdmin = require('./controllers/customerManageAdmin');
+var noticeManageAdmin = require('./controllers/noticeManageAdmin');
 var orderManageManager = require('./controllers/orderManageManager');
 var prodManageManager = require('./controllers/prodManageManager');
 var sellProducts = require('./controllers/sellProducts');
@@ -79,6 +81,8 @@ app.use('/notice', notice);
 app.use('/notes', notes);
 app.use('/chatBox', chatBox);
 app.use('/customerDash/complainBox',complainBox);
+app.use('/adminDash/customerManageAdmin',customerManageAdmin);
+app.use('/adminDash/noticeManageAdmin',noticeManageAdmin);
 
 
 app.listen(3333, function()
