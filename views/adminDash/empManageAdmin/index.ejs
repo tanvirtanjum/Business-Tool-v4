@@ -13,37 +13,39 @@
   </head>
 
   <body>
-    <form method='post'>
       <div class="box">
-        <input style="width: 20%; margin-left: 530px;" id="search" type="text" name="SEARCH" placeholder="Search By ID" value="SEARCH">
-        <input id="btnSearch" type="submit" name="SEARCH" value="Search">
+        <form method="POST">
+          <input style="width: 20%; margin-left: 530px;" id="search" type="text" name="SEARCH" placeholder="Search By ID" value="SEARCH">
+          <input id="btnSearch" type="submit" name="SEARCH" value="Search">
 
-        <p>Employee ID</p>
-        <input type="text" name="empId" placeholder="Enter Employee Id" value="" >
-        <p>Name</p>
-        <input type="text" name="empName" placeholder="Enter Employee Name" value="" >
-        <p>Designation</p>
-        <select id="designation" name="designation">
-            <option selected="" disabled="">--SELECT--</option>
-            <option id="admin" value="1">Admin</option>
-            <option id="manager" value="2">Manager</option>
-            <option id="salesman" value="3">SalesMan</option>
-            <option id="admin" value="4">DevileryMan</option>
-        </select><br>
-        <p>Salary</p>
-        <input type="number" name="empSalary" placeholder="Enter Employee Salary" value="" >
-        <p>Mobile No.</p>
-        <input type="text" name="empMobileNo" placeholder="Enter Employee Mobile No" value="" >
-        <p>E-mail</p>
-        <input type="email" name="empEmail" placeholder="Enter Employee Email" value="" >
-        <p>Join Date</p>
-        <input type="text" name="empJoinDate" value="" disabled>
-        <p>Added By</p>
-        <input type="text" name="empAddedBy"  value="<%= uid %>" disabled><br>
-        <input style="margin-left: 400px;" type="submit" name="refresh" value="Refresh">
-        <input type="submit" name="INSERT" id="INSERT" value="INSERT">
-        <input type="submit" name="UPDATE" value="UPDATE">
-        <input type="submit" name="DELETE" value="DELETE">
+          <p>Employee ID</p>
+          <input type="text" name="empId" placeholder="Enter Employee Id" value="" >
+          <p>Name</p>
+          <input type="text" name="empName" placeholder="Enter Employee Name" value="" >
+          <p>Designation</p>
+          <select id="designation" name="designation">
+              <option selected="" disabled="">--SELECT--</option>
+              <option id="admin" value="1">Admin</option>
+              <option id="manager" value="2">Manager</option>
+              <option id="salesman" value="3">SalesMan</option>
+              <option id="admin" value="4">DevileryMan</option>
+          </select><br>
+          <p>Salary</p>
+          <input type="number" name="empSalary" placeholder="Enter Employee Salary" value="" >
+          <p>Mobile No.</p>
+          <input type="text" name="empMobileNo" placeholder="Enter Employee Mobile No" value="" >
+          <p>E-mail</p>
+          <input type="email" name="empEmail" placeholder="Enter Employee Email" value="" >
+          <p>Join Date</p>
+          <input type="text" name="empJoinDate" value="" disabled>
+          <p>Added By</p>
+          <input type="text" name="empAddedBy"  value="<%= uid %>" disabled><br>
+          <input style="margin-left: 400px;" type="submit" name="refresh" value="Refresh">
+          <input type="submit" name="INSERT" id="INSERT" value="INSERT">
+          <input type="submit" name="UPDATE" value="UPDATE">
+          <input type="submit" name="DELETE" value="DELETE">
+        </form>
+          
         <div align="right" class="table">
             <table class="content-table">
                 <thead>
@@ -75,7 +77,6 @@
                 </tbody>
             </table>
         </div>
-      </div>
-    </form>
+    </div>
   </body>
 </html>
