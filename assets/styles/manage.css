@@ -34,17 +34,17 @@ h1 {
 }
 
 .box input[type="text"] {
-    width: 32%;
+    width: 28%;
     margin-bottom: 20px;
 }
 
 .box input[type="number"] {
-    width: 32%;
+    width: 28%;
     margin-bottom: 20px;
 }
 
 .box input[type="email"] {
-    width: 32%;
+    width: 28%;
     margin-bottom: 20px;
 }
 
@@ -56,7 +56,7 @@ h1 {
 }
 
 .box select {
-    width: 32%;
+    width: 28%;
     height: 30px;
     background: whitesmoke;
     font-size: 16px;
@@ -112,10 +112,10 @@ h1 {
 }
 
 .table {
-    width: 780px;
+    width: 830px;
     height: 570px;
     top: 51%;
-    left: 67%;
+    left: 65%;
     position: absolute;
     transform: translate(-50%, -50%);
     box-sizing: border-box;
@@ -158,6 +158,7 @@ h1 {
 
 .content-table tbody tr:nth-last-of-type(even) {
     background-color: #f3f3f3;
+    color: #000;
 }
 
 .content-table tbody tr:last-of-type {
