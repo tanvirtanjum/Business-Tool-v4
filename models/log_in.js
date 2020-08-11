@@ -32,5 +32,21 @@ module.exports =
 				callback(false);
 			}
 		});
+	},
+
+	insetLogin: function(user, callback)
+  {
+		var sql = "INSERT INTO `log_in`(`LID`, `SID`, `PASS`) VALUES ('"+user.lid+"','"+user.sid+"','"+user.pass+"');";
+		db.execute(sql, function(result)
+    {
+      if(result)
+      {
+				callback(true);
+			}
+      else
+      {
+				callback(false);
+			}
+		});
 	}
 }
