@@ -13,34 +13,33 @@
 </head>
 <body>
     <div class="box">
-        <form action="post" name="manage">
-        <input style="width: 20%; margin-left: 530px;" id="search" type="text" name="SearchID" placeholder="Search By ID" value="">
-        <input id="btnSearch"type="submit" name="SEARCH" value="Search">
+            <form method="POST">
+                <input style="width: 20%; margin-left: 530px;" id="search" type="text" name="SearchID" placeholder="Search By ID" value="">
+                <input id="btnSearch"type="submit" name="SEARCH" value="Search">
+
+                <p>Product ID</p>
+                <input type="text" name="proId" placeholder="Enter Product Id" value="<%= pInfo.pId %>" >
+                <p>Product Name</p>
+                <input type="text" name="proName" placeholder="Enter Product Name" value="<%= pInfo.name%>" >
+                <p>Type</p>
+                <input type="text" name="proType" placeholder="Enter Product Type" value="<%= pInfo.type %>">
+                <p>Quantity</p>
+                <input type="number" name="proQuantity" placeholder="Enter Product Quantity" value="<%= pInfo.quantity %>" >
+                <p>Buying Price</p>
+                <input type="text" name="proBuyPrice" placeholder="Enter Product buying Price" value="<%= pInfo.buyPrice %>" >
+                <p>Selling Price</p>
+                <input type="text" name="proSellPrice" placeholder="Enter Product Selling Price" value="<%= pInfo.SellPrice %>" >
+                <p>Modified By</p>
+                <input type="text" name="by" value="<%= pInfo.modBy %>" readonly>
+                <p>Adding Date</p>
+                <input type="text" name="addingDate" value="<%= pInfo.addDate %>" readonly><br>
+                <input style="margin-left: 400px;"type="submit" name="refresh" value="Refresh">
+                <input type="submit" name="INSERT" value="Insert">
+                <input type="submit" name="UPDATE"value="UPDATE" <%if(searchStatus==false){%>disabled<%}%>>
+                <input type="submit" name="DELETE" value="Delete">
+            </form>
+            
         
-            <p>Product ID</p>
-            <input type="text" name="proId" placeholder="Enter Product Id" value="<%= pInfo.pID %>" >
-            <p>Product Name</p>
-            <input type="text" name="proName" placeholder="Enter Employee Name" value="<%= pInfo.name%>" >
-            <p>Type</p>
-            <select id="type" name="type">
-                <option selected="" disabled="">--SELECT--</option>
-                <option value="<%= pInfo.type %>"></option>
-            </select>
-            <p>Quantity</p>
-            <input type="number" name="proQuantity" placeholder="Enter Product Quantity" value="<%= pInfo.quantity %>" >
-            <p>Buying Price</p>
-            <input type="text" name="proBuyPrice" placeholder="Enter Product buying Price" value="<%= pInfo.buyPrice %>" >
-            <p>Selling Price</p>
-            <input type="text" name="proSellPrice" placeholder="Enter Product Selling Price" value="<%= pInfo.SellPrice %>" >
-            <p>Modified By</p>
-            <input type="text" name="by" value="<%= pInfo.modBy %>" readonly>
-            <p>Adding Date</p>
-            <input type="text" name="addingDate" value="<%= pInfo.addDate %>" readonly><br>
-            <input style="margin-left: 400px;"type="submit" name="refresh" value="Refresh">
-            <input type="submit" name="insert" value="Insert">
-            <input type="submit" name="update"value="Update">
-            <input type="submit" name="delete" value="Delete">
-        </form>
         <div align="right" class="table">
             <table class="content-table">
                 <thead>

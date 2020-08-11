@@ -15,7 +15,6 @@ var pInfo={
   addDate:"",
 }
 var searchStatus=false;
-var id
 
 router.get('/', function(req, res)
 {
@@ -23,7 +22,7 @@ router.get('/', function(req, res)
   {
     product.getAllProduct(function(results)
     {
-      res.render('adminDash/prodManageAdmin/index',{list:results,pInfo:pInfo});
+      res.render('adminDash/prodManageAdmin/index',{list:results,pInfo:pInfo,searchStatus:searchStatus});
     })
   }
   else
@@ -45,10 +44,9 @@ router.post('/' ,function(req,res)
       product.getProduct(info,function(result){
         if(result.length > 0)
         {
-          pInfo.PId = result[0].PID;
+          pInfo.pId = result[0].PID;
           pInfo.name = result[0].P_NAME;
           pInfo.type = result[0].TYPE;
-          pInfo.avail = result[0].AVAILABILITY;
           pInfo.quantity = result[0].QUANTITY;
           pInfo.buyPrice = result[0].BUY_PRICE;
           pInfo.SellPrice = result[0].SELL_PRICE;
@@ -65,6 +63,59 @@ router.post('/' ,function(req,res)
         }
       })
     }
+  }
+  if(req.body.hasOwnProperty("INSERT"))
+  {
+    if(req.session.type==1)
+    {
+      var proInfo={
+        pId: req.body.proId,
+        name: req.body.proName,
+        type: req.body.proType,
+        quantity: req.body.proQuantity,
+        buyPrice: req.body.proBuyPrice,
+        SellPrice: req.body.proSellPrice,
+        modBy: req.session.uid 
+      }
+      product.insertProduct(proInfo,function(result)
+      {
+        if(result==true)
+        {
+          res.redirect("/adminDash/prodManageAdmin");
+        }
+        else
+        {
+          res.send('Something Went Wrong');
+        }
+      })
+    }
+  }
+  if(req.body.hasOwnProperty("UPDATE"))
+  {
+    var productInfo={
+      pId: req.body.proId,
+      name: req.body.proName,
+      type: req.body.proType,
+      quantity: req.body.proQuantity,
+      buyPrice: req.body.proBuyPrice,
+      SellPrice: req.body.proSellPrice 
+    }
+    product.updateProduct(productInfo,function(result){
+      if(result==true)
+      {
+        pInfo.pId=req.body.proId;
+        pInfo.name= req.body.proName;
+        pInfo.type= req.body.proType;
+        pInfo.quantity= req.body.proQuantity;
+        pInfo.buyPrice= req.body.proBuyPrice;
+        pInfo.SellPrice= req.body.proSellPrice;
+
+        res.redirect("/adminDash/prodManageAdmin");
+      }
+      else{
+        res.send("Something Went Wrong....");
+      }
+    })
   }
 });
 
