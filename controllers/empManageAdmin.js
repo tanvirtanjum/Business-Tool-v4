@@ -4,6 +4,19 @@ var router = express.Router();
 var employee 	= require.main.require('./models/employee');
 var log_in 	= require.main.require('./models/log_in');
 
+var sInfo=
+{
+  EmpID: "",
+  name: "",
+  did: "",
+  sal: "",
+  mob: "",
+  mail: "",
+  join: "",
+  addby: ""
+}
+
+
 router.get('/', function(req, res)
 {
   if(req.session.type == 1)
@@ -14,7 +27,7 @@ router.get('/', function(req, res)
     }
     employee.getAllEmployee(user,function(results)
     {
-      res.render('adminDash/empManageAdmin/index', {list:results});
+      res.render('adminDash/empManageAdmin/index', {list:results, sInfo:sInfo});
     });
   }
   else
@@ -58,22 +71,50 @@ router.post('/', function(req, res)
             }
             else
             {
-              res.send('E went wrong');
+              res.send('Something Went Wrong....');
             }
           });
         }
         else
         {
-          res.send('L went wrong');
+          res.send('Something Went Wrong....');
         }
       });
     }
   }
-  else if(req.body.hasOwnProperty("SEARCH"))
+
+  if(req.body.hasOwnProperty("SEARCH"))
   {
-    res.send('SEARCH');
+    if(req.session.uid == 1)
+    {
+      var info=
+      {
+        EmpID: req.body.SearchID
+      }
+
+      employee.getEmployee(info, function(result)
+      {
+        if(result.length>0)
+        {
+
+            sInfo.EmpID= result[0].EmpID,
+            sInfo.name= result[0].E_NAME,
+            sInfo.did= result[0].DID,
+            sInfo.sal= result[0].SAL,
+            sInfo.mob= result[0].E_MOB,
+            sInfo.mail= result[0].E_MAIL,
+            sInfo.join =result[0].JOIN_DATE,
+            sInfo.addby= result[0].ADDED_BY
+          res.redirect('/adminDash/empManageAdmin');
+        }
+        else
+        {
+          res.send('Something Went Wrong....');
+        }
+      });
+    }
   }
-  else if(req.body.hasOwnProperty("UPDATE"))
+  if(req.body.hasOwnProperty("UPDATE"))
   {
     res.send('UPDATE');
   }

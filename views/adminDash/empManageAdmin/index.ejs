@@ -15,13 +15,13 @@
   <body>
       <div class="box">
         <form method="POST">
-          <input style="width: 20%; margin-left: 530px;" id="search" type="text" name="SEARCH" placeholder="Search By ID" value="SEARCH">
+          <input style="width: 20%; margin-left: 530px;" id="search" type="text" name="SearchID" placeholder="Search By ID" value="">
           <input id="btnSearch" type="submit" name="SEARCH" value="Search">
 
           <p>Employee ID</p>
-          <input type="text" name="empId" placeholder="Enter Employee Id" value="" >
+          <input type="text" name="empId" placeholder="Enter Employee Id" value="<%= sInfo.EmpID %>" >
           <p>Name</p>
-          <input type="text" name="empName" placeholder="Enter Employee Name" value="" >
+          <input type="text" name="empName" placeholder="Enter Employee Name" value="<%= sInfo.name %>" >
           <p>Designation</p>
           <select id="designation" name="designation">
               <option disabled value="0">--SELECT--</option>
@@ -31,20 +31,20 @@
               <option id="admin" value="4">DevileryMan</option>
           </select><br>
           <p>Salary</p>
-          <input type="number" name="empSalary" placeholder="Enter Employee Salary" value="" >
+          <input type="number" name="empSalary" placeholder="Enter Employee Salary" value="<%= sInfo.sal %>" >
           <p>Mobile No.</p>
-          <input type="text" name="empMobileNo" placeholder="Enter Employee Mobile No" value="" >
+          <input type="text" name="empMobileNo" placeholder="Enter Employee Mobile No" value="<%= sInfo.mob %>" >
           <p>E-mail</p>
-          <input type="email" name="empEmail" placeholder="Enter Employee Email" value="" >
+          <input type="email" name="empEmail" placeholder="Enter Employee Email" value="<%= sInfo.mail %>" >
           <p>Join Date</p>
-          <input type="text" name="empJoinDate" value="" disabled>
+          <input type="text" name="empJoinDate" value="<%= sInfo.join %>" readonly>
           <p>Added By</p>
-          <input type="text" name="empAddedBy"  value="<%= uid %>" disabled><br>
+          <input type="text" name="empAddedBy"  value="<%= sInfo.addby %>" readonly><br>
           <input style="margin-left: 400px;" type="submit" name="refresh" value="Refresh">
           <input type="submit" name="INSERT" id="INSERT" value="INSERT">
           <input type="submit" name="UPDATE" value="UPDATE">
           <input type="submit" name="DELETE" value="DELETE">
-        </form>   
+        </form>
         <div align="right" class="table">
             <table class="content-table">
                 <thead>
