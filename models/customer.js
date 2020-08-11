@@ -18,6 +18,38 @@ module.exports =
 		});
 	},
 
+	getAllActiveCustomer: function(user, callback)
+  {
+		var sql = "SELECT * FROM `customer` WHERE `status` ='1';";
+		db.getResults(sql, function(result)
+    {
+      if(result.length > 0)
+      {
+				callback(result);
+			}
+      else
+      {
+				callback([]);
+			}
+		});
+	},
+
+	getActiveCustomer: function(user, callback)
+  {
+		var sql = "SELECT * FROM `customer` WHERE `cusid` ='"+user.cusid+"' AND `status` ='1';";
+		db.getResults(sql, function(result)
+    {
+      if(result.length > 0)
+      {
+				callback(result);
+			}
+      else
+      {
+				callback([]);
+			}
+		});
+	},
+
 	signCustomer: function(user, callback)
   {
 		var sql = "INSERT INTO `customer`(`cusid`, `name`, `design`, `email`, `mobile`,`reg_date`,`status`) VALUES ('"+user.cusid+"','"+user.name+"','"+user.design+"','"+user.email+"','"+user.mobile+"',CURRENT_TIMESTAMP(),'0');";

@@ -1,57 +1,67 @@
+
 <!-- sidebar Included -->
 
 <%-include('../common.ejs') -%>
 
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manage Customer</title>
-    <link rel="stylesheet" type="text/css" href="../assets/styles/common.css">
-    <link rel="stylesheet" type="text/css" href="../assets/styles/manage.css">
-</head>
-<body>
-    <div class="box">
+<html>
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Manage Customer</title>
+      <link rel="stylesheet" type="text/css" href="../assets/styles/common.css">
+      <link rel="stylesheet" type="text/css" href="../assets/styles/manage.css">
+  </head>
 
-        <input style="width: 20%; margin-left: 530px;" id="search" type="text" name="Search" placeholder="Search By ID" value="">
-        <input id="btnSearch"type="submit" value="Search">
-        <form action="post" name="manage" onsubmit="return validForm()">
-            <p>Customer ID</p>
-            <input type="text" name="Id" placeholder="Enter Customer Id" value="" >
-            <p>Name</p>
-            <input type="text" name="Name" placeholder="Enter Customer Name" value="" >
-            <p>Mobile No.</p>
-            <input type="text" name="MobileNo" placeholder="Enter Customer Mobile No" value="" >
-            <p>E-mail</p>
-            <input type="email" name="Email" placeholder="Enter Customer Email" value="" >
-            <p>Join Date</p>
-            <input type="text" name="JoinDate" value="" disabled>
-            <p>Added By</p>
-            <input type="text" name="AddedBy"  value="" disabled><br>
-            <input style="margin-left: 400px;"type="submit" name="refresh" value="Refresh">
-            <input type="submit" name="insert" value="Insert">
-            <input type="submit" name="update"value="Update">
-            <input type="submit" name="delete" value="Delete">
-        </form>
-        <div align="right" class="table">
+  <body>
+      <div class="box">
+        <form method="POST">
+          <input style="width: 20%; margin-left: 530px;" id="search" type="text" name="Search" placeholder="Search By ID" value="">
+          <input id="btnSearch" type="submit" name="SEARCH" value="Search">
+
+          <p>Customer ID</p>
+          <input type="text" name="Id" placeholder="Customer Id" value="<%= sInfo.Id %>" readonly>
+          <p>Name</p>
+          <input type="text" name="Name" placeholder="Customer Name" value="<%= sInfo.name %>" readonly>
+          <p>Designation</p>
+          <input type="text" name="Designation" placeholder="Customer Designation" value="<%= sInfo.designation %>" readonly>
+          <p>Mobile No.</p>
+          <input type="text" name="MobileNo" placeholder="Customer Mobile No" value="<%= sInfo.MobileNo %>" readonly>
+          <p>E-mail</p>
+          <input type="email" name="Email" placeholder="Customer Email" value="<%= sInfo.Email %>" readonly>
+          <p>Join Date</p>
+          <input type="text" name="JoinDate" value="" readonly>
+          <p>Added By</p>
+          <input type="text" name="AddedBy"  value="" disabled><br>
+          <input style="margin-left: 400px;"type="submit" name="REFRESH" value="REFRESH">
+          <input type="submit" name="DE-ACTIVE" value="DE-ACTIVE" <%if(srchStatus==false){%>disabled<%}%>>
+      </form>
+          <div align="right" class="table">
             <table class="content-table">
                 <thead>
                     <tr>
                         <th>Customer Id</th>
                         <th>Name</th>
+                        <th>Designation</th>
                         <th>Mob.No.</th>
                         <th>Email</th>
                         <th>JoinDate</th>
-                        <th>AddedBy</th>
                     </tr>
                 </thead>
-
-                <!-- <tbody>
-                    ejs code here
-                </tbody> -->
+                <tbody>
+                  <% for(var i=0; i < list.length; i++){ %>
+                  <tr>
+                    <td><%= list[i].cusid %></td>
+                    <td><%= list[i].name %></td>
+                    <td><%= list[i].design %></td>
+                    <td><%= list[i].mobile %></td>
+                    <td><%= list[i].email %></td>
+                    <td><%= list[i].reg_date %></td>
+                  </tr>
+                  <% } %>
+                </tbody>
             </table>
         </div>
     </div>
-</body>
+  </body>
 </html>
