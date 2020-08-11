@@ -13,28 +13,30 @@
 </head>
 <body>
     <div class="box">
-        <form action="post" name="manage" onsubmit="return validForm()">
-        <input style="width: 20%; margin-left: 530px;" id="search" type="text" name="Search" placeholder="Search By ID" value="">
-        <input id="btnSearch"type="submit" value="Search">
+        <form action="post" name="manage">
+        <input style="width: 20%; margin-left: 530px;" id="search" type="text" name="SearchID" placeholder="Search By ID" value="">
+        <input id="btnSearch"type="submit" name="SEARCH" value="Search">
         
             <p>Product ID</p>
-            <input type="text" name="proId" placeholder="Enter Product Id" value="" >
+            <input type="text" name="proId" placeholder="Enter Product Id" value="<%= pInfo.pID %>" >
             <p>Product Name</p>
-            <input type="text" name="proName" placeholder="Enter Employee Name" value="" >
+            <input type="text" name="proName" placeholder="Enter Employee Name" value="<%= pInfo.name%>" >
             <p>Type</p>
             <select id="type" name="type">
                 <option selected="" disabled="">--SELECT--</option>
-                <!-- ejs here -->
-            </select><br>
+                <option value="<%= pInfo.type %>"></option>
+            </select>
             <p>Quantity</p>
-            <input type="number" name="proQuantity" placeholder="Enter Product Quantity" value="" >
-            <p>Price</p>
-            <input type="text" name="proPrice" placeholder="Enter Product Price" value="" >
+            <input type="number" name="proQuantity" placeholder="Enter Product Quantity" value="<%= pInfo.quantity %>" >
+            <p>Buying Price</p>
+            <input type="text" name="proBuyPrice" placeholder="Enter Product buying Price" value="<%= pInfo.buyPrice %>" >
+            <p>Selling Price</p>
+            <input type="text" name="proSellPrice" placeholder="Enter Product Selling Price" value="<%= pInfo.SellPrice %>" >
             <p>Modified By</p>
-            <input type="text" name="by" value="" disabled>
+            <input type="text" name="by" value="<%= pInfo.modBy %>" readonly>
             <p>Adding Date</p>
-            <input type="text" name="addingDate" value="" disabled><br>
-            <input style="margin-left: 400px; margin-top: 73px;"type="submit" name="refresh" value="Refresh">
+            <input type="text" name="addingDate" value="<%= pInfo.addDate %>" readonly><br>
+            <input style="margin-left: 400px;"type="submit" name="refresh" value="Refresh">
             <input type="submit" name="insert" value="Insert">
             <input type="submit" name="update"value="Update">
             <input type="submit" name="delete" value="Delete">
@@ -46,16 +48,29 @@
                         <th>Pro Id</th>
                         <th>Name</th>
                         <th>Type</th>
+                        <th>Availability</th>
                         <th>Quantity</th>
-                        <th>Price</th>
+                        <th>Buying Price</th>
+                        <th>Selling Price</th>
                         <th>ModifiedBy</th>
                         <th>Adding Date</th>
                     </tr>
                 </thead>
-
-                <!-- <tbody>
-                    ejs code here
-                </tbody> -->
+                <tbody>
+                    <% for(var i=0; i < list.length; i++){ %>
+                        <tr>
+                          <td><%= list[i].PID %></td>
+                          <td><%= list[i].P_NAME %></td>
+                          <td><%= list[i].TYPE %></td>
+                          <td><%= list[i].AVAILABILITY %></td>
+                          <td><%= list[i].QUANTITY %></td>
+                          <td><%= list[i].BUY_PRICE %></td>
+                          <td><%= list[i].SELL_PRICE %></td>
+                          <td><%= list[i].MOD_BY %></td>
+                          <td><%= list[i].Add_PDate %></td>
+                        </tr>
+                        <% } %>
+                </tbody>
             </table>
         </div>
     </div>
