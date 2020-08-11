@@ -16,6 +16,7 @@ var sInfo=
   addby: ""
 }
 
+var srchStatus= false;
 
 router.get('/', function(req, res)
 {
@@ -27,7 +28,7 @@ router.get('/', function(req, res)
     }
     employee.getAllEmployee(user,function(results)
     {
-      res.render('adminDash/empManageAdmin/index', {list:results, sInfo:sInfo});
+      res.render('adminDash/empManageAdmin/index', {list:results, sInfo:sInfo, srchStatus:srchStatus});
     });
   }
   else
@@ -97,14 +98,17 @@ router.post('/', function(req, res)
         if(result.length>0)
         {
 
-            sInfo.EmpID= result[0].EmpID,
-            sInfo.name= result[0].E_NAME,
-            sInfo.did= result[0].DID,
-            sInfo.sal= result[0].SAL,
-            sInfo.mob= result[0].E_MOB,
-            sInfo.mail= result[0].E_MAIL,
-            sInfo.join =result[0].JOIN_DATE,
-            sInfo.addby= result[0].ADDED_BY
+          sInfo.EmpID= result[0].EmpID;
+          sInfo.name= result[0].E_NAME;
+          sInfo.did= result[0].DID;
+          sInfo.sal= result[0].SAL;
+          sInfo.mob= result[0].E_MOB;
+          sInfo.mail= result[0].E_MAIL;
+          sInfo.join =result[0].JOIN_DATE;
+          sInfo.addby= result[0].ADDED_BY;
+
+          srchStatus = true;
+
           res.redirect('/adminDash/empManageAdmin');
         }
         else
@@ -117,6 +121,25 @@ router.post('/', function(req, res)
   if(req.body.hasOwnProperty("UPDATE"))
   {
     res.send('UPDATE');
+  }
+  if(req.body.hasOwnProperty("DELETE"))
+  {
+    res.send('UPDATE');
+  }
+  if(req.body.hasOwnProperty("REFRESH"))
+  {
+    sInfo.EmpID= "";
+    sInfo.name= "";
+    sInfo.did= "";
+    sInfo.sal= "";
+    sInfo.mob= "";
+    sInfo.mail= "";
+    sInfo.join ="";
+    sInfo.addby= "";
+
+    srchStatus = false;
+    
+    res.redirect('/adminDash/empManageAdmin');
   }
 });
 module.exports = router;

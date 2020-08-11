@@ -24,14 +24,14 @@
           <input type="text" name="empName" placeholder="Enter Employee Name" value="<%= sInfo.name %>" >
           <p>Designation</p>
           <select id="designation" name="designation">
-              <option disabled value="0">--SELECT--</option>
-              <option id="admin" value="1">Admin</option>
-              <option id="manager" value="2">Manager</option>
-              <option id="salesman" value="3">SalesMan</option>
-              <option id="admin" value="4">DevileryMan</option>
+              <option value="0" <%if(sInfo.did==0){%>selected<%}%>>--SELECT--</option>
+              <option id="admin" value="1" <%if(sInfo.did==1){%>selected<%}%>>Admin</option>
+              <option id="manager" value="2" <%if(sInfo.did==2){%>selected<%}%>>Manager</option>
+              <option id="salesman" value="3" <%if(sInfo.did==3){%>selected<%}%>>SalesMan</option>
+              <option id="admin" value="4" <%if(sInfo.did==4){%>selected<%}%>>DevileryMan</option>
           </select><br>
           <p>Salary</p>
-          <input type="number" name="empSalary" placeholder="Enter Employee Salary" value="<%= sInfo.sal %>" >
+          <input type="number" name="empSalary" placeholder="Enter Employee Salary" value="<%= sInfo.sal %>" <%if(srchStatus==true){%>readonly<%}%> >
           <p>Mobile No.</p>
           <input type="text" name="empMobileNo" placeholder="Enter Employee Mobile No" value="<%= sInfo.mob %>" >
           <p>E-mail</p>
@@ -40,10 +40,10 @@
           <input type="text" name="empJoinDate" value="<%= sInfo.join %>" readonly>
           <p>Added By</p>
           <input type="text" name="empAddedBy"  value="<%= sInfo.addby %>" readonly><br>
-          <input style="margin-left: 400px;" type="submit" name="refresh" value="Refresh">
-          <input type="submit" name="INSERT" id="INSERT" value="INSERT">
-          <input type="submit" name="UPDATE" value="UPDATE">
-          <input type="submit" name="DELETE" value="DELETE">
+          <input style="margin-left: 400px;" type="submit" name="REFRESH" value="REFRESH">
+          <input type="submit" name="INSERT" id="INSERT" value="INSERT" <%if(srchStatus==true){%>disabled<%}%>>
+          <input type="submit" name="UPDATE" value="UPDATE" <%if(srchStatus==false){%>disabled<%}%>>
+          <input type="submit" name="DELETE" value="DELETE" <%if(srchStatus==false){%>disabled<%}%>>
         </form>
         <div align="right" class="table">
             <table class="content-table">
