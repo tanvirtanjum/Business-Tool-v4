@@ -65,7 +65,7 @@ module.exports=
     },
     deleteProduct: function(info,callback)
     {
-        var sql ="UPDATE `product` SET `AVAILABILITY`='UNAVAILABLE' WHERE `PID`='"+info.pId+"';";
+        var sql ="UPDATE `product` SET `AVAILABILITY`='UNAVAILABLE', `QUANTITY`='0' WHERE `PID`='"+info.pId+"';";
         db.execute(sql, function(result)
 		{
             if(result)
