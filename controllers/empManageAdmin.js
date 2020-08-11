@@ -25,45 +25,17 @@ router.get('/', function(req, res)
 
 router.post('/', function(req, res)
 {
-  if(req.session.type == 1)
+  if(req.body.hasOwnProperty("INSERT"))
   {
-    if(req.body.bodyhasOwnProperty("insert"))
-    {
-      var linfo =
-      {
-        lid: req.body.empId,
-        sid: req.body.designation,
-        pass: "1"
-      }
-      log_in.insetLogin(linfo,function(results)
-      {
-        if(results == true)
-        {
-          var einfo =
-          {
-            EmpID: req.body.empId,
-            name: req.body.empName,
-            did: req.body.designation,
-            sal: req.body.empSalary,
-            mob: req.body.empMobileNo,
-            mail: req.body.empEmail,
-            addby: req.session.uid
-          }
-
-          employee.insertEmployee(einfo,function(results)
-          {
-            if(results == true)
-            {
-              res.redirect("/adminDash/empManageAdmin")
-            }
-          });
-        }
-      });
-    }
+    res.send('INSERT');
   }
-  else
+  else if(req.body.hasOwnProperty("SEARCH"))
   {
-    res.redirect('/login');
+    res.send('SEARCH');
+  }
+  else if(req.body.hasOwnProperty("UPDATE"))
+  {
+    res.send('UPDATE');
   }
 });
 module.exports = router;

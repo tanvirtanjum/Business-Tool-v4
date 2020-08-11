@@ -18,6 +18,22 @@ module.exports =
 		});
 	},
 
+	signCustomer: function(user, callback)
+  {
+		var sql = "INSERT INTO `customer`(`cusid`, `name`, `design`, `email`, `mobile`) VALUES ('"+user.cusid+"','"+user.name+"','"+user.design+"','"+user.email+"','"+user.mobile+"');";
+		db.getResults(sql, function(result)
+    {
+      if(result.length > 0)
+      {
+				callback(result);
+			}
+      else
+      {
+				callback([]);
+			}
+		});
+	},
+
 	updateOwnProfileCustomer: function(user, callback)
   {
 		var sql = "UPDATE `customer` SET `name`='"+user.name+"', `design`='"+user.design+"', `email`='"+user.email+"', `mobile`='"+user.mobile+"' WHERE `cusid`='"+user.cusid+"';";

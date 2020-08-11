@@ -13,9 +13,9 @@
   </head>
 
   <body>
-    <form mathod="post">
+    <form method='post'>
       <div class="box">
-        <input style="width: 20%; margin-left: 530px;" id="search" type="text" name="Search" placeholder="Search By ID" value="">
+        <input style="width: 20%; margin-left: 530px;" id="search" type="text" name="SEARCH" placeholder="Search By ID" value="SEARCH">
         <input id="btnSearch" type="submit" name="SEARCH" value="Search">
 
         <p>Employee ID</p>
@@ -41,9 +41,9 @@
         <p>Added By</p>
         <input type="text" name="empAddedBy"  value="<%= uid %>" disabled><br>
         <input style="margin-left: 400px;" type="submit" name="refresh" value="Refresh">
-        <input type="submit" name="INSERT" value="Insert">
-        <input type="submit" name="update" value="Update">
-        <input type="submit" name="delete" value="Delete">
+        <input type="submit" name="INSERT" id="INSERT" value="INSERT">
+        <input type="submit" name="UPDATE" value="UPDATE">
+        <input type="submit" name="DELETE" value="DELETE">
         <div align="right" class="table">
             <table class="content-table">
                 <thead>
