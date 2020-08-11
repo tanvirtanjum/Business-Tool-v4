@@ -36,7 +36,7 @@ module.exports =
 
 	insertEmployee: function(user, callback)
   {
-		var sql = "INSERT INTO `employee`(`EmpID`, `E_NAME`, `DID`, `SAL`, `E_MOB`, `E_MAIL`, `JOIN_DATE`, `ADDED_BY`) VALUES ('"+user.EmpID+"','"+user.name+"','"+user.did+"','"+user.sal+"','"+user.mob+"','"+user.mail+"',CURRENT_TIMESTAMP(),'"+user.addby+"';";
+		var sql = "INSERT INTO `employee`(`EmpID`, `E_NAME`, `DID`, `SAL`, `E_MOB`, `E_MAIL`, `JOIN_DATE`, `ADDED_BY`) VALUES ('"+user.EmpID+"','"+user.name+"','"+user.did+"','"+user.sal+"','"+user.mob+"','"+user.mail+"',CURRENT_TIMESTAMP(),'"+user.addby+"');";
 		db.execute(sql, function(result)
     {
       if(result)
