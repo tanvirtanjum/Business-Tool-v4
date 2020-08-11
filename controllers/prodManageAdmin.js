@@ -117,6 +117,49 @@ router.post('/' ,function(req,res)
       }
     })
   }
+
+  if(req.body.hasOwnProperty("DELETE"))
+  {
+    var info={
+      pId: req.body.proId
+    }
+    product.deleteProduct(info,function(result)
+    {
+      if(result==true)
+      {
+        pInfo.pId="";
+        pInfo.name="";
+        pInfo.type="";
+        pInfo.quantity="";
+        pInfo.buyPrice="";
+        pInfo.SellPrice="";
+        pInfo.modBy="";
+        pInfo.addDate="";
+
+        searchStatus=false;
+        res.redirect("/adminDash/prodManageAdmin");
+      }
+      else{
+        res.send("Something Went Wrong....");
+      }
+    });
+  }
+  if(req.body.hasOwnProperty("REFRESH"))
+  {
+    pInfo.pId="";
+    pInfo.name="";
+    pInfo.type="";
+    pInfo.quantity="";
+    pInfo.buyPrice="";
+    pInfo.SellPrice="";
+    pInfo.modBy="";
+    pInfo.addDate="";
+
+    searchStatus=false;
+
+    res.redirect('/adminDash/prodManageAdmin');
+    
+  }
 });
 
 module.exports = router;
