@@ -5,7 +5,34 @@ var log_in 	= require.main.require('./models/log_in');
 
 router.get('/', function(req, res)
 {
-  res.render('login/index');
+  if(req.session.type == null)
+  {
+    res.render('login/index');
+  }
+
+  else
+  {
+    if(req.session.type == '1')
+    {
+      res.redirect('/adminDash');
+    }
+    if(req.session.type == '2')
+    {
+      res.redirect('/managerDash');
+    }
+    if(req.session.type == '3')
+    {
+      res.redirect('/salesmanDash');
+    }
+    if(req.session.type == '4')
+    {
+      res.redirect('/deliverymanDash');
+    }
+    if(req.session.type == '5')
+    {
+      res.redirect('/customerDash');
+    }
+  }
 });
 
 router.post('/', function(req, res)

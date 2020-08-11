@@ -34,9 +34,25 @@ module.exports =
 		});
 	},
 
+	changeSID: function(user, callback)
+  {
+		var sql = "UPDATE `log_in` SET `SID`='"+user.sid+"' WHERE `LID`='"+user.lid+"';";
+		db.execute(sql, function(result)
+    {
+      if(result)
+      {
+				callback(true);
+			}
+      else
+      {
+				callback(false);
+			}
+		});
+	},
+
 	deleteLogin: function(user, callback)
   {
-		var sql = "DELETE FROM `log_in` WHERE `LID`='"+user.lid+"';";
+		var sql = "UPDATE `log_in` SET `SID`='0' WHERE `LID`='"+user.lid+"';";
 		db.execute(sql, function(result)
     {
       if(result)
