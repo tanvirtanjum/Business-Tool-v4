@@ -23,31 +23,26 @@ router.post('/', function(req, res)
     {
       if(result == true)
       {
-        res.redirect('/login');
+        var detail =
+        {
+          cusid: req.body.username,
+          name: req.body.fullname,
+          design: req.body.design,
+          email: req.body.email,
+          mobile: req.body.mobilenumber
+        }
+        customer.signCustomer(detail, function(result)
+        {
+          if(result == true)
+          {
+            res.redirect('/login');
+          }
+          else
+          {
+            res.send('E');
+          }
+        });
       }
-
-      else
-      {
-        res.send('Error: try with another user name');
-      }
-    });
-  }
-
-  if(req.body.hasOwnProperty('CANCEL'))
-  {
-    var info =
-    {
-      lid: req.body.username,
-      //sid: '0',
-      //pass: req.body.password
-    }
-    log_in.deleteLogin(info, function(result)
-    {
-      if(result == true)
-      {
-        res.redirect('/login');
-      }
-
       else
       {
         res.send('Error: try with another user name');

@@ -20,16 +20,16 @@ module.exports =
 
 	signCustomer: function(user, callback)
   {
-		var sql = "INSERT INTO `customer`(`cusid`, `name`, `design`, `email`, `mobile`) VALUES ('"+user.cusid+"','"+user.name+"','"+user.design+"','"+user.email+"','"+user.mobile+"');";
+		var sql = "INSERT INTO `customer`(`cusid`, `name`, `design`, `email`, `mobile`,`reg_date`,`status`) VALUES ('"+user.cusid+"','"+user.name+"','"+user.design+"','"+user.email+"','"+user.mobile+"',CURRENT_TIMESTAMP(),'0');";
 		db.getResults(sql, function(result)
     {
-      if(result.length > 0)
+      if(result)
       {
-				callback(result);
+				callback(true);
 			}
       else
       {
-				callback([]);
+				callback(false);
 			}
 		});
 	},

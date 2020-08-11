@@ -47,7 +47,7 @@ router.post('/', function(req, res)
   {
 		if(response.length > 0)
     {
-      req.session.uid = response[0].LID
+      req.session.uid = response[0].LID;
 			req.session.type = response[0].SID;
       if(req.session.type == '1')
       {
@@ -68,6 +68,12 @@ router.post('/', function(req, res)
       if(req.session.type == '5')
       {
     		res.redirect('/customerDash');
+    	}
+      if(req.session.type == '0')
+      {
+        req.session.uid = null;
+  			req.session.type = null;
+    		res.send('Restricted....');
     	}
 		}
     else
