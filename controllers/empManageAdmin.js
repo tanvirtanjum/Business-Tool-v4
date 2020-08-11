@@ -27,7 +27,47 @@ router.post('/', function(req, res)
 {
   if(req.body.hasOwnProperty("INSERT"))
   {
-    res.send('INSERT');
+    if(req.session.uid == 1)
+    {
+      var lInfo=
+      {
+        lid: req.body.empId,
+        sid: req.body.designation,
+        pass: '123'
+      }
+
+      log_in.insetLogin(lInfo, function(result)
+      {
+        var eInfo=
+        {
+          EmpID: req.body.empId,
+          name: req.body.empName,
+          did: req.body.designation,
+          sal: req.body.empSalary,
+          mob: req.body.empMobileNo,
+          mail: req.body.empEmail,
+          addby: req.session.uid
+        }
+        if(result== true)
+        {
+          employee.insertEmployee(eInfo, function(result)
+          {
+            if(result==true)
+            {
+              res.redirect("/adminDash/empManageAdmin")
+            }
+            else
+            {
+              res.send('E went wrong');
+            }
+          });
+        }
+        else
+        {
+          res.send('L went wrong');
+        }
+      });
+    }
   }
   else if(req.body.hasOwnProperty("SEARCH"))
   {
