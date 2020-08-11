@@ -1,11 +1,20 @@
 var express = require('express');
 var router = express.Router();
 
+var employee 	= require.main.require('./models/employee');
+
 router.get('/', function(req, res)
 {
   if(req.session.type == 1)
   {
-    res.render('adminDash/empManageAdmin/index');
+    var user =
+    {
+      
+    }
+    employee.getAllEmployee(user,function(results)
+    {
+      res.render('adminDash/empManageAdmin/index', {list:results});
+    });
   }
   else
   {

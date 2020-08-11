@@ -18,6 +18,22 @@ module.exports =
 		});
 	},
 
+	getAllEmployee: function(user, callback)
+  {
+		var sql = "SELECT * FROM `employee` ORDER BY `DID`;";
+		db.getResults(sql, function(result)
+    {
+      if(result.length > 0)
+      {
+				callback(result);
+			}
+      else
+      {
+				callback([]);
+			}
+		});
+	},
+
 	updateOwnProfileEmployee: function(user, callback)
   {
 		var sql = "UPDATE `employee` SET `E_NAME`='"+user.Ename+"', `E_MAIL`='"+user.Email+"', `E_MOB`='"+user.Emob+"' WHERE `EmpID`='"+user.EmpID+"';";

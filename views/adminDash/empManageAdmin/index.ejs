@@ -48,7 +48,7 @@
             <table class="content-table">
                 <thead>
                     <tr>
-                        <th>Emp Id</th>
+                        <th>EmpId</th>
                         <th>Name</th>
                         <th>Desig.</th>
                         <th>Salary</th>
@@ -59,9 +59,20 @@
                     </tr>
                 </thead>
 
-                <!-- <tbody>
-                    ejs code here
-                </tbody> -->
+                <tbody>
+                  <% for(var i=0; i < list.length; i++){ %>
+                  <tr>
+                    <td><%= list[i].EmpID %></td>
+                    <td><%= list[i].E_NAME %></td>
+                    <td><%= list[i].DID %></td>
+                    <td><%= list[i].SAL %></td>
+                    <td><%= list[i].E_MOB %></td>
+                    <td><%= list[i].E_MAIL %></td>
+                    <td><%= list[i].JOIN_DATE %></td>
+                    <td><%= list[i].ADDED_BY %></td>
+                  </tr>
+                  <% } %>
+                </tbody>
             </table>
         </div>
     </div>
