@@ -25,31 +25,36 @@
 		<div class="box">
 			<h1>Take your Note</h1>
 			<form method='post'>
-				<input type="text" name="name" placeholder="Note name">
-				<input style="margin-left: 150px;width: 20%;" type="text" placeholder="Search by id" name="search">
-				<input style="margin-left: 5px;width: 15%;" type="Submit" value="See"><br>
-				<textarea placeholder="write here..." name="notes" id="notes" cols="46" rows="20"></textarea><br>
-				<input style="margin-left: 100px;" type="submit" value="Save"><br><br>
-				<input type="submit" value="Refresh">
-				<input style="margin-left: 30px;" type="submit" value="Update"><br><br>
-				<input type="submit" value="Delete">
-				<input style="margin-left: 30px;" type="submit" value="Print">
+				<input type="text" name="name" placeholder="Note name" value="<%= nInfo.sub %>">
+        <input type="Submit" name="PUSH" value="PUSH">
+				<input style="margin-left: 80px;width: 20%;" type="text" placeholder="Search by id" name="search">
+        <input type="hidden" name="NoteID" value="<%= nInfo.id %>">
+				<input style="margin-left: 5px;width: 15%;" type="Submit" name="SEE" value="SEE"><br>
+				<textarea placeholder="write here..." name="notes" id="notes" cols="46" rows="20"><%= nInfo.text %></textarea><br>
+				<input type="submit" name="REFRESH" value="REFRESH">
+        <input style="margin-left: 30px;" type="submit" name="PRINT" value="PRINT">
+				<br><br>
+				<input type="submit" name="UPDATE" value="UPDATE" <%if(srchStatus==false){%>disabled<%}%>>
+        <input style="margin-left: 30px;" type="submit" name="DELETE" value="DELETE" <%if(srchStatus==false){%>disabled<%}%>>
+
+      </form>
 				<div align="right" class="table">
 					<table class="content-table">
 						<thead>
 							<tr>
 								<th>Note Id</th>
 								<th>Note Name</th>
-								<th>Owner Id</th>
 							</tr>
 						</thead>
 
-						<!-- <tbody>
-							ejs code here
-						</tbody> -->
+            <% for(var i=0; i < list.length; i++){ %>
+            <tr>
+              <td><%= list[i].NoteID %></td>
+              <td><%= list[i].NoteName %></td>
+            </tr>
+            <% } %>
 					</table>
 				</div>
-			</form>
 		</div>
 	</body>
 </html>
