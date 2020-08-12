@@ -40,7 +40,7 @@ router.post('/', function(req, res)
 {
   if(req.body.hasOwnProperty("SEARCH"))
   {
-    if(req.session.uid == 1)
+    if(req.session.type == 1)
     {
       var info=
       {

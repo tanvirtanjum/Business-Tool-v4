@@ -13,7 +13,7 @@ var srchStatus= false;
 
 router.get('/', function(req, res)
 {
-  if(req.session.type == 1)
+  if(req.session.type == 1 || req.session.type == 2 || req.session.type == 3 || req.session.type == 4)
   {
     var user =
     {
@@ -34,7 +34,7 @@ router.post('/', function(req, res)
 {
   if(req.body.hasOwnProperty("READ"))
   {
-    if(req.session.uid == 1)
+    if(req.session.type == 1 || req.session.type == 2 || req.session.type == 3 || req.session.type == 4)
     {
       var param=
       {
@@ -63,7 +63,7 @@ router.post('/', function(req, res)
 
   if(req.body.hasOwnProperty("REFRESH"))
   {
-    if(req.session.uid == 1)
+    if(req.session.type == 1 || req.session.type == 2 || req.session.type == 3 || req.session.type == 4)
     {
       nInfo.sub="";
       nInfo.text="";
