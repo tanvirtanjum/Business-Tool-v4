@@ -24,16 +24,16 @@
                 <p>Type</p>
                 <!--<input type="text" name="proType" placeholder="Enter Product Type" value="<%=//pInfo.type%>">-->
                 <select id="proType" name="proType">
-                  <option value="">--SELECT--</option>
-                  <option id="HDD/SSD" value="HDD/SSD" <%if(pInfo.pId=="HDD/SSD"){%>selected<%}%>>HDD/SSD</option>
-                  <option id="Keyboard" value="Keyboard" <%if(pInfo.pId=="Keyboard"){%>selected<%}%>>Keyboard</option>
-                  <option id="Laptop" value="Laptop" <%if(pInfo.pId=="Laptop"){%>selected<%}%>>Laptop</option>
-                  <option id="Mouse" value="Mouse" <%if(pInfo.pId=="Mouse"){%>selected<%}%>>Mouse</option>
-                  <option id="Printer" value="Printer" <%if(pInfo.pId=="Printer"){%>selected<%}%>>Printer</option>
-                  <option id="Ram" value="Ram" <%if(pInfo.pId=="Ram"){%>selected<%}%>>Ram</option>
-                  <option id="Scanner" value="Scanner" <%if(pInfo.pId=="Scanner"){%>selected<%}%>>Scanner</option>
-                  <option id="Software" value="Software" <%if(pInfo.pId=="Software"){%>selected<%}%>>Software</option>
-                  <option id="TV" value="TV" <%if(pInfo.pId=="TV"){%>selected<%}%>>TV</option>
+                  <option value="" <%if(pInfo.type==""){%>selected<%}%>>--SELECT--</option>
+                  <option id="HDD/SSD" value="HDD/SSD" <%if(pInfo.type=="HDD/SSD"){%>selected<%}%>>HDD/SSD</option>
+                  <option id="Keyboard" value="Keyboard" <%if(pInfo.type=="Keyboard"){%>selected<%}%>>Keyboard</option>
+                  <option id="Laptop" value="Laptop" <%if(pInfo.type=="Laptop"){%>selected<%}%>>Laptop</option>
+                  <option id="Mouse" value="Mouse" <%if(pInfo.type=="Mouse"){%>selected<%}%>>Mouse</option>
+                  <option id="Printer" value="Printer" <%if(pInfo.type=="Printer"){%>selected<%}%>>Printer</option>
+                  <option id="Ram" value="Ram" <%if(pInfo.type=="Ram"){%>selected<%}%>>Ram</option>
+                  <option id="Scanner" value="Scanner" <%if(pInfo.type=="Scanner"){%>selected<%}%>>Scanner</option>
+                  <option id="Software" value="Software" <%if(pInfo.type=="Software"){%>selected<%}%>>Software</option>
+                  <option id="TV" value="TV" <%if(pInfo.type=="TV"){%>typeselected<%}%>>TV</option>
                 </select><br>
                 <p>Quantity</p>
                 <input type="number" name="proQuantity" placeholder="Enter Product Quantity" value="<%= pInfo.quantity %>" >

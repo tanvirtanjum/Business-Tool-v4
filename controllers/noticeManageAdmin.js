@@ -46,6 +46,10 @@ router.post('/', function(req, res)
       {
         if(result == true)
         {
+          nInfo.Id="";
+          nInfo.sub="";
+          nInfo.text="";
+          var srchStatus= false;
           res.redirect('adminDash/noticeManageAdmin/index');
         }
         else
