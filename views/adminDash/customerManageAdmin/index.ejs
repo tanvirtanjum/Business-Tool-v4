@@ -30,11 +30,12 @@
           <p>E-mail</p>
           <input type="email" name="Email" placeholder="Customer Email" value="<%= sInfo.Email %>" readonly>
           <p>Join Date</p>
-          <input type="text" name="JoinDate" value="" readonly>
-          <p>Added By</p>
-          <input type="text" name="AddedBy"  value="" disabled><br>
+          <input type="text" name="JoinDate" value="<%= sInfo.JoinDate %>" readonly>
+          <!--<p>Added By</p>
+          input type="text" name="AddedBy"  value="" disabled><br>-->
+          <br>
           <input type="submit" name="REFRESH" value="REFRESH">
-          <input type="submit" name="DE-ACTIVE" value="DE-ACTIVE" <%if(srchStatus==false){%>disabled<%}%>>
+          <input type="submit" name="<%if(sInfo.sid=='5'){%>DISABLE<%}%><%if(sInfo.sid=='0'){%>ENABLE<%}%><%if(sInfo.sid!='5' && sInfo.sid!='0'){%>ACTION<%}%>" value="<%if(sInfo.sid=='5'){%>DISABLE<%}%><%if(sInfo.sid=='0'){%>ENABLE<%}%><%if(sInfo.sid!='5' && sInfo.sid!='0'){%>ACTION<%}%>" <%if(srchStatus==false){%>disabled<%}%>>
       </form>
           <div align="right" class="table">
             <table class="content-table">

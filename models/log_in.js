@@ -18,6 +18,22 @@ module.exports =
 		});
 	},
 
+	getLogin: function(user, callback)
+  {
+		var sql = "SELECT * FROM `log_in` WHERE LID='"+user.lid+"';";
+		db.getResults(sql, function(result)
+    {
+      if(result.length > 0)
+      {
+				callback(result);
+			}
+      else
+      {
+				callback([]);
+			}
+		});
+	},
+
 	changePass: function(user, callback)
   {
 		var sql = "UPDATE `log_in` SET `PASS`='"+user.confirmNewPassword+"' WHERE `LID`='"+user.lid+"' AND `PASS`='"+user.oldPassword+"';";

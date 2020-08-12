@@ -12,6 +12,7 @@ var sInfo=
   MobileNo: "",
   Email: "",
   JoinDate: "",
+  sid: ""
 }
 
 var srchStatus= false;
@@ -61,7 +62,23 @@ router.post('/', function(req, res)
 
           srchStatus = true;
 
-          res.redirect('/adminDash/customerManageAdmin');
+          var log=
+          {
+            lid: sInfo.Id
+          }
+          log_in.getLogin(log, function(result)
+          {
+            if(result.length>0)
+            {
+              sInfo.sid= result[0].SID;
+              res.redirect('/adminDash/customerManageAdmin');
+            }
+
+            else
+            {
+              res.send('Something Went Wrong....');
+            }
+          });
         }
         else
         {
@@ -70,18 +87,65 @@ router.post('/', function(req, res)
       });
     }
   }
-  if(req.body.hasOwnProperty("DE-ACTIVE"))
+  if(req.body.hasOwnProperty("DISABLE"))
   {
-    sInfo.Id= "";
-    sInfo.name= "";
-    sInfo.designation= "";
-    sInfo.Email= "";
-    sInfo.MobileNo= "";
-    sInfo.JoinDate= "";
+    info=
+    {
+      lid: sInfo.Id,
+      sid: '0'
+    }
+    log_in.changeSID(info,function(result)
+    {
+      if(result == true)
+      {
+        sInfo.Id= "";
+        sInfo.name= "";
+        sInfo.designation= "";
+        sInfo.Email= "";
+        sInfo.MobileNo= "";
+        sInfo.JoinDate= "";
+        sInfo.sid= "";
 
-    srchStatus = false;
+        srchStatus = false;
 
-    res.redirect('/adminDash/customerManageAdmin');
+        res.redirect('/adminDash/customerManageAdmin');
+      }
+
+      else
+      {
+        res.send('Something Went Wrong....');
+      }
+    });
+  }
+  if(req.body.hasOwnProperty("ENABLE"))
+  {
+    info=
+    {
+      lid: sInfo.Id,
+      sid: '5'
+    }
+    log_in.changeSID(info,function(result)
+    {
+      if(result == true)
+      {
+        sInfo.Id= "";
+        sInfo.name= "";
+        sInfo.designation= "";
+        sInfo.Email= "";
+        sInfo.MobileNo= "";
+        sInfo.JoinDate= "";
+        sInfo.sid= "";
+
+        srchStatus = false;
+
+        res.redirect('/adminDash/customerManageAdmin');
+      }
+
+      else
+      {
+        res.send('Something Went Wrong....');
+      }
+    });
   }
   if(req.body.hasOwnProperty("REFRESH"))
   {
@@ -91,6 +155,7 @@ router.post('/', function(req, res)
     sInfo.Email= "";
     sInfo.MobileNo= "";
     sInfo.JoinDate= "";
+    sInfo.sid= "";
 
     srchStatus = false;
 
