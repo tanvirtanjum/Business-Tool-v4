@@ -24,18 +24,19 @@
 <head>
 	<title>Change Password</title>
 	<link rel="stylesheet" type="text/css" href="assets/styles/changepassword.css">
+	<script src="assets/js/changePass.js"></script>
 </head>
 
 <body>
 	<div class="loginbox">
 		<h1>Password Change</h1>
-		<form method="POST">
+		<form method="POST" name="myForm" onsubmit="return(validate());">
 			<p>Old Password</p>
-			<input type="password" name="oldpassword" placeholder="Enter Old Password" required value=""><br><span></span>
+			<input type="password" name="oldpassword" placeholder="Enter Old Password" value=""><br><span></span>
 			<p>New Password</p>
-			<input type="password" name="newpassword" placeholder="Enter New password" required value=""><br><span></span>
+			<input type="password" name="newpassword" placeholder="Enter New password" value=""><br><span></span>
 			<p>Confirm New Password</p>
-			<input type="password" name="confirmnewpassword" placeholder="Confirm New password" required value=""><br><span></span>
+			<input type="password" name="confirmnewpassword" placeholder="Confirm New password" value=""><br><span></span>
 			<input type="submit" name="save" value="Proceed"><span></span>
 		</form>
 	</div>
