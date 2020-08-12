@@ -39,13 +39,9 @@ router.post('/', function(req, res)
           }
           else
           {
-            res.send('E');
+            res.send('Something Went Wrong....!');
           }
         });
-      }
-      else
-      {
-        res.send('Error: try with another user name');
       }
     });
   }

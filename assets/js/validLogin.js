@@ -11,4 +11,5 @@ function validate(){
         document.login.password.focus();
         return false;
     }
+    return (true);
 }

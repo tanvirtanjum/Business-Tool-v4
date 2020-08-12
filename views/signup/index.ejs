@@ -5,22 +5,22 @@
 <head>
 	<title>Registration</title>
 	<link rel="stylesheet" type="text/css" href="assets/styles/signup.css">
+	<script src="assets/js/validSignup.js"></script>
 </head>
 
 <body>
 	<div class="wrap">
 		<h2>Sign Up</h2>
-		<form method="post" name="myForm">
-			<input type="text" name="username" placeholder="Username" value="" required><span style="color:red;"></span>
-			<input type="Password" name="password" placeholder="Password" required><span style="color:red;"></span>
-			<input type="Password" name="confirmpassword" placeholder="Confirm Password" required><span style="color:red;"></span>
-			<input type="text" name="fullname" placeholder="Full Name" value="" required> <span style="color:red;"></span>
-			<input type="text" name="design" placeholder="Designation" value="" required> <span style="color:red;"></span>
-			<input type="email" name="email" placeholder="Email" value="" required><span style="color:red;"></span>
-			<input type="number" name="mobilenumber" placeholder="Mobile Number" value="" required><span style="color:red;"> </span>
+		<form method="post" name="myForm" onsubmit="return(validate());">
+			<input type="text" name="username" placeholder="Username" value="">
+			<input type="Password" name="password" placeholder="Password">
+			<input type="Password" name="confirmpassword" placeholder="Confirm Password">
+			<input type="text" name="fullname" placeholder="Full Name" value="">
+			<input type="text" name="design" placeholder="Designation" value="">
+			<input type="email" name="email" placeholder="Email" value="">
+			<input type="number" name="mobilenumber" placeholder="Mobile Number" value="">
 			<input type="submit" name="REGISTER" value="REGISTER"><br>
 			<p><b>Or Log In <a href="/login">here</a></b></p>
-
 		</form>
 	</div>
 </body>
