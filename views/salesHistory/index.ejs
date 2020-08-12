@@ -18,36 +18,46 @@
     <title>Sales History</title>
     <link rel="stylesheet" type="text/css" href="../assets/styles/common.css">
     <link rel="stylesheet" type="text/css" href="../assets/styles/history.css">
+    <script src="../assets/js/printSalesHistory.js"></script>
 </head>
 <body>
     <div class="table">
         <h1>Sales History</h1>
-        <div class=tab1>
+        <div class=tab1 id="table">
             <table class="content-table">
                 <thead>
                     <tr>
-                        <th>alpha</th>
-                        <th>beta</th>
-                        <th>gamma</th>
-                        <th>alpha</th>
-                        <th>beta</th>
-                        <th>gamma</th>
-                        <th>alpha</th>
-                        <th>beta</th>
-                        <th>gamma</th>
-                        <th>alpha</th>
-                        <th>beta</th>
-
+                        <th>SLID</th>
+                        <th>PID</th>
+                        <th>QUANT</th>
+                        <th>OB_AMMOUNT</th>
+                        <th>PROFIT</th>
+                        <th>C_NAME</th>
+                        <th>C_MOB</th>
+                        <th>SOLD_BY</th>
+                        <th>Sell_SDate</th>
                     </tr>
                 </thead>
-                <!-- <tbody>
-                    ejs here
-                </tbody> -->
+                <tbody>
+                    <% for(var i=0; i < list.length; i++){ %>
+                        <tr>
+                          <td><%= list[i].SLID %></td>
+                          <td><%= list[i].PID %></td>
+                          <td><%= list[i].QUANT %></td>
+                          <td><%= list[i].OB_AMMOUNT %></td>
+                          <td><%= list[i].PROFIT %></td>
+                          <td><%= list[i].C_NAME %></td>
+                          <td><%= list[i].C_MOB %></td>
+                          <td><%= list[i].SOLD_BY %></td>
+                          <td><%= list[i].Sell_SDate %></td>
+                        </tr>
+                        <% } %>
+                </tbody>
 
             </table>
         </div>
         <hr>
-        <input style="margin-top: 5px;margin-left: 10px;" type="submit" value="Print">
+        <input style="margin-top: 5px;margin-left: 10px;" name="PRINT" id="PRINT" onclick="savePDF()" type="submit" value="Print">
     </div>
 </body>
 </html>
