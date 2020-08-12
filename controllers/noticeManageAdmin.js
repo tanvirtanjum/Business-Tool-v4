@@ -35,7 +35,7 @@ router.post('/', function(req, res)
 {
   if(req.body.hasOwnProperty("SEND"))
   {
-    if(req.session.uid == 1)
+    if(req.session.type == 1)
     {
       var param=
       {
@@ -67,7 +67,7 @@ router.post('/', function(req, res)
 
   if(req.body.hasOwnProperty("LOAD"))
   {
-    if(req.session.uid == 1)
+    if(req.session.type == 1)
     {
       var param=
       {
@@ -98,7 +98,7 @@ router.post('/', function(req, res)
 
   if(req.body.hasOwnProperty("UPDATE"))
   {
-    if(req.session.uid == 1)
+    if(req.session.type == 1)
     {
       var param=
       {
@@ -131,7 +131,7 @@ router.post('/', function(req, res)
 
   if(req.body.hasOwnProperty("DELETE"))
   {
-    if(req.session.uid == 1)
+    if(req.session.type == 1)
     {
       var param=
       {
@@ -162,7 +162,7 @@ router.post('/', function(req, res)
 
   if(req.body.hasOwnProperty("REFRESH"))
   {
-    if(req.session.uid == 1)
+    if(req.session.type == 1)
     {
       nInfo.Id="";
       nInfo.sub="";
