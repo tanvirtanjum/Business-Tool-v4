@@ -7,13 +7,13 @@ function validate(){
     }
     if(document.myForm.password.value=="")
     {
-        alert("Please provide Password!");
+        alert("Please provide valid Password!");
         document.myForm.password.focus();
         return false;
     }
     if(document.myForm.confirmpassword.value=="")
     {
-        alert("Please provide confirm Password!");
+        alert("Please provide valid confirm Password!");
         document.myForm.confirmpassword.focus();
         return false;
     }
