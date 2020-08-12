@@ -96,6 +96,70 @@ router.post('/', function(req, res)
     }
   }
 
+  if(req.body.hasOwnProperty("UPDATE"))
+  {
+    if(req.session.type == 1 || req.session.type == 2 || req.session.type == 3 || req.session.type == 4)
+    {
+      var param=
+      {
+        NoteName: req.body.name,
+        OwnerID: req.session.uid,
+        Text: req.body.notes,
+        NoteID: req.body.NoteID
+      }
+      note.updateNote(param,function(result)
+      {
+        if(result == true)
+        {
+          nInfo.sub="";
+          nInfo.text="";
+          nInfo.id=";"
+          srchStatus= false;
+          res.redirect('/notes');
+        }
+        else
+        {
+          res.send("Something went wrong...");
+        }
+      });
+    }
+    else
+    {
+      res.redirect('/login');
+    }
+  }
+
+  if(req.body.hasOwnProperty("DELETE"))
+  {
+    if(req.session.type == 1 || req.session.type == 2 || req.session.type == 3 || req.session.type == 4)
+    {
+      var param=
+      {
+        OwnerID: req.session.uid,
+        NoteID: req.body.NoteID
+      }
+      note.deleteNote(param,function(result)
+      {
+        if(result == true)
+        {
+          nInfo.sub="";
+          nInfo.text="";
+          nInfo.id=";"
+          srchStatus= false;
+          res.redirect('/notes');
+        }
+        else
+        {
+          res.send("Something went wrong...");
+        }
+      });
+    }
+    else
+    {
+      res.redirect('/login');
+    }
+  }
+
   if(req.body.hasOwnProperty("REFRESH"))
   {
     if(req.session.type == 1 || req.session.type == 2 || req.session.type == 3 || req.session.type == 4)
