@@ -160,6 +160,22 @@ router.post('/', function(req, res)
     }
   }
 
+  if(req.body.hasOwnProperty("PRINT"))
+  {
+    if(req.session.type == 1 || req.session.type == 2 || req.session.type == 3 || req.session.type == 4)
+    {
+      nInfo.sub="";
+      nInfo.text="";
+      nInfo.id="";
+      srchStatus= false;
+      res.redirect('/notes');
+    }
+    else
+    {
+      res.redirect('/login');
+    }
+  }
+
   if(req.body.hasOwnProperty("REFRESH"))
   {
     if(req.session.type == 1 || req.session.type == 2 || req.session.type == 3 || req.session.type == 4)
