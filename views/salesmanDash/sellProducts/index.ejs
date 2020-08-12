@@ -13,33 +13,41 @@
 </head>
 <body>
     <div class="box">
-
-        <input style="width: 20%; margin-left: 580px;" id="search" type="text" name="Search" placeholder="Search By ID" value="">
-        <input id="btnSearch"type="submit" value="Search">
-        <form action="post" name="manage" onsubmit="return validForm()">
+        <form method="POST" name="manage">
+            <input style="width: 20%; margin-left: 580px;" id="search" type="text" name="SearchID" placeholder="Search By ID" value="">
+            <input id="btnSearch"type="submit" value="Search" name="SEARCH">
             <p style="">Product ID</p>
-            <input type="text" name="empId" placeholder="Enter Product Id" value="" >
+            <input type="text" name="proId" placeholder="Enter Product Id" value="<%= pInfo.pId %>" >
             <p>Product name</p>
-            <input type="text" name="empName" placeholder="Enter Product Name" value="" >
-            <p>Category</p>
-            <select id="designation" name="designation">
-                <option selected="" disabled="">--SELECT--</option>
-                <!-- ejs here -->
+            <input type="text" name="proName" placeholder="Enter Product Name" value="<%= pInfo.name%>" >
+            <!-- <p>Type</p> -->
+            <select id="proType" name="proType" hidden>
+                <option value="" <%if(pInfo.type==""){%>selected<%}%>>--SELECT--</option>
+                <option id="HDD/SSD" value="HDD/SSD" <%if(pInfo.type=="HDD/SSD"){%>selected<%}%>>HDD/SSD</option>
+                <option id="Keyboard" value="Keyboard" <%if(pInfo.type=="Keyboard"){%>selected<%}%>>Keyboard</option>
+                <option id="Laptop" value="Laptop" <%if(pInfo.type=="Laptop"){%>selected<%}%>>Laptop</option>
+                <option id="Mouse" value="Mouse" <%if(pInfo.type=="Mouse"){%>selected<%}%>>Mouse</option>
+                <option id="Printer" value="Printer" <%if(pInfo.type=="Printer"){%>selected<%}%>>Printer</option>
+                <option id="Ram" value="Ram" <%if(pInfo.type=="Ram"){%>selected<%}%>>Ram</option>
+                <option id="Scanner" value="Scanner" <%if(pInfo.type=="Scanner"){%>selected<%}%>>Scanner</option>
+                <option id="Software" value="Software" <%if(pInfo.type=="Software"){%>selected<%}%>>Software</option>
+                <option id="TV" value="TV" <%if(pInfo.type=="TV"){%>typeselected<%}%>>TV</option>
             </select><br>
             <p>Quantity</p>
-            <input type="number" name="quantity" placeholder="Enter Quantity" value="" >
-            <p>Price(/unit)</p>
-            <input type="text" name="price" placeholder="Price" value="">
+            <input type="number" name="proQuantity" placeholder="Enter Quantity" value="<%= pInfo.quantity %>" ><br>
+            <input type="text" name="proBuyPrice" value="<%= pInfo.buyPrice %> " hidden>
+            <p>Sell Price</p>
+            <input type="text" name="proSellPrice" placeholder="Price" value="<%= pInfo.SellPrice %>">
             <p>Customer Name</p>
             <input type="text" name="customerName" placeholder="Customer Name" value="">
             <p>Customer Number</p>
-            <input type="text" name="customerNo" placeholder="Customer Number" value="">
-            <p>Seller ID</p>
-            <input type="text" name="sallerID" placeholder="Type ID" value="">
-            <p>Sell Date</p>
-            <input type="text" name="SellDate" placeholder="Date" value="" disabled>
-            <input style="margin-left: 310px;"type="submit" name="refresh" value="Refresh">
-            <input type="submit" name="sell" value="Sell">
+            <input type="text" name="customerNo" placeholder="Customer Number" value=""><br>
+            <!-- <p>Seller ID</p> -->
+            <input type="text" name="sellerID" placeholder="Type ID" value="" readonly hidden>
+            <!-- <p>Sell Date</p> -->
+            <input type="text" name="SellDate" placeholder="Date" value="" readonly hidden>
+            <input type="submit" name="refresh" value="Refresh">
+            <input type="submit" name="SELL" id="SELL" value="Sell">
         </form>
         <div align="right" class="table">
             <table class="content-table">
@@ -47,19 +55,30 @@
                     <tr>
                         <th>Prod. ID</th>
                         <th>Prod. Name</th>
-                        <th>Category</th>
+                        <th>Type</th>
+                        <th>Availability</th>
                         <th>Quantity</th>
-                        <th>Unit Price</th>
-                        <th>cust. Name</th>
-                        <th>cust. Number</th>
-                        <th>Seller Id</th>
-                        <th>SellDate</th>
+                        <th>Buy Price</th>
+                        <th>Sell Price</th>
+                        <th>Mod_By</th>
+                        <th>add_PDate</th>
                     </tr>
                 </thead>
-
-                <!-- <tbody>
-                    ejs code here
-                </tbody> -->
+                <tbody>
+                    <% for(var i=0; i < list.length; i++){ %>
+                        <tr>
+                          <td><%= list[i].PID %></td>
+                          <td><%= list[i].P_NAME %></td>
+                          <td><%= list[i].TYPE %></td>
+                          <td><%= list[i].AVAILABILITY %></td>
+                          <td><%= list[i].QUANTITY %></td>
+                          <td><%= list[i].BUY_PRICE %></td>
+                          <td><%= list[i].SELL_PRICE %></td>
+                          <td><%= list[i].MOD_BY %></td>
+                          <td><%= list[i].Add_PDate %></td>
+                        </tr>
+                    <% } %>
+                </tbody>
             </table>
         </div>
     </div>
