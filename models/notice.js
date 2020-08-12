@@ -20,7 +20,7 @@ module.exports =
 
 	getNotice: function(user, callback)
   {
-		var sql = "SELECT * FROM `notice` WHERE noticeID='"+user.noticeID+"';";
+		var sql = "SELECT * FROM `notice` WHERE `noticeID`='"+user.noticeID+"';";
 		db.getResults(sql, function(result)
     {
       if(result.length > 0)
@@ -34,9 +34,25 @@ module.exports =
 		});
 	},
 
-	rejectCusLogin: function(user, callback)
+	deleteNotice: function(user, callback)
   {
-		var sql = "DELETE FROM `log_in` WHERE `LID`='"+user.lid+"';";
+		var sql = "DELETE FROM `notice` WHERE `noticeID`='"+user.noticeID+"';";
+		db.execute(sql, function(result)
+    {
+      if(result)
+      {
+				callback(true);
+			}
+      else
+      {
+				callback(false);
+			}
+		});
+	},
+
+  updateNotice: function(user, callback)
+  {
+		var sql = "UPDATE `notice` SET `noteSub`='"+user.noteSub+"',`noticetext`='"+user.noticetext+"' WHERE `noticeID`='"+user.noticeID+"';";
 		db.execute(sql, function(result)
     {
       if(result)

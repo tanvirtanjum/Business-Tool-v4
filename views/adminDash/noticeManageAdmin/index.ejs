@@ -14,13 +14,13 @@
         <h1>Notice Manage</h1>
         <hr>
         <form method="POST">
-            <input style="margin-top: 3px;width: 20%;" type="text" name="noteSub" placeholder="Enter Notice Subject">
-            <input type="hidden" name="unoteID" value="">
+            <input style="margin-top: 3px;width: 20%;" type="text" name="noteSub" placeholder="Enter Notice Subject" value="<%= nInfo.sub %>">
+            <input type="hidden" name="unoteID" value="<%= nInfo.Id %>">
             <input style="width: 15%;" type="submit" name="SEND" value="SEND">
             <input style="margin-top: 3px;width: 20%;margin-left: 180px;" type="text" name="noticeID" placeholder="Load Notice By ID">
             <input style="width: 15%;" type="submit" name="LOAD" value="LOAD">
             <p>Your Notice</p>
-            <textarea style="margin-top: 10px;" name="noticetext" id="notice" placeholder="write your notice here" cols="42" rows="20"></textarea>
+            <textarea style="margin-top: 10px;" name="noticetext" id="notice" placeholder="write your notice here" cols="42" rows="20"><%= nInfo.text %></textarea>
             <table style="float: right;" class="content-table">
                 <thead>
                     <th>Notice Id</th>
@@ -35,8 +35,9 @@
                   <% } %>
                 </tbody>
             </table>
-            <input type="submit" value="Update">
-            <input type="submit" value="Delete">
+            <input type="submit" name="REFRESH" value="REFRESH"><br>
+            <input type="submit" name="UPDATE" value="UPDATE" <%if(srchStatus==false){%>disabled<%}%>>
+            <input type="submit" name="DELETE" value="DELETE" <%if(srchStatus==false){%>disabled<%}%>>
         </form>
     </div>
 </body>

@@ -37,7 +37,7 @@ router.post('/', function(req, res)
   {
     if(req.session.uid == 1)
     {
-      param=
+      var param=
       {
         noteSub: req.body.noteSub,
         noticetext: req.body.noticetext
@@ -49,8 +49,8 @@ router.post('/', function(req, res)
           nInfo.Id="";
           nInfo.sub="";
           nInfo.text="";
-          var srchStatus= false;
-          res.redirect('adminDash/noticeManageAdmin/index');
+          srchStatus= false;
+          res.redirect('/adminDash/noticeManageAdmin');
         }
         else
         {
@@ -65,11 +65,29 @@ router.post('/', function(req, res)
     }
   }
 
-  if(req.body.hasOwnProperty("DISABLE"))
+  if(req.body.hasOwnProperty("LOAD"))
   {
     if(req.session.uid == 1)
     {
-
+      var param=
+      {
+        noticeID: req.body.noticeID
+      }
+      notice.getNotice(param,function(result)
+      {
+        if(result.length>0)
+        {
+          nInfo.Id=result[0].noticeID;
+          nInfo.sub=result[0].noteSub;
+          nInfo.text=result[0].noticetext;
+          srchStatus= true;
+          res.redirect('/adminDash/noticeManageAdmin');
+        }
+        else
+        {
+          res.send("Something went wrong...");
+        }
+      });
     }
 
     else
@@ -78,11 +96,62 @@ router.post('/', function(req, res)
     }
   }
 
-  if(req.body.hasOwnProperty("ENABLE"))
+  if(req.body.hasOwnProperty("UPDATE"))
   {
     if(req.session.uid == 1)
     {
+      var param=
+      {
+        noticeID: req.body.unoteID,
+        noteSub: req.body.noteSub,
+        noticetext: req.body.noticetext
+      }
+      notice.updateNotice(param,function(result)
+      {
+        if(result == true)
+        {
+          nInfo.Id="";
+          nInfo.sub="";
+          nInfo.text="";
+          var srchStatus= false;
+          res.redirect('/adminDash/noticeManageAdmin');
+        }
+        else
+        {
+          res.send("Something went wrong...");
+        }
+      });
+    }
 
+    else
+    {
+      res.redirect('/login');
+    }
+  }
+
+  if(req.body.hasOwnProperty("DELETE"))
+  {
+    if(req.session.uid == 1)
+    {
+      var param=
+      {
+        noticeID: req.body.unoteID
+      }
+      notice.deleteNotice(param,function(result)
+      {
+        if(result == true)
+        {
+          nInfo.Id="";
+          nInfo.sub="";
+          nInfo.text="";
+          var srchStatus= false;
+          res.redirect('/adminDash/noticeManageAdmin');
+        }
+        else
+        {
+          res.send("Something went wrong...");
+        }
+      });
     }
 
     else
@@ -95,7 +164,11 @@ router.post('/', function(req, res)
   {
     if(req.session.uid == 1)
     {
-
+      nInfo.Id="";
+      nInfo.sub="";
+      nInfo.text="";
+      srchStatus= false;
+      res.redirect('/adminDash/noticeManageAdmin');
     }
 
     else
