@@ -15,25 +15,25 @@
         <form method="POST">
             <input style="width: 20%; margin-left: 530px;" id="search" type="text" name="Search" placeholder="Search By ID" value="">
             <input id="btnSearch" type="submit" name="SEARCH" value="Search">
-  
+
             <p>Customer ID</p>
-            <input type="text" name="Id" placeholder="Customer Id" value="" readonly>
+            <input type="text" name="Id" placeholder="Customer Id" value="<%= sInfo.Id %>" readonly>
             <p>Name</p>
-            <input type="text" name="Name" placeholder="Customer Name" value="" readonly>
+            <input type="text" name="Name" placeholder="Customer Name" value="<%= sInfo.name %>" readonly>
             <p>Designation</p>
-            <input type="text" name="Designation" placeholder="Customer Designation" value="" readonly>
+            <input type="text" name="Designation" placeholder="Customer Designation" value="<%= sInfo.designation %>" readonly>
             <p>Mobile No.</p>
-            <input type="text" name="MobileNo" placeholder="Customer Mobile No" value="" readonly>
+            <input type="text" name="MobileNo" placeholder="Customer Mobile No" value="<%= sInfo.MobileNo %>" readonly>
             <p>E-mail</p>
-            <input type="email" name="Email" placeholder="Customer Email" value="" readonly>
+            <input type="email" name="Email" placeholder="Customer Email" value="<%= sInfo.Email %>" readonly>
             <p>Join Date</p>
-            <input type="text" name="JoinDate" value="" readonly>
+            <input type="text" name="JoinDate" value="<%= sInfo.JoinDate %>" readonly>
             <!--<p>Added By</p>
             input type="text" name="AddedBy"  value="" disabled><br>-->
             <br>
-            <input style="margin-top:120px;margin-left: 400px;" type="submit" value="Button1">
-            <input type="submit" value="Button2">
-            <input type="submit" value="Button3">
+            <input style="margin-top:120px;margin-left: 400px;" type="submit" name="REFRESH" value="REFRESH">
+            <input type="submit" name="APPROVE" value="APPROVE" <%if(srchStatus==false){%>disabled<%}%>>
+            <input type="submit" name="REJECT" value="REJECT" <%if(srchStatus==false){%>disabled<%}%>>
         </form>
         <div align="right" class="table">
             <table class="content-table">
@@ -45,7 +45,7 @@
                           <th>Designation</th>
                           <th>Mob.No.</th>
                           <th>Email</th>
-                          <th>JoinDate</th>
+                          <th>RegDate</th>
                       </tr>
                   </thead>
                   <tbody>

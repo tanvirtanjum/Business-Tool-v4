@@ -66,9 +66,57 @@ module.exports =
 		});
 	},
 
+	getPendingCustomer: function(user, callback)
+  {
+		var sql = "SELECT * FROM `customer` WHERE `cusid` ='"+user.cusid+"' AND `status` ='0';";
+		db.getResults(sql, function(result)
+    {
+      if(result.length > 0)
+      {
+				callback(result);
+			}
+      else
+      {
+				callback([]);
+			}
+		});
+	},
+
 	signCustomer: function(user, callback)
   {
 		var sql = "INSERT INTO `customer`(`cusid`, `name`, `design`, `email`, `mobile`,`reg_date`,`status`) VALUES ('"+user.cusid+"','"+user.name+"','"+user.design+"','"+user.email+"','"+user.mobile+"',CURRENT_TIMESTAMP(),'0');";
+		db.getResults(sql, function(result)
+    {
+      if(result)
+      {
+				callback(true);
+			}
+      else
+      {
+				callback(false);
+			}
+		});
+	},
+
+	approveCustomer: function(user, callback)
+  {
+		var sql = "UPDATE `customer` SET `status`='1' WHERE `cusid`='"+user.cusid+"';";
+		db.getResults(sql, function(result)
+    {
+      if(result)
+      {
+				callback(true);
+			}
+      else
+      {
+				callback(false);
+			}
+		});
+	},
+
+	rejectCustomer: function(user, callback)
+  {
+		var sql = "DELETE FROM `customer` WHERE `cusid`='"+user.cusid+"';";
 		db.getResults(sql, function(result)
     {
       if(result)

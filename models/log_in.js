@@ -81,6 +81,22 @@ module.exports =
 			}
 		});
 	},
+	
+	rejectCusLogin: function(user, callback)
+  {
+		var sql = "DELETE FROM `log_in` WHERE `LID`='"+user.lid+"';";
+		db.execute(sql, function(result)
+    {
+      if(result)
+      {
+				callback(true);
+			}
+      else
+      {
+				callback(false);
+			}
+		});
+	},
 
 	insetLogin: function(user, callback)
   {
