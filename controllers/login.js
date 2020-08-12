@@ -78,8 +78,9 @@ router.post('/', function(req, res)
 		}
     else
     {
-			res.send('invalid username/password');
-		}
+      res.send('Somethong Went Wrong....');
+    }
+    
 	});
 });
 

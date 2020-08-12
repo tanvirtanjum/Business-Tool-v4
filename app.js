@@ -2,7 +2,6 @@ var express = require('express');
 var exSession = require('express-session');
 var bodyParser = require('body-parser');
 
-
 var home = require('./controllers/home');
 var signup = require('./controllers/signup');
 var login  = require('./controllers/login');
