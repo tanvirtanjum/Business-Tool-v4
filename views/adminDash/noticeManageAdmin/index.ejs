@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manage Customer</title>
+    <title>Manage Notice</title>
     <link rel="stylesheet" type="text/css" href="../assets/styles/common.css">
     <link rel="stylesheet" type="text/css" href="../assets/styles/notice.css">
 </head>
@@ -14,19 +14,25 @@
         <h1>Notice Manage</h1>
         <hr>
         <form method="POST">
-            <input style="margin-top: 3px;width: 20%;" type="text" placeholder="Enter notice Name">
-            <input style="width: 15%;" type="submit" value="Send">
-            <input style="margin-top: 3px;width: 20%;margin-left: 180px;" type="text" placeholder="Enter notice Name">
-            <input style="width: 15%;" type="submit" value="Button">
+            <input style="margin-top: 3px;width: 20%;" type="text" name="noteSub" placeholder="Enter Notice Subject">
+            <input type="hidden" name="unoteID" value="">
+            <input style="width: 15%;" type="submit" name="SEND" value="SEND">
+            <input style="margin-top: 3px;width: 20%;margin-left: 180px;" type="text" name="noticeID" placeholder="Load Notice By ID">
+            <input style="width: 15%;" type="submit" name="LOAD" value="LOAD">
             <p>Your Notice</p>
-            <textarea style="margin-top: 10px;" name="notice" id="notice" placeholder="write your notice here" cols="42" rows="20"></textarea>
+            <textarea style="margin-top: 10px;" name="noticetext" id="notice" placeholder="write your notice here" cols="42" rows="20"></textarea>
             <table style="float: right;" class="content-table">
                 <thead>
                     <th>Notice Id</th>
                     <th>Subject</th>
                 </thead>
                 <tbody>
-                    <!-- ejs -->
+                  <% for(var i=0; i < list.length; i++){ %>
+                  <tr>
+                    <td><%= list[i].noticeID %></td>
+                    <td><%= list[i].noteSub %></td>
+                  </tr>
+                  <% } %>
                 </tbody>
             </table>
             <input type="submit" value="Update">

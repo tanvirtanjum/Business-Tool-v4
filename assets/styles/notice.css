@@ -73,7 +73,7 @@ input[type="submit"]:hover {
     color: #000;
 }
 p{
-    
+
     color: #000;
     text-align: left;
     font-weight: bold;
@@ -85,6 +85,7 @@ input[type="text"] {
 input[type="text"] {
     background: transparent;
     height: 30px;
-    color: #fff;
+    /*color: #fff;*/
+		color: black;
     font-size: 16px;
 }
