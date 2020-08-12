@@ -1,6 +1,6 @@
 let saveFile = () => 
 {
-	let data = ""+document.getElementById("noteTA").value+"";
+	let data = ""+document.getElementById("notes").value+"";
 	
 	if(data != "")
 	{
