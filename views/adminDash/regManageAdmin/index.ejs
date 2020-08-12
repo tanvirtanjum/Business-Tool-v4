@@ -13,22 +13,28 @@
     <div align="right" class="table">
         <table class="content-table">
             <thead>
+              <thead>
+                  <tr>
+                      <th>Customer Id</th>
+                      <th>Name</th>
+                      <th>Designation</th>
+                      <th>Mob.No.</th>
+                      <th>Email</th>
+                      <th>JoinDate</th>
+                  </tr>
+              </thead>
+              <tbody>
+                <% for(var i=0; i < list.length; i++){ %>
                 <tr>
-                    <th>Customar Id</th>
-                    <th>Username</th>
-                    <th>Password</th>
-                    <th>Full Name</th>
-                    <th>Address</th>
-                    <th>Email</th>
-                    <th>Mob.No.</th>
-                    <th>JoinDate</th>
-                    <th>Action</th>
+                  <td><%= list[i].cusid %></td>
+                  <td><%= list[i].name %></td>
+                  <td><%= list[i].design %></td>
+                  <td><%= list[i].mobile %></td>
+                  <td><%= list[i].email %></td>
+                  <td><%= list[i].reg_date %></td>
                 </tr>
-            </thead>
-
-            <!-- <tbody>
-                ejs code here
-            </tbody> -->
+                <% } %>
+              </tbody>
         </table>
     </div>
 </body>
