@@ -34,7 +34,7 @@
                 <option id="TV" value="TV" <%if(pInfo.type=="TV"){%>typeselected<%}%>>TV</option>
             </select><br>
             <p>Quantity</p>
-            <input type="number" name="proQuantity" placeholder="Enter Quantity" value="<%= pInfo.quantity %>" ><br>
+            <input type="number" name="proQuantity" placeholder="Enter Quantity" value="<%= pInfo.quantity %>" ><br><span style="color: red;">*Give Quantity amount</span>
             <input type="text" name="proBuyPrice" value="<%= pInfo.buyPrice %> " hidden>
             <p>Sell Price</p>
             <input type="text" name="proSellPrice" placeholder="Price" value="<%= pInfo.SellPrice %>">
