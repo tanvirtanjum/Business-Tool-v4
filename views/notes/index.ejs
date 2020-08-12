@@ -20,6 +20,7 @@
 		<meta charset="UTF-8">
 		<title>Notes</title>
 		<link rel="stylesheet" type="text/css" href="../assets/styles/notes.css">
+		<script src="../assets/js/saveNotes.js"></script>
 	</head>
 	<body>
 		<div class="box">
@@ -32,29 +33,31 @@
 				<input style="margin-left: 5px;width: 15%;" type="Submit" name="SEE" value="SEE"><br>
 				<textarea placeholder="write here..." name="notes" id="notes" cols="46" rows="20"><%= nInfo.text %></textarea><br>
 				<input type="submit" name="REFRESH" value="REFRESH">
-        <input style="margin-left: 30px;" type="submit" name="PRINT" value="PRINT">
+        <input style="margin-left: 30px;" type="submit" name="PRINT" value="PRINT" onclick='return saveFile()'>
 				<br><br>
 				<input type="submit" name="UPDATE" value="UPDATE" <%if(srchStatus==false){%>disabled<%}%>>
         <input style="margin-left: 30px;" type="submit" name="DELETE" value="DELETE" <%if(srchStatus==false){%>disabled<%}%>>
 
       </form>
-				<div align="right" class="table">
-					<table class="content-table">
-						<thead>
+			<div align="right" class="table">
+				<table class="content-table">
+					<thead>
+						<tr>
+							<th>Note Id</th>
+							<th>Note Name</th>
+						</tr>
+					</thead>
+					<tbody class="tab">
+						<% for(var i=0; i < list.length; i++){ %>
 							<tr>
-								<th>Note Id</th>
-								<th>Note Name</th>
+							  <td><%= list[i].NoteID %></td>
+							  <td><%= list[i].NoteName %></td>
 							</tr>
-						</thead>
-
-            <% for(var i=0; i < list.length; i++){ %>
-            <tr>
-              <td><%= list[i].NoteID %></td>
-              <td><%= list[i].NoteName %></td>
-            </tr>
-            <% } %>
-					</table>
-				</div>
+						<% } %>
+					</tbody>
+				
+				</table>
+			</div>
 		</div>
 	</body>
 </html>
