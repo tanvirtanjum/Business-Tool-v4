@@ -13,12 +13,25 @@
     <div class="table">
         <h1>Notice Manage</h1>
         <hr>
-        <p>Notice Name</p>
-        <input type="text" placeholder="Enter notice Name">
-        <p>Your Notice</p>
-        <textarea name="notice" id="notice" placeholder="write your notice here" cols="80" rows="20"></textarea><br>
-        <input type="submit" value="Send">
-
+        <form method="POST">
+            <input style="margin-top: 3px;width: 20%;" type="text" placeholder="Enter notice Name">
+            <input style="width: 15%;" type="submit" value="Send">
+            <input style="margin-top: 3px;width: 20%;margin-left: 180px;" type="text" placeholder="Enter notice Name">
+            <input style="width: 15%;" type="submit" value="Button">
+            <p>Your Notice</p>
+            <textarea style="margin-top: 10px;" name="notice" id="notice" placeholder="write your notice here" cols="42" rows="20"></textarea>
+            <table style="float: right;" class="content-table">
+                <thead>
+                    <th>Notice Id</th>
+                    <th>Subject</th>
+                </thead>
+                <tbody>
+                    <!-- ejs -->
+                </tbody>
+            </table>
+            <input type="submit" value="Update">
+            <input type="submit" value="Delete">
+        </form>
     </div>
 </body>
 </html>>

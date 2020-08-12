@@ -25,23 +25,24 @@
 		<div class="table">
 			<h1>Notice</h1>
 			<hr>
-			<table class="content-table">
-				<thead>
-					<tr>
-						<th>Notice Id</th>
-						<th>Notice Name</th>
-						<th>Owner Id</th>
-						<th>Date</th>
-					</tr>
-				</thead>
-
-				<!-- <tbody>
-					ejs code here
-				</tbody> -->
-			</table>
-			<hr><br>
-			<textarea style="margin-left: 11px;" name="see" id="see" cols="80" rows="20"></textarea><br>
-			<input type="Submit" value="Refresh">
+			<form method="POST">
+				<input style="margin-top: 3px;width: 25%; margin-left: 10px;" type="text" name="subject" placeholder="Subject">
+				<input style="margin-top: 3px;width: 25%; margin-left: 180px;" type="text" placeholder="id" name="id"><input type="Submit" value="Read"><br>
+				<textarea style="margin-left: 11px;margin-top: 10px;" name="see" id="see" cols="40" rows="20" placeholder="Notice"></textarea>
+				<table style="float: right;margin-right: 40px;" class="content-table">
+					<thead>
+						<tr>
+							<th>Id</th>
+							<th>Subject</th>
+						</tr>
+					</thead>
+	
+					<!-- <tbody>
+						ejs code here
+					</tbody> -->
+				</table>
+			</form>
+			
 		</div>
 	</body>
 </html>
