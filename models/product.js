@@ -36,7 +36,23 @@ module.exports=
 
     getProduct: function(id,callback)
     {
-      var sql = "SELECT *FROM `product` WHERE `PID` ='"+id.pID+"';";
+      var sql = "SELECT * FROM `product` WHERE `PID` ='"+id.pID+"';";
+      db.getResults(sql,function(result)
+      {
+          if(result.length > 0)
+          {
+              callback(result);
+          }
+          else
+          {
+              callback([]);
+          }
+      });
+    },
+
+    getProductForOrder: function(PID,callback)
+    {
+      var sql = "SELECT * FROM `product` WHERE `PID` ='"+PID+"';";
       db.getResults(sql,function(result)
       {
           if(result.length > 0)
@@ -52,7 +68,7 @@ module.exports=
 
     getProductForSale: function(id,callback)
     {
-      var sql = "SELECT *FROM `product` WHERE `PID` ='"+id.pID+"' AND `AVAILABILITY`='AVAILABLE';";
+      var sql = "SELECT * FROM `product` WHERE `PID`='"+id.pID+"' AND `AVAILABILITY`='AVAILABLE';";
       db.getResults(sql,function(result)
       {
           if(result.length > 0)
@@ -111,7 +127,7 @@ module.exports=
         }
       });
     },
-    
+
     deleteProduct: function(info,callback)
     {
       var sql ="UPDATE `product` SET `AVAILABILITY`='UNAVAILABLE' WHERE `PID`='"+info.pId+"';";
