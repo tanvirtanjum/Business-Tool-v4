@@ -14,15 +14,17 @@
     <div class="box">
         <h1>Order Products</h1>
         <hr>
-        <div class="cart">
-            <p>product Id: Alpha</p>
-            <p>product Name: Alpha</p>
-            <p>Available Quantity: Alpha</p>
-            <p>Price: Alpha</p>
-            <p>Type: Alpha</p>
-            <hr>
-            <a href="/customerDash/orderProducts/Buy"><input type="submit" value="Buy"></a>    
-        </div>
+        <% for(var i=0; i < list.length; i++){ %>
+          <div class="cart">
+              <p>product Id: <%= list[i].PID %></p>
+              <p>product Name: <%= list[i].P_NAME %></p>
+              <p>Available Quantity: <%= list[i].QUANTITY %></p>
+              <p>Price: <%= list[i].SELL_PRICE %></p>
+              <p><%= list[i].TYPE %></p>
+              <hr>
+              <a href="/customerDash/orderProducts/Buy"><input type="submit" value="Buy"></a>
+          </div>
+        <% } %>
     </div>
 </body>
 </html>
