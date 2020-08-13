@@ -12,8 +12,6 @@
 </head>
 <body>
     <div align="center" class="table">
-        <input style="width: 25%; margin-left: 70px;" id="search" type="text" name="Search" placeholder="Search" value="">
-        <input id="search" type="submit" value="Search">
         <table class="content-table">
             <thead>
                 <tr>
@@ -22,13 +20,31 @@
                     <th>Ship to</th>
                     <th>Order Total</th>
                     <th>Status</th>
-                    <th>Action</th>
+                    <th></th>
+                    <th></th>
                 </tr>
             </thead>
 
-            <!-- <tbody>
-                ejs code here
-            </tbody> -->
+            <tbody>
+              <% if(list.length>0){ %>
+                <% for(var i=0; i < list.length; i++){ %>
+                <tr>
+                  <td><%= list[i].orderid %></td>
+                  <td><%= list[i].ord_date %></td>
+                  <td><%= list[i].orderby %></td>
+                  <td><%= list[i].ammout %></td>
+                  <td>CONFIRMED</td>
+                  <td><a href="/DeliverymanDash/pendingDeliveryList/ACCEPTED/<%=list[i].orderid%>"><input type="submit" value="ACCEPTED"></a><td>
+                  <td><a href="/DeliverymanDash/pendingDeliveryList/REJECTED/<%=list[i].orderid%>"><input type="submit" value="RETURNED"></a><td>
+                </tr>
+                <% } %>
+              <% } %>
+              <% if(list.length==0){ %>
+                <tr>
+                  <td colspan="7" align="center">NO DATA</td>
+                </tr>
+              <% } %>
+            </tbody>
         </table>
     </div>
   </div>
