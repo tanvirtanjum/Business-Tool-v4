@@ -7,7 +7,7 @@ var chatin=
 {
   sender: "",
   subject: "",
-  test : ""
+  text : ""
 }
 
 var list1;
@@ -70,6 +70,17 @@ router.post('/', function(req, res)
         }
       });
     }
+
+    if(req.body.hasOwnProperty("REFRESH"))
+    {
+
+      chatin.sender= "";
+      chatin.subject= "";
+      chatin.text =  "";
+
+      res.redirect('/chatBox');
+
+    }
   }
   else
   {
@@ -77,11 +88,27 @@ router.post('/', function(req, res)
   }
 });
 
-router.get('/ACCEPTED/:id', function(req, res)
+router.get('/OpenUnread/:id', function(req, res)
 {
   if(req.session.type == 1 || req.session.type == 2 || req.session.type == 3 || req.session.type == 4)
   {
-    
+    chat.read(req.session.uid, req.params.id, function(result)
+    {
+      if(result.length>0)
+      {
+        chatin.sender= result[0].SENDER;
+        chatin.subject=result[0].SUB;
+        chatin.text = result[0].TEXT;
+
+        chat.seen(req.params.id, req.session.uid, function(result)
+        {
+          if(result)
+          {
+            res.redirect('/chatBox');
+          }
+        });
+      }
+    });
   }
 });
 

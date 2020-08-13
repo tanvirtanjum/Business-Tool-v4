@@ -94,11 +94,11 @@
                 </tbody>
 							</table>
 						</table>
-						<input style="margin-left:10px;margin-top: 3px;" type="text"><br>
-						<input style="margin-left:10px;" type="text"><br>
+						<input style="margin-left:10px;margin-top: 3px;" type="text" value="<%= chatin.sender %>"><br>
+						<input style="margin-left:10px;" type="text" value="<%= chatin.subject %>"><br>
 
 
-						<textarea style="margin-top: 5px;margin-left: 10px;" placeholder="Message Body" name="see" id="see" cols="42" rows="20"></textarea><br>
+						<textarea style="margin-top: 5px;margin-left: 10px;" placeholder="Message Body" name="see" id="see" cols="42" rows="20"><%= chatin.text %></textarea><br>
 						<input style="margin-top: 5px;margin-left: 10px;" type="submit" value="REFRESH" name="REFRESH">
 					</div>
 					<div class="tab2">
@@ -134,7 +134,7 @@
 
 						<p>Subject</p><input type="text" placeholder="Enter your message Subject" name="subject"><br>
 						<textarea name="stext" id="" cols="42" rows="20" placeholder="Write your message here...."></textarea><br>
-						<input type="submit" value="Refresh"><input style="margin-left: 7px;" type="submit" name="SEND" value="SEND">
+						<input style="margin-left: 7px;" type="submit" name="SEND" value="SEND">
 					</div>
 				</section>
 			</div>

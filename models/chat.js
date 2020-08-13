@@ -4,7 +4,7 @@ module.exports=
 {
     send : function(info,callback)
     {
-        var sql="INSERT INTO `chat`(`DATE`,`SUB`, `SENDER`, `TEXT`, `ATTACHMENT`, `RECEIVER`, `STATUS`) VALUES(CURRENT_TIMESTAMP(),'"+info.a+"','"+info.d+"','"+info.c+"',' ','"+info.a+"','0');";
+        var sql="INSERT INTO `chat`(`DATE`,`SUB`, `SENDER`, `TEXT`, `ATTACHMENT`, `RECEIVER`, `STATUS`) VALUES(CURRENT_TIMESTAMP(),'"+info.b+"','"+info.d+"','"+info.c+"',' ','"+info.a+"','0');";
         db.execute(sql,function(result)
         {
             if(result)
@@ -66,9 +66,25 @@ module.exports=
     		});
     },
 
-    seen : function(info,callback)
+    read : function(info1,info2,callback)
     {
-        var sql="UPDATE `chat` SET `STATUS`='1' WHERE `MSG_ID`='"+info.a+"' AND `RECEIVER`='"+info.b+"';";
+        var sql="SELECT * FROM `chat` WHERE `RECEIVER`='"+info1+"' AND `MSG_ID`='"+info2+"';";
+        db.getResults(sql, function(result)
+        {
+          if(result.length > 0)
+          {
+    				callback(result);
+    			}
+          else
+          {
+    				callback([]);
+    			}
+    		});
+    },
+
+    seen : function(info1,info2,callback)
+    {
+        var sql="UPDATE `chat` SET `STATUS`='1' WHERE `MSG_ID`='"+info1+"' AND `RECEIVER`='"+info2+"';";
 
         db.execute(sql,function(result)
         {
