@@ -36,11 +36,11 @@
 				</nav>
 				<section>
 					<div class=tab1>
-						
+
 						<table style="float: right;" class="content-table">
 							<caption>Unseen</caption>
 							<thead>
-								
+
 								<tr>
 									<th>Message ID</th>
 									<th>Sender</th>
@@ -48,8 +48,25 @@
 									<th>Date</th>
 								</tr>
 							</thead>
+              <tbody>
+                <% if(list1.length>0){ %>
+                  <% for(var i=0; i < list1.length; i++){ %>
+                  <tr>
+                    <td><a href="/chatBox/OpenUnread/<%= list1[i].MSG_ID %>"><%= list1[i].MSG_ID %></a></td>
+                    <td><%= list1[i].SENDER %></td>
+                    <td><%= list1[i].SUB %></td>
+                    <td><%= list1[i].DATE %></td>
+                  </tr>
+                  <% } %>
+                <% } %>
+                <% if(list1.length==0){ %>
+                  <tr>
+                    <td colspan="4" align="center">NO DATA</td>
+                  </tr>
+                <% } %>
+              </tbody>
 							<table style="float: right;" class="content-table">
-								<caption>seen</caption>
+								<caption>Seen</caption>
 								<thead>
 									<tr>
 										<th>Message ID</th>
@@ -58,15 +75,29 @@
 										<th>Date</th>
 									</tr>
 								</thead>
-								<!-- <tbody>
-									ejs here
-								</tbody> -->
+                <tbody>
+                  <% if(list2.length>0){ %>
+                    <% for(var i=0; i < list2.length; i++){ %>
+                    <tr>
+                      <td><a href="/chatBox/OpenUnread/<%= list2[i].MSG_ID %>"><%= list2[i].MSG_ID %></a></td>
+                      <td><%= list2[i].SENDER %></td>
+                      <td><%= list2[i].SUB %></td>
+                      <td><%= list2[i].DATE %></td>
+                    </tr>
+                    <% } %>
+                  <% } %>
+                  <% if(list2.length==0){ %>
+                    <tr>
+                      <td colspan="4" align="center">NO DATA</td>
+                    </tr>
+                  <% } %>
+                </tbody>
 							</table>
 						</table>
 						<input style="margin-left:10px;margin-top: 3px;" type="text"><br>
 						<input style="margin-left:10px;" type="text"><br>
-	
-	
+
+
 						<textarea style="margin-top: 5px;margin-left: 10px;" placeholder="Message Body" name="see" id="see" cols="42" rows="20"></textarea><br>
 						<input style="margin-top: 5px;margin-left: 10px;" type="submit" value="REFRESH" name="REFRESH">
 					</div>
@@ -76,14 +107,31 @@
 							<thead>
 								<tr>
 									<th>Message ID</th>
-									<th>Sender</th>
+									<th>Reciever</th>
 									<th>Subject</th>
 									<th>Date</th>
 								</tr>
 							</thead>
+              <tbody>
+                <% if(list3.length>0){ %>
+                  <% for(var i=0; i < list3.length; i++){ %>
+                  <tr>
+                    <td><%= list3[i].MSG_ID %></td>
+                    <td><%= list3[i].RECEIVER %></td>
+                    <td><%= list3[i].SUB %></td>
+                    <td><%= list3[i].DATE %></td>
+                  </tr>
+                  <% } %>
+                <% } %>
+                <% if(list3.length==0){ %>
+                  <tr>
+                    <td colspan="4" align="center">NO DATA</td>
+                  </tr>
+                <% } %>
+              </tbody>
 						</table>
 						<input type="text" placeholder="Enter valid user Id" name="reciever" id=""><br>
-						
+
 						<p>Subject</p><input type="text" placeholder="Enter your message Subject" name="subject"><br>
 						<textarea name="stext" id="" cols="42" rows="20" placeholder="Write your message here...."></textarea><br>
 						<input type="submit" value="Refresh"><input style="margin-left: 7px;" type="submit" name="SEND" value="SEND">
