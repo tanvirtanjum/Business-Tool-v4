@@ -16,13 +16,13 @@
         <hr>
         <% for(var i=0; i < list.length; i++){ %>
           <div class="cart" style="margin-left: 25px;">
-              <p>product Id: <%= list[i].PID %></p>
-              <p>product Name: <%= list[i].P_NAME %></p>
+              <p>Product ID. <%= list[i].PID %></p>
+              <p>Product Name: <%= list[i].P_NAME %></p>
               <p>Available Quantity: <%= list[i].QUANTITY %></p>
               <p>Price: <%= list[i].SELL_PRICE %></p>
-              <p><%= list[i].TYPE %></p>
+              <p>Type: <%= list[i].TYPE %></p>
               <hr>
-              <a style="padding-left: 20px;" href="/customerDash/orderProducts/Buy"><input type="submit" value="Buy"></a>
+              <a style="padding-left: 20px;" href="/customerDash/orderProducts/Buy/<%=list[i].PID%>"><input type="submit" value="Buy"></a>
           </div>
         <% } %>
     </div>
