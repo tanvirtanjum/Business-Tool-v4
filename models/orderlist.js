@@ -36,6 +36,23 @@ module.exports=
       });
     },
 
+    approveOrder: function(info,callback)
+    {
+      var sql="UPDATE `orderlist` SET `stat`='1', `deliveryby`='"+info.del+"' WHERE `orderid`='"+info.id+"';";
+
+      db.execute(sql,function(result)
+      {
+          if(result)
+          {
+              callback(true);
+          }
+          else
+          {
+              callback(false);
+          }
+      });
+    },
+
     getAllPendingOrder: function(callback)
     {
       var sql="SELECT * FROM `orderlist` WHERE `stat`='0';";

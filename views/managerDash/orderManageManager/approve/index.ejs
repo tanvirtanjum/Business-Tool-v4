@@ -1,0 +1,32 @@
+<!-- sidebar Included -->
+<%-include('../../common.ejs') -%>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/../assets/styles/common.css">
+    <link rel="stylesheet" type="text/css" href="/../assets/styles/buy.css">
+    <title>Select Delivery Man</title>
+</head>
+<body>
+  <form method="post">
+    <div class="box">
+        <h1>Confirm Order</h1>
+        <hr>
+        <p>Order ID</p>
+        <input type="text" name="a" value="<%= order.orderid %>" readonly>
+        <p>Product ID</p>
+        <input type="text" name="name" value="<%= order.prodid %>" readonly>
+        <p>Quantity</p>
+        <input type="text" name="type" value="<%= order.quant %>" readonly>
+        <p>Cash</p>
+        <input type="text" name="aq" value="<%= order.ammout %>" readonly>
+        <p>Order Date</p>
+        <input type="text" name="c" value="<%= order.ord_date %>" readonly>
+        <p>Delivery By</p>
+        <input type="text" placeholder="Enter Delivery Man ID." name="b"><br>
+        <input type="submit" value="CONFIRM">
+    </div>
+  </form>
+</body>
+</html>
