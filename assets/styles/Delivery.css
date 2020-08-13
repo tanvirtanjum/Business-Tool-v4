@@ -68,6 +68,7 @@ body {
     border-radius: 5px 5px 0 0;
     overflow: hidden;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    
 }
 
 .content-table thead tr {
@@ -84,11 +85,13 @@ body {
 
 .content-table tbody tr {
     border-bottom: 1px solid #dddddd;
-    color: #ddd;
+    color:#ffffff;
 }
 
 .content-table tbody tr:nth-last-of-type(even) {
     background-color: #f3f3f3;
+    color: #000;
+    
 }
 
 .content-table tbody tr:last-of-type {
