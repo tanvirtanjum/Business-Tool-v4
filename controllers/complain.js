@@ -63,9 +63,4 @@ router.post('/',function(req,res)
         res.send("Something Wrong.....!");
    }   
 });
-
-    
-})
-
-
 module.exports=router;

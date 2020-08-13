@@ -24,13 +24,11 @@ body {
     font-size: 16px;
 }
 
-
-
 .table input[type="submit"] {
     border: none;
     outline: none;
     height: 40px;
-    width: 150px;
+    width: 110px;
     background: #fb2525;
     color: #fff;
     font-size: 18px;
@@ -44,7 +42,7 @@ body {
 }
 
 .table {
-    width: 600px;
+    width: 770px;
     height: 570px;
     top: 48%;
     left: 57%;
@@ -86,6 +84,7 @@ body {
 
 .content-table tbody tr {
     border-bottom: 1px solid #dddddd;
+    color: #ddd;
 }
 
 .content-table tbody tr:nth-last-of-type(even) {
