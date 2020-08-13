@@ -148,9 +148,9 @@ input[type="submit"]:hover {
     background: #ffc107;
     color: #000;
 }
-p{
+caption{
     color: #009879;
-    margin-left: 150px;
+    font-size: 20px;
 }
 
 
