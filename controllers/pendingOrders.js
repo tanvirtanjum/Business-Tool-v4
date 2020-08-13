@@ -21,4 +21,24 @@ router.get('/', function(req, res)
   }
 });
 
+router.get('/:id', function(req, res)
+{
+  if(req.session.type == 5)
+  {
+    orderlist.cancelOrder(req.params.id, function(result)
+    {
+      if(result)
+      {
+        res.redirect('/customerDash/pendingOrders');
+      }
+
+      else
+      {
+        req.send("Something Went Wrong...");
+      }
+    });
+  }
+
+});
+
 module.exports = router;

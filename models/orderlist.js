@@ -19,6 +19,23 @@ module.exports=
       });
     },
 
+    cancelOrder: function(info,callback)
+    {
+      var sql="DELETE FROM `orderlist` WHERE `orderid`='"+info+"' AND `stat`='0';";
+
+      db.execute(sql,function(result)
+      {
+          if(result)
+          {
+              callback(true);
+          }
+          else
+          {
+              callback(false);
+          }
+      });
+    },
+
     getUserPendingOrder: function(info,callback)
     {
       var sql="SELECT * FROM `orderlist` WHERE `orderby`='"+info+"' AND `stat`='0';";

@@ -13,7 +13,7 @@
 <body>
     <div class="box">
         <form method="POST">
-            <input style="width: 25%; margin-left: 530px;" id="search" type="text" name="Search" placeholder="Search" value="">
+            <!--<input style="width: 25%; margin-left: 530px;" id="search" type="text" name="Search" placeholder="Search" value="">
             <input id="search" type="submit" value="Search">
             <p>jani nah</p>
             <input type="text" placeholder="sommething">
@@ -22,8 +22,7 @@
             <p>jani nah</p>
             <input type="text" placeholder="sommething">
             <p>jani nah</p>
-            <input type="text" placeholder="sommething"><br>
-            <input type="submit">
+            <input type="text" placeholder="sommething"><br>-->
         </form>
         <div align="center" class="table">
             <table class="content-table">
@@ -33,6 +32,7 @@
                         <th>Date</th>
                         <th>Order Total</th>
                         <th>Pending Status</th>
+                        <th> </th>
                     </tr>
                 </thead>
 
@@ -43,6 +43,7 @@
                     <td><%= list[i].ord_date %></td>
                     <td><%= list[i].ammout %></td>
                     <td>Pending</td>
+                    <td><a href="/customerDash/pendingOrders/<%=list[i].orderid%>"><input type="submit" value="CANCEL"></a><td>
                   </tr>
                   <% } %>
                 <% } %>
