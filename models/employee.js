@@ -18,6 +18,22 @@ module.exports =
 		});
 	},
 
+	getEmployeeForRecover: function(user, callback)
+  {
+		var sql = "SELECT * FROM `employee` WHERE `EmpID` ='"+user.a+"' AND `E_NAME` ='"+user.b+"' AND `DID` ='"+user.c+"' AND  `E_MAIL` ='"+user.d+"' AND  `E_MOB` ='"+user.e+"';";
+		db.execute(sql, function(result)
+    {
+      if(result)
+      {
+				callback(true);
+			}
+      else
+      {
+				callback(true);
+			}
+		});
+	},
+
 	getAllEmployee: function(user, callback)
   {
 		var sql = "SELECT * FROM `employee` WHERE `DID` != '0' ORDER BY `DID`;";

@@ -58,8 +58,14 @@ router.post('/',function(req,res)
             res.redirect('/login');
        }
    }
-   
-    
+   else
+   {
+        res.send("Something Wrong.....!");
+   }   
 });
+
+    
+})
+
 
 module.exports=router;
