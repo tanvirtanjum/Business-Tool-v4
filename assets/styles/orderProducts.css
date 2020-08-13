@@ -8,7 +8,7 @@ body {
 }
 
 .box {
-    width: 1000px;
+    width: 980px;
     height: 700px;
     background: #000;
     color: #fff;
@@ -28,10 +28,13 @@ h1 {
     font-size: 22px;
 }
 .cart{
+    float: left; 
     margin-top: 15px;
-    background-color: rgb(3, 201, 250);
-    width: 200px;
+    background-color: rgb(3, 250, 209);
+    width: 250px;
     height: 180px;
+    border:3px solid #fb2525;
+   
 }
 p{
     margin-top: 5px;
@@ -60,4 +63,7 @@ input[type="submit"]:hover {
     cursor: pointer;
     background: #ffc107;
     color: #000;
+}
+hr{
+    border-top: 2px solid red;
 }
