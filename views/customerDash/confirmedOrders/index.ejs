@@ -15,20 +15,38 @@
         <input style="width: 25%; margin-left: 70px;" id="search" type="text" name="Search" placeholder="Search" value="">
         <input id="search" type="submit" value="Search">
         <table class="content-table">
-            <thead>
-                <tr>
-                   <th>Order#</th>
-                   <th>Items</th>
-                   <th>Total Ammount</th>
-                   <th>Recieve time</th>
-                   <th>Bill</th>
-                  <!-- <th>Action</th> for cancel order -->
-                </tr>
-            </thead>
+          <thead>
+              <tr>
+                  <th>Order#</th>
+                  <th>Date</th>
+                  <th>Payable Ammount</th>
+                  <th>Order Status</th>
+              </tr>
+          </thead>
 
-          <!-- <tbody>
-              ejs code here
-          </tbody> -->
+            <tbody>
+              <% if(list.length>0){ %>
+                <% for(var i=0; i < list.length; i++){ %>
+                <tr>
+                  <td><%= list[i].orderid %></td>
+                  <td><%= list[i].ord_date %></td>
+                  <td><%= list[i].ammout %></td>
+                  <td>Confirmed</td>
+                </tr>
+                <% } %>
+              <% } %>
+              <% if(list.length==0){ %>
+                <tr>
+                  <td colspan="4" align="center">NO DATA</td>
+                </tr>
+                <tr>
+                  <td colspan="4" align="center">NO DATA</td>
+                </tr>
+                <tr>
+                  <td colspan="4" align="center">NO DATA</td>
+                </tr>
+              <% } %>
+            </tbody>
         </table>
   </div>
 </body>
