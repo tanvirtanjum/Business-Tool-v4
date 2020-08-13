@@ -36,9 +36,21 @@
                     </tr>
                 </thead>
 
-                <!-- <tbody>
-                    ejs code here
-                </tbody> -->
+                <% if(list.length>0){ %>
+                  <% for(var i=0; i < list.length; i++){ %>
+                  <tr>
+                    <td><%= list[i].orderid %></td>
+                    <td><%= list[i].ord_date %></td>
+                    <td><%= list[i].ammout %></td>
+                    <td>Pending</td>
+                  </tr>
+                  <% } %>
+                <% } %>
+                <% if(list.length==0){ %>
+                  <tr>
+                    <td colspan="4" align="center">NO DATA</td>
+                  </tr>
+                <% } %>
             </table>
         </div>
     </div>
