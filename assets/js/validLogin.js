@@ -11,20 +11,20 @@ function validate(){
     }
     if(y.value=="")
     {
+        alert("Please provide valid Password!");
+        y.focus();
+        return false;
+        
+    }
+    else if(y.value!="")
+    {
         if(!(y.value.length >= 4))
         {
             message.style.color=color;
-            message.innerHTML="Fuck you!";
+            message.innerHTML="NO NO NO!";
             y.focus();
             return false;
         }
-        else
-        {
-            alert("Please provide valid Password!");
-            y.focus();
-            return false;
-        }
-        
     }
     return (true);
 }
