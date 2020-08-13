@@ -12,24 +12,36 @@
 </head>
 <body>
   <div align="center" class="table">
-      <input style="width: 25%; margin-left: 70px;" id="search" type="text" name="Search" placeholder="Search" value="">
-      <input id="search" type="submit" value="Search">
       <table class="content-table">
-          <thead>
-              <tr>
-                  <th> SL </th>
-                  <th>Order#</th>
-                  <th>Date</th>
-                  <th> Ship time </th>
-                  <th>Ship to</th>
-                  <th>Order Total</th>
-              </tr>
-          </thead>
+        <thead>
+            <tr>
+                <th>Order#</th>
+                <th>Date</th>
+                <th>Paid Ammount</th>
+                <th>Delivered By</th>
+                <th>Status</th>
+            </tr>
+        </thead>
 
-          <!-- <tbody>
-              ejs code here
-          </tbody> -->
-      </table>
+        <tbody>
+        <% if(list.length>0){ %>
+          <% for(var i=0; i < list.length; i++){ %>
+          <tr>
+            <td><%= list[i].orderid %></td>
+            <td><%= list[i].ord_date %></td>
+            <td><%= list[i].ammout %></td>
+            <td><%= list[i].deliveryby %></td>
+            <td>RECIEVED</td>
+          </tr>
+          <% } %>
+        <% } %>
+        <% if(list.length==0){ %>
+          <tr>
+            <td colspan="5" align="center">NO DATA</td>
+          </tr>
+        <% } %>
+        </tbody>
+    </table>
   </div>
 </body>
 </html>
