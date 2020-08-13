@@ -32,11 +32,13 @@
 		<h1>Password Change</h1>
 		<form method="POST" name="myForm" onsubmit="return(validate());">
 			<p>Old Password</p>
-			<input type="password" name="oldpassword" placeholder="Enter Old Password" value=""><br><span></span>
+			<input type="password" name="oldpassword" placeholder="Enter Old Password" value=""><br>
+			<span id="err"></span>
 			<p>New Password</p>
 			<input type="password" name="newpassword" placeholder="Enter New password" value=""><br><span style="color: red;">*Password length must be 4 or more </span>
 			<p>Confirm New Password</p>
-			<input type="password" name="confirmnewpassword" placeholder="Confirm New password" value=""><br><span></span>
+			<input type="password" name="confirmnewpassword" placeholder="Confirm New password" value=""><br>
+			<span id="err1"></span><br>
 			<input type="submit" name="save" value="Proceed"><span></span>
 		</form>
 	</div>

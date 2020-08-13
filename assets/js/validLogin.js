@@ -21,7 +21,7 @@ function validate(){
         if(!(y.value.length >= 4))
         {
             message.style.color=color;
-            message.innerHTML="NO NO NO!";
+            message.innerHTML="Password Length greater than or Equal 4!";
             y.focus();
             return false;
         }

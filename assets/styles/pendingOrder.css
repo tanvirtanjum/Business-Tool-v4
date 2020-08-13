@@ -3,32 +3,6 @@ body{
     padding: 0;
     background-color: rgb(40, 54, 54);
 }
-.box {
-    width: 1050px;
-    height: 730px;
-    background: #000;
-    color: #fff;
-    top: 50%;
-    left: 59%;
-    position: absolute;
-    transform: translate(-50%, -50%);
-    box-sizing: border-box;
-    padding: 40px 30px;
-}
-
-h1 {
-    margin: 0;
-    padding: 0 0 10px;
-    text-align: center;
-    font-size: 22px;
-}
-
-.box p {
-    margin: 0;
-    padding: 0;
-    font-weight: bold;
-}
-
 .box input[type="text"] {
     width: 28%;
     margin-bottom: 20px;
@@ -149,10 +123,12 @@ h1 {
 
 .content-table tbody tr {
     border-bottom: 1px solid #dddddd;
+    color: #ddd;
 }
 
 .content-table tbody tr:nth-last-of-type(even) {
-    background-color: blue;
+    background-color:white;
+    color: #000;
 }
 
 .content-table tbody tr:last-of-type {
