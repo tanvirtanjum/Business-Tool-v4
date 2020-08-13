@@ -34,6 +34,7 @@ var notes = require('./controllers/notes');
 var chatBox = require('./controllers/chatBox');
 var complainBox = require('./controllers/complainBox');
 var resetPass = require('./controllers/resetPassword');
+var complain = require('./controllers/complain');
 
 var app = express();
 
@@ -84,6 +85,7 @@ app.use('/customerDash/complainBox',complainBox);
 app.use('/adminDash/customerManageAdmin',customerManageAdmin);
 app.use('/adminDash/noticeManageAdmin',noticeManageAdmin);
 app.use('/resetPassword',resetPass);
+app.use('/adminDash/complainBox',complain);
 
 
 app.listen(3333, function()
