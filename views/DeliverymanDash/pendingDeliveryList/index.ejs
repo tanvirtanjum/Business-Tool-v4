@@ -20,8 +20,8 @@
                     <th>Ship to</th>
                     <th>Order Total</th>
                     <th>Status</th>
-                    <th></th>
-                    <th></th>
+                    <th> </th>
+                    <th> </th>
                 </tr>
             </thead>
 
@@ -34,8 +34,8 @@
                   <td><%= list[i].orderby %></td>
                   <td><%= list[i].ammout %></td>
                   <td>CONFIRMED</td>
-                  <td><a href="/DeliverymanDash/pendingDeliveryList/ACCEPTED/<%=list[i].orderid%>"><input type="submit" value="ACCEPTED"></a><td>
-                  <td><a href="/DeliverymanDash/pendingDeliveryList/REJECTED/<%=list[i].orderid%>"><input type="submit" value="RETURNED"></a><td>
+                  <td><a href="/DeliverymanDash/pendingDeliveryList/ACCEPTED/<%=list[i].orderid%>"><input type="submit" value="ACCEPTED"></a></td>
+                  <td><a href="/DeliverymanDash/pendingDeliveryList/REJECTED/<%=list[i].orderid%>"><input type="submit" value="RETURNED"></a></td>
                 </tr>
                 <% } %>
               <% } %>

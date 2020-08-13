@@ -29,7 +29,7 @@ router.get('/', function(req, res)
 
 router.get('/REJECTED/:id', function(req, res)
 {
-  if(req.session.type == 5)
+  if(req.session.type == 4)
   {
     orderlist.getSpecificgOrder(req.params.id, function(result)
     {
