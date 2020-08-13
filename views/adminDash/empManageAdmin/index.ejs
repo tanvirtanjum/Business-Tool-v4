@@ -10,6 +10,7 @@
       <title>Manage Employees</title>
       <link rel="stylesheet" type="text/css" href="../assets/styles/common.css">
       <link rel="stylesheet" type="text/css" href="../assets/styles/manage.css">
+      <script src="assets/js/empvalid.js"></script>
   </head>
 
   <body>
@@ -19,9 +20,9 @@
           <input id="btnSearch" type="submit" name="SEARCH" value="Search">
 
           <p>Employee ID</p>
-          <input type="text" name="empId" placeholder="Enter Employee Id" value="<%= sInfo.EmpID %>" >
+          <input type="text" id="empId" name="empId" placeholder="Enter Employee Id" value="<%= sInfo.EmpID %>" >
           <p>Name</p>
-          <input type="text" name="empName" placeholder="Enter Employee Name" value="<%= sInfo.name %>" >
+          <input type="text" id="empName" name="empName" placeholder="Enter Employee Name" value="<%= sInfo.name %>" >
           <p>Designation</p>
           <select id="designation" name="designation">
               <option value="0" <%if(sInfo.did==0){%>selected<%}%>>--SELECT--</option>
@@ -31,17 +32,17 @@
               <option id="admin" value="4" <%if(sInfo.did==4){%>selected<%}%>>DevileryMan</option>
           </select><br>
           <p>Salary</p>
-          <input type="number" name="empSalary" placeholder="Enter Employee Salary" value="<%= sInfo.sal %>" <%if(srchStatus==true){%>readonly<%}%> >
+          <input type="number" id="salary" name="empSalary" placeholder="Enter Employee Salary" value="<%= sInfo.sal %>" <%if(srchStatus==true){%>readonly<%}%> >
           <p>Mobile No.</p>
-          <input type="text" name="empMobileNo" placeholder="Enter Employee Mobile No" value="<%= sInfo.mob %>" >
+          <input type="text" id="mob" name="empMobileNo" placeholder="Enter Employee Mobile No" value="<%= sInfo.mob %>" >
           <p>E-mail</p>
-          <input type="email" name="empEmail" placeholder="Enter Employee Email" value="<%= sInfo.mail %>" >
+          <input type="email" id="em" name="empEmail" placeholder="Enter Employee Email" value="<%= sInfo.mail %>" >
           <p>Join Date</p>
           <input type="text" name="empJoinDate" value="<%= sInfo.join %>" readonly>
           <p>Added By</p>
           <input type="text" name="empAddedBy"  value="<%= sInfo.addby %>" readonly><br>
           <input style="margin-left: 400px;" type="submit" name="REFRESH" value="REFRESH">
-          <input type="submit" name="INSERT" id="INSERT" value="INSERT" <%if(srchStatus==true){%>disabled<%}%> onclick="return validate();">
+          <input type="submit" name="INSERT" id="INSERT" value="INSERT" <%if(srchStatus==true){%>disabled<%}%>>
           <input type="submit" name="UPDATE" value="UPDATE" <%if(srchStatus==false){%>disabled<%}%>>
           <input type="submit" name="DELETE" value="DELETE" <%if(srchStatus==false){%>disabled<%}%>>
         </form>
