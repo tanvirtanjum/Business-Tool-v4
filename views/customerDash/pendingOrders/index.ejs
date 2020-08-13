@@ -19,14 +19,20 @@
               <tr>
                   <th>Order#</th>
                   <th>Date</th>
-                  <th>Order Total</th>
-                  <th>Pending Status</th>
+                  <th>Payable Ammount</th>
+                  <th>Order Status</th>
               </tr>
           </thead>
-
-          <!-- <tbody>
-              ejs code here
-          </tbody> -->
+          <tbody>
+            <% for(var i=0; i < list.length; i++){ %>
+            <tr>
+              <td><%= list[i].orderid %></td>
+              <td><%= list[i].ord_date %></td>
+              <td><%= list[i].ammout %></td>
+              <td>Pending</td>
+            </tr>
+            <% } %>
+          </tbody>
       </table>
   </div>
 </body>
