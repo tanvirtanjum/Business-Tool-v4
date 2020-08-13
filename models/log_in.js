@@ -50,6 +50,22 @@ module.exports =
 		});
 	},
 
+	recoverPass: function(user, callback)
+  {
+		var sql = "UPDATE `log_in` SET `PASS`='"+user.f+"' WHERE `LID`='"+user.a+"';";
+		db.execute(sql, function(result)
+    {
+      if(result)
+      {
+				callback(true);
+			}
+      else
+      {
+				callback(false);
+			}
+		});
+	},
+
 	changeSID: function(user, callback)
   {
 		var sql = "UPDATE `log_in` SET `SID`='"+user.sid+"' WHERE `LID`='"+user.lid+"';";
@@ -81,7 +97,7 @@ module.exports =
 			}
 		});
 	},
-	
+
 	rejectCusLogin: function(user, callback)
   {
 		var sql = "DELETE FROM `log_in` WHERE `LID`='"+user.lid+"';";

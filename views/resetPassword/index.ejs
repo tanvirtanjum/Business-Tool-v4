@@ -11,21 +11,16 @@
 	<div class="wrap">
 		<h2>Reset Password</h2>
 		<form method="post" name="myForm" onsubmit="return(validate());">
-			<input type="text" name="username" placeholder="Username" value="">
-			<input type="text" name="fullname" placeholder="Full Name" value="">
-			<input type="text" name="design" placeholder="Designation" value="">
-			<input type="email" name="email" placeholder="Email" value="">
-
-            <input type="number" name="mobilenumber" placeholder="Mobile Number" value="">
-			<input type="text" name="password" placeholder="New Password" value="">
+			<input type="text" name="a" placeholder="Username" value="" required>
+			<input type="text" name="b" placeholder="Full Name" value="" required>
+			<input type="text" name="c" placeholder="Designation" value="" required>
+			<input type="email" name="d" placeholder="Email" value="" required>
+      <input type="number" name="e" placeholder="Mobile Number" value="" required>
+			<input type="text" name="f" placeholder="New Password" value="" required>
 			<span id="err"></span>
-			<input type="text" name="confirmpassword" placeholder="Confirm New Password" value="">
+			<input type="text" name="g" placeholder="Confirm New Password" value="" required>
 			<span id="err1"></span>
-      <input type="number" name="mobilenumber" placeholder="Mobile Number" value="">
-      <input type="text" name="password" placeholder="New Password" value="">
-      <input type="text" name="confirmpassword" placeholder="Confirm New Password" value="">
-
-			<input type="submit" name="SUBMIT" value="SUBMIT"><br>
+			<input type="submit" value="SUBMIT">
 		</form>
 	</div>
 </body>

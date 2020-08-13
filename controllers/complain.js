@@ -3,7 +3,6 @@ var router = express.Router();
 
 router.get('/',function(req,res)
 {
-    if
     res.render('adminDash/complainBox/index')
 })
 

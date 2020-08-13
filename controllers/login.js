@@ -5,34 +5,31 @@ var log_in 	= require.main.require('./models/log_in');
 
 router.get('/', function(req, res)
 {
-  if(req.session.type == null)
+  if(req.session.type == '1')
+  {
+    res.redirect('/adminDash');
+  }
+  else if(req.session.type == '2')
+  {
+    res.redirect('/managerDash');
+  }
+  else if(req.session.type == '3')
+  {
+    res.redirect('/salesmanDash');
+  }
+  else if(req.session.type == '4')
+  {
+    res.redirect('/deliverymanDash');
+  }
+  else if(req.session.type == '5')
+  {
+    res.redirect('/customerDash');
+  }
+  else
   {
     res.render('login/index');
   }
 
-  else
-  {
-    if(req.session.type == '1')
-    {
-      res.redirect('/adminDash');
-    }
-    if(req.session.type == '2')
-    {
-      res.redirect('/managerDash');
-    }
-    if(req.session.type == '3')
-    {
-      res.redirect('/salesmanDash');
-    }
-    if(req.session.type == '4')
-    {
-      res.redirect('/deliverymanDash');
-    }
-    if(req.session.type == '5')
-    {
-      res.redirect('/customerDash');
-    }
-  }
 });
 
 router.post('/', function(req, res)
@@ -80,7 +77,7 @@ router.post('/', function(req, res)
     {
       res.send('Somethong Went Wrong....');
     }
-    
+
 	});
 });
 
