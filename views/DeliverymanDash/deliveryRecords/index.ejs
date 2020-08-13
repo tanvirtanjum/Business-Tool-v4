@@ -15,18 +15,34 @@
             <table class="content-table">
                 <thead>
                     <tr>
-                        <th>SL#</th>
                         <th>Order#</th>
+                        <th>Date</th>
+                        <th>Recieved Ammount</th>
+                        <th>Recieved By</th>
                         <th>Status</th>
-                        <th>Process time</th>
                     </tr>
                 </thead>
 
-                <!-- <tbody>
-                    ejs code here
-                </tbody> -->
+                <tbody>
+                <% if(list.length>0){ %>
+                  <% for(var i=0; i < list.length; i++){ %>
+                  <tr>
+                    <td><%= list[i].orderid %></td>
+                    <td><%= list[i].ord_date %></td>
+                    <td><%= list[i].ammout %></td>
+                    <td><%= list[i].orderby %></td>
+                    <td>DELIVERED</td>
+                  </tr>
+                  <% } %>
+                <% } %>
+                <% if(list.length==0){ %>
+                  <tr>
+                    <td colspan="5" align="center">NO DATA</td>
+                  </tr>
+                <% } %>
+                </tbody>
             </table>
-            
+
     </div>
   </body>
   </html>

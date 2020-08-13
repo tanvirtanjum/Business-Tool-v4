@@ -138,6 +138,23 @@ module.exports=
       });
     },
 
+    getUserDeliveryReport: function(info,callback)
+    {
+      var sql="SELECT * FROM `orderlist` WHERE `deliveryby`='"+info+"' AND `stat`='2';";
+
+      db.getResults(sql,function(result)
+      {
+          if(result.length > 0)
+          {
+              callback(result);
+          }
+          else
+          {
+              callback([]);
+          }
+      });
+    },
+
     getSpecificgOrder: function(info,callback)
     {
       var sql="SELECT * FROM `orderlist` WHERE `orderid`='"+info+"';";
