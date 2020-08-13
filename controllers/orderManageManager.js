@@ -1,11 +1,17 @@
+
 var express = require('express');
 var router = express.Router();
+
+var orderlist = require.main.require('./models/orderlist');
 
 router.get('/', function(req, res)
 {
   if(req.session.type == 2)
   {
-    res.render('managerDash/orderManageManager/index');
+    orderlist.getAllPendingOrder( function(result)
+    {
+      res.render('managerDash/orderManageManager/index',{list: result});
+    });
   }
   else
   {

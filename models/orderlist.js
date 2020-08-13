@@ -36,6 +36,23 @@ module.exports=
       });
     },
 
+    getAllPendingOrder: function(callback)
+    {
+      var sql="SELECT * FROM `orderlist` WHERE `stat`='0';";
+
+      db.getResults(sql,function(result)
+      {
+          if(result.length > 0)
+          {
+              callback(result);
+          }
+          else
+          {
+              callback([]);
+          }
+      });
+    },
+
     getUserPendingOrder: function(info,callback)
     {
       var sql="SELECT * FROM `orderlist` WHERE `orderby`='"+info+"' AND `stat`='0';";
