@@ -47,7 +47,7 @@ router.post('/', function(req, res)
       {
         lid: req.body.empId,
         sid: req.body.designation,
-        pass: '123'
+        pass: '1234'
       }
 
       log_in.insetLogin(lInfo, function(result)
