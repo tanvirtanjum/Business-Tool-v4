@@ -41,7 +41,7 @@
           <p>Added By</p>
           <input type="text" name="empAddedBy"  value="<%= sInfo.addby %>" readonly><br>
           <input style="margin-left: 400px;" type="submit" name="REFRESH" value="REFRESH">
-          <input type="submit" name="INSERT" id="INSERT" value="INSERT" <%if(srchStatus==true){%>disabled<%}%>>
+          <input type="submit" name="INSERT" id="INSERT" value="INSERT" <%if(srchStatus==true){%>disabled<%}%> onclick="return validate();">
           <input type="submit" name="UPDATE" value="UPDATE" <%if(srchStatus==false){%>disabled<%}%>>
           <input type="submit" name="DELETE" value="DELETE" <%if(srchStatus==false){%>disabled<%}%>>
         </form>

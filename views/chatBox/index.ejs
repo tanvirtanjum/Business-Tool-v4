@@ -36,9 +36,10 @@
 				</nav>
 				<section>
 					<div class=tab1>
-						<table class="content-table">
+						
+						<table  class="content-table">
+							<p>Unseen Mesaage</p>
 							<thead>
-								<p style="margin-left: 140px;color:#00f7c5;">Unseen Message</p>
 								<tr>
 									<th>Message ID</th>
 									<th>Sender</th>
@@ -50,10 +51,9 @@
 								ejs here
 							</tbody> -->
 						</table>
-						<hr>
 						<table class="content-table">
+							<p>Seen Message</p>
 							<thead>
-								<p style="margin-left: 140px;color:#00f7c5;margin-top: 2px;">Seen Message</p>
 								<tr>
 									<th>Message ID</th>
 									<th>Sender</th>
@@ -64,15 +64,28 @@
 							<!-- <tbody>
 								ejs here
 							</tbody> -->
-						</table>
-						<hr>
-						<textarea style="margin-top: 5px;margin-left: 10px;" placeholder="Message Body" name="see" id="see" cols="80" rows="20"></textarea><br>
+						</table><hr><br>
+						<input style="margin-left:10px;" type="text"><br>
+						<input style="margin-left:10px;" type="text"><br>
+						<textarea style="margin-top: 5px;margin-left: 10px;" placeholder="Message Body" name="see" id="see" cols="42" rows="20"></textarea><br>
 						<input style="margin-top: 5px;margin-left: 10px;" type="submit" value="Refresh" name="refresh">
 					</div>
 					<div class="tab2">
-						<p>Reciever</p><input type="text" placeholder="Enter valid user Id" name="reciever" id=""><br>
-						<p>Subject</p><input type="text" placeholder="Enter your message Subject" name="subject">
-						<textarea name="stext" id="" cols="80" rows="20" placeholder="Write your message here...."></textarea><br>
+						<p>Reciever</p>
+						<table style="float: right;" class="content-table">
+							<thead>
+								<tr>
+									<th>Message ID</th>
+									<th>Sender</th>
+									<th>Subject</th>
+									<th>Date</th>
+								</tr>
+							</thead>
+						</table>
+						<input type="text" placeholder="Enter valid user Id" name="reciever" id=""><br>
+						
+						<p>Subject</p><input type="text" placeholder="Enter your message Subject" name="subject"><br>
+						<textarea name="stext" id="" cols="42" rows="20" placeholder="Write your message here...."></textarea><br>
 						<input type="submit" value="Refresh"><input style="margin-left: 7px;" type="submit" name="SEND" value="SEND">
 					</div>
 				</section>
