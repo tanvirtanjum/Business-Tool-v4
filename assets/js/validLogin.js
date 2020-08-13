@@ -1,15 +1,30 @@
 function validate(){
-    if(document.login.username.value=="")
+    var x=document.login.username;
+    var y=document.login.password;
+    var message=document.getElementById('err');
+    var color="#ff6666";
+    if(x.value=="")
     {
         alert("Please provide username!");
-        document.login.username.focus();
+        x.focus();
         return false;
     }
-    if(document.login.password.value=="")
+    if(y.value=="")
     {
-        alert("Please provide valid Password!");
-        document.login.password.focus();
-        return false;
+        if(!(y.value.length >= 4))
+        {
+            message.style.color=color;
+            message.innerHTML="Fuck you!";
+            y.focus();
+            return false;
+        }
+        else
+        {
+            alert("Please provide valid Password!");
+            y.focus();
+            return false;
+        }
+        
     }
     return (true);
 }
