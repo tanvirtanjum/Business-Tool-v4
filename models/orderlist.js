@@ -36,6 +36,40 @@ module.exports=
       });
     },
 
+    returnOrder: function(info,callback)
+    {
+      var sql="DELETE FROM `orderlist` WHERE `orderid`='"+info+"' AND `stat`='1';";
+
+      db.execute(sql,function(result)
+      {
+          if(result)
+          {
+              callback(true);
+          }
+          else
+          {
+              callback(false);
+          }
+      });
+    },
+
+    deliveredOrder: function(info,callback)
+    {
+      var sql="UPDATE `orderlist` SET `stat`='2' WHERE `orderid`='"+info+"';";
+
+      db.execute(sql,function(result)
+      {
+          if(result)
+          {
+              callback(true);
+          }
+          else
+          {
+              callback(false);
+          }
+      });
+    },
+
     approveOrder: function(info,callback)
     {
       var sql="UPDATE `orderlist` SET `stat`='1', `deliveryby`='"+info.del+"' WHERE `orderid`='"+info.id+"';";
