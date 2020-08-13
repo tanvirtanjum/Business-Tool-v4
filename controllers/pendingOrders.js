@@ -4,6 +4,13 @@ var router = express.Router();
 var product = require.main.require('./models/product');
 var orderlist = require.main.require('./models/orderlist');
 
+var info2 =
+{
+  pId: '',
+  pID: '',
+  newQuant: ''
+}
+
 router.get('/', function(req, res)
 {
   if(req.session.type == 5)
@@ -25,20 +32,54 @@ router.get('/:id', function(req, res)
 {
   if(req.session.type == 5)
   {
-    orderlist.cancelOrder(req.params.id, function(result)
+    orderlist.getSpecificgOrder(req.params.id, function(result)
     {
-      if(result)
+      if(result.length>0)
       {
-        res.redirect('/customerDash/pendingOrders');
-      }
+        info2.newQuant = result[0].quant;
+        info2.pId = result[0].prodid;
+        info2.pID = result[0].prodid;
 
+        orderlist.cancelOrder(req.params.id, function(result)
+        {
+          if(result == true)
+          {
+            product.getProduct(info2, function(result)
+            {
+              if(result.length>0)
+              {
+                info2.newQuant=info2.newQuant+result[0].QUANTITY;
+                product.updateProductAfter(info2, function(result)
+                {
+                  if(result)
+                  {
+                    res.redirect('/customerDash/pendingOrders');
+
+                  }
+                  else
+                  {
+                    req.send("Something Went Wrong...");
+                  }
+                });
+              }
+              else
+              {
+                req.send("Something Went Wrong...");
+              }
+            });
+          }
+          else
+          {
+            req.send("Something Went Wrong...");
+          }
+        });
+      }
       else
       {
         req.send("Something Went Wrong...");
       }
     });
   }
-
 });
 
 module.exports = router;

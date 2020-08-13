@@ -53,6 +53,23 @@ module.exports=
       });
     },
 
+    getSpecificgOrder: function(info,callback)
+    {
+      var sql="SELECT * FROM `orderlist` WHERE `orderid`='"+info+"';";
+
+      db.getResults(sql,function(result)
+      {
+          if(result.length > 0)
+          {
+              callback(result);
+          }
+          else
+          {
+              callback([]);
+          }
+      });
+    },
+
     getUserConfirmedOrder: function(info,callback)
     {
       var sql="SELECT * FROM `orderlist` WHERE `orderby`='"+info+"' AND `stat`='1';";
