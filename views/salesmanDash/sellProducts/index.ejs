@@ -17,9 +17,9 @@
             <input style="width: 20%; margin-left: 580px;" id="search" type="text" name="SearchID" placeholder="Search By ID" value="">
             <input id="btnSearch"type="submit" value="Search" name="SEARCH">
             <p style="">Product ID</p>
-            <input type="text" name="proId" placeholder="Enter Product Id" value="<%= pInfo.pId %>" >
+            <input type="text" name="proId" placeholder="Enter Product Id" value="<%= pInfo.pId %>" readonly>
             <p>Product name</p>
-            <input type="text" name="proName" placeholder="Enter Product Name" value="<%= pInfo.name%>" >
+            <input type="text" name="proName" placeholder="Enter Product Name" value="<%= pInfo.name%>" readonly>
             <!-- <p>Type</p> -->
             <select id="proType" name="proType" hidden>
                 <option value="" <%if(pInfo.type==""){%>selected<%}%>>--SELECT--</option>
@@ -34,10 +34,11 @@
                 <option id="TV" value="TV" <%if(pInfo.type=="TV"){%>typeselected<%}%>>TV</option>
             </select><br>
             <p>Quantity</p>
-            <input type="number" name="proQuantity" placeholder="Enter Quantity" value="<%= pInfo.quantity %>" ><br><span style="color: red;">*Give Quantity amount</span>
+            <input type="number" name="proQuantity" placeholder="Enter Quantity" min='1' max="<%= pInfo.quantity %>" ><br>
+            <input type="number" name="preQuantity" placeholder="Enter Quantity"  value="<%= pInfo.quantity %>" hidden>
             <input type="text" name="proBuyPrice" value="<%= pInfo.buyPrice %> " hidden>
             <p>Sell Price</p>
-            <input type="text" name="proSellPrice" placeholder="Price" value="<%= pInfo.SellPrice %>">
+            <input type="number" name="proSellPrice" min='<%= pInfo.buyPrice %>' placeholder="Price" value="<%= pInfo.SellPrice %>">
             <p>Customer Name</p>
             <input type="text" name="customerName" placeholder="Customer Name" value="">
             <p>Customer Number</p>
@@ -47,7 +48,7 @@
             <!-- <p>Sell Date</p> -->
             <input type="text" name="SellDate" placeholder="Date" value="" readonly hidden>
             <input type="submit" name="refresh" value="Refresh">
-            <input type="submit" name="SELL" id="SELL" value="Sell">
+            <input type="submit" name="SELL" id="SELL" value="Sell" <%if(searchStatus==false){%>disabled<%}%>>
         </form>
         <div align="right" class="table">
             <table class="content-table">

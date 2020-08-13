@@ -17,11 +17,13 @@ var pInfo={
 }
 var searchStatus=false;
 
+var newQuant;
+
 router.get('/', function(req, res)
 {
   if(req.session.type == 3)
   {
-    product.getAllProduct(function(results)
+    product.getAllProductForSale(function(results)
     {
       res.render('salesmanDash/sellProducts/index',{list:results,pInfo:pInfo,searchStatus:searchStatus});
     })
@@ -42,7 +44,8 @@ router.post('/' , function(req,res)
       {
         pID:req.body.SearchID
       }
-      product.getProduct(info,function(result){
+      product.getProductForSale(info,function(result)
+      {
         if(result.length > 0)
         {
           pInfo.pId = result[0].PID;
@@ -62,7 +65,7 @@ router.post('/' , function(req,res)
         {
           res.send('Something Went Wrong....');
         }
-      })
+      });
     }
   }
   if(req.body.hasOwnProperty("SELL"))
@@ -70,11 +73,12 @@ router.post('/' , function(req,res)
     if(req.session.type==3)
     {
       var profits=req.body.proSellPrice-req.body.proBuyPrice;
-      var proInfo={
+      var proInfo=
+      {
         pId: req.body.proId,
         quantity: req.body.proQuantity,
-        SellPrice: req.body.proSellPrice,
-        profit: profits,
+        SellPrice: req.body.proSellPrice*req.body.proQuantity,
+        profit: profits*req.body.proQuantity,
         cusName: req.body.customerName,
         cusMobile: req.body.customerNo,
         sellBy: req.session.uid
@@ -83,17 +87,85 @@ router.post('/' , function(req,res)
       {
         if(result==true)
         {
-          res.redirect('/salesmanDash/sellProducts');
+          newQuant=req.body.preQuantity-req.body.proQuantity
+          var info =
+          {
+            pId: req.body.proId,
+            newQuant: newQuant
+          }
+          product.updateProductAfter(info, function(result)
+          {
+            if(result == true)
+            {
+              if(newQuant == 0)
+              {
+                product.deleteProduct(info, function(result)
+                {
+                  if(result == true)
+                  {
+                    pInfo.pId = "";
+                    pInfo.name = "";
+                    pInfo.type = "";
+                    pInfo.quantity = "";
+                    pInfo.buyPrice = "";
+                    pInfo.SellPrice = "";
+                    pInfo.modBy = "";
+                    pInfo.addDate = "";
+
+                    searchStatus=false;
+                    res.redirect('/salesmanDash/sellProducts');
+                  }
+                  else
+                  {
+                    res.send('Something Went Wrong....');
+                  }
+                });
+              }
+              else
+              {
+                pInfo.pId = "";
+                pInfo.name = "";
+                pInfo.type = "";
+                pInfo.quantity = "";
+                pInfo.buyPrice = "";
+                pInfo.SellPrice = "";
+                pInfo.modBy = "";
+                pInfo.addDate = "";
+
+                searchStatus=false;
+                res.redirect('/salesmanDash/sellProducts');
+              }
+            }
+            else
+            {
+              res.send('Something Went Wrong....');
+            }
+          });
         }
         else
         {
           res.send('Something Went Wrong....');
         }
-      })
-      
-      
+      });
     }
   }
-})
+  if(req.body.hasOwnProperty("refresh"))
+  {
+    if(req.session.type ==3)
+    {
+      pInfo.pId = "";
+      pInfo.name = "";
+      pInfo.type = "";
+      pInfo.quantity = "";
+      pInfo.buyPrice = "";
+      pInfo.SellPrice = "";
+      pInfo.modBy = "";
+      pInfo.addDate = "";
+
+      searchStatus=false;
+      res.redirect('/salesmanDash/sellProducts');
+    }
+  }
+});
 
 module.exports = router;

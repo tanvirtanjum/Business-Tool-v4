@@ -18,6 +18,22 @@ module.exports=
       });
     },
 
+    getAllProductForSale: function(callback)
+    {
+      var sql ="SELECT *FROM `product` WHERE `AVAILABILITY`='AVAILABLE' ORDER BY `TYPE`;";
+      db.getResults(sql,function(result)
+      {
+          if(result.length > 0)
+          {
+              callback(result);
+          }
+          else
+          {
+              callback([]);
+          }
+      });
+    },
+
     getProduct: function(id,callback)
     {
       var sql = "SELECT *FROM `product` WHERE `PID` ='"+id.pID+"';";
@@ -33,6 +49,23 @@ module.exports=
           }
       });
     },
+
+    getProductForSale: function(id,callback)
+    {
+      var sql = "SELECT *FROM `product` WHERE `PID` ='"+id.pID+"' AND `AVAILABILITY`='AVAILABLE';";
+      db.getResults(sql,function(result)
+      {
+          if(result.length > 0)
+          {
+              callback(result);
+          }
+          else
+          {
+              callback([]);
+          }
+      });
+    },
+
     updateProduct: function(info, callback)
     {
   		var sql = "UPDATE `product` SET `P_NAME`='"+info.name+"', `TYPE`='"+info.type+"', `QUANTITY`='"+info.quantity+"', `BUY_PRICE`='"+info.buyPrice+"', `SELL_PRICE`='"+info.SellPrice+"' WHERE `PID`='"+info.pId+"';";
@@ -63,19 +96,35 @@ module.exports=
           }
       });
     },
-    deleteProduct: function(info,callback)
+    updateProductAfter: function(info,callback)
     {
-      var sql ="UPDATE `product` SET `AVAILABILITY`='UNAVAILABLE', `QUANTITY`='0' WHERE `PID`='"+info.pId+"';";
+      var sql ="UPDATE `product` SET `QUANTITY`='"+info.newQuant+"' WHERE `PID`='"+info.pId+"';";
       db.execute(sql, function(result)
   		{
-              if(result)
-              {
-                  callback(true);
-              }
-              else
-              {
-                  callback(false);
-              }
+        if(result)
+        {
+            callback(true);
+        }
+        else
+        {
+            callback(false);
+        }
+      });
+    },
+    
+    deleteProduct: function(info,callback)
+    {
+      var sql ="UPDATE `product` SET `AVAILABILITY`='UNAVAILABLE' WHERE `PID`='"+info.pId+"';";
+      db.execute(sql, function(result)
+  		{
+        if(result)
+        {
+            callback(true);
+        }
+        else
+        {
+            callback(false);
+        }
       });
     }
 
