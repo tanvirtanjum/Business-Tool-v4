@@ -11,30 +11,36 @@
     <title>Pending Order List</title>
 </head>
 <body>
-  <div align="center" class="table">
-      <input style="width: 25%; margin-left: 70px;" id="search" type="text" name="Search" placeholder="Search" value="">
-      <input id="search" type="submit" value="Search">
-      <table class="content-table">
-          <thead>
-              <tr>
-                  <th>Order#</th>
-                  <th>Date</th>
-                  <th>Payable Ammount</th>
-                  <th>Order Status</th>
-              </tr>
-          </thead>
-          <tbody>
-            <% for(var i=0; i < list.length; i++){ %>
-            <tr>
-              <td><%= list[i].orderid %></td>
-              <td><%= list[i].ord_date %></td>
-              <td><%= list[i].ammout %></td>
-              <td>Pending</td>
-            </tr>
-            <% } %>
-          </tbody>
-      </table>
-  </div>
+    <div class="box">
+        <form method="POST">
+            <input style="width: 25%; margin-left: 530px;" id="search" type="text" name="Search" placeholder="Search" value="">
+            <input id="search" type="submit" value="Search">
+            <p>jani nah</p>
+            <input type="text" placeholder="sommething">
+            <p>jani nah</p>
+            <input type="text" placeholder="sommething">
+            <p>jani nah</p>
+            <input type="text" placeholder="sommething">
+            <p>jani nah</p>
+            <input type="text" placeholder="sommething"><br>
+            <input type="submit">
+        </form>
+        <div align="center" class="table">
+            <table class="content-table">
+                <thead>
+                    <tr>
+                        <th>Order#</th>
+                        <th>Date</th>
+                        <th>Order Total</th>
+                        <th>Pending Status</th>
+                    </tr>
+                </thead>
 
+                <!-- <tbody>
+                    ejs code here
+                </tbody> -->
+            </table>
+        </div>
+    </div>
 </body>
 </html>
