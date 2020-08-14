@@ -153,6 +153,7 @@ h1 {
 
 .content-table tbody tr:nth-last-of-type(even) {
     background-color: #f3f3f3;
+    color: #000;
 }
 
 .content-table tbody tr:last-of-type {
