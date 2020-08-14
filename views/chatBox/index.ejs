@@ -37,7 +37,7 @@
 				<section>
 					<div class=tab1>
 
-						<table style="float: right;" class="content-table">
+						<table style="" class="content-table">
 							<caption>Unseen</caption>
 							<thead>
 
@@ -65,7 +65,7 @@
                   </tr>
                 <% } %>
               </tbody>
-							<table style="float: right;" class="content-table">
+							<table style="" class="content-table">
 								<caption>Seen</caption>
 								<thead>
 									<tr>
@@ -94,16 +94,18 @@
                 </tbody>
 							</table>
 						</table>
-						<input style="margin-left:10px;margin-top: 3px;" type="text" value="<%= chatin.sender %>"><br>
-						<input style="margin-left:10px;" type="text" value="<%= chatin.subject %>"><br>
+						
+						<p>Sender</p>
+						<input style="margin-left:10px;margin-top: 3px;" type="text" placeholder="Sender" value="<%= chatin.sender %>" readonly><br>
+						<p>Subject</p>
+						<input style="margin-left:10px;" type="text" placeholder="Subject" value="<%= chatin.subject %>" readonly><br>
 
 
-						<textarea style="margin-top: 5px;margin-left: 10px;" placeholder="Message Body" name="see" id="see" cols="42" rows="20"><%= chatin.text %></textarea><br>
+						<textarea style="margin-top: 5px;margin-left: 10px;" placeholder="Message Body" name="see" id="see" cols="42" rows="20" readonly><%= chatin.text %></textarea><br>
 						<input style="margin-top: 5px;margin-left: 10px;" type="submit" value="REFRESH" name="REFRESH">
 					</div>
 					<div class="tab2">
-						<p>Reciever</p>
-						<table style="float: right;" class="content-table">
+						<table style="" class="content-table">
 							<thead>
 								<tr>
 									<th>Message ID</th>
@@ -130,6 +132,7 @@
                 <% } %>
               </tbody>
 						</table>
+						<p>Reciever</p>
 						<input type="text" placeholder="Enter valid user Id" name="reciever" id=""><br>
 
 						<p>Subject</p><input type="text" placeholder="Enter your message Subject" name="subject"><br>
