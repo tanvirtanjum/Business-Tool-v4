@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.1
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 14, 2020 at 12:45 AM
--- Server version: 10.4.8-MariaDB
--- PHP Version: 7.1.33
+-- Generation Time: Aug 14, 2020 at 07:05 AM
+-- Server version: 10.1.38-MariaDB
+-- PHP Version: 7.3.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `chat` (
   `MSG_ID` int(11) NOT NULL,
-  `DATE` datetime NOT NULL DEFAULT current_timestamp(),
+  `DATE` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `SUB` varchar(250) DEFAULT NULL,
   `SENDER` varchar(15) NOT NULL,
   `TEXT` longtext NOT NULL,
@@ -46,7 +46,10 @@ CREATE TABLE `chat` (
 INSERT INTO `chat` (`MSG_ID`, `DATE`, `SUB`, `SENDER`, `TEXT`, `ATTACHMENT`, `RECEIVER`, `STATUS`) VALUES
 (1, '2020-08-14 03:03:10', '2', '1', 'Test Msg', ' ', '2', 1),
 (2, '2020-08-14 04:36:19', '1', '2', 'hello', ' ', '1', 1),
-(3, '2020-08-14 04:38:54', 'hello', '1', 'hello', ' ', '2', 0);
+(3, '2020-08-14 04:38:54', 'hello', '1', 'hello', ' ', '2', 1),
+(4, '2020-08-14 04:55:18', 'any', '1', 'hi', ' ', '5', 0),
+(5, '2020-08-14 05:01:20', 'any', '2', 'jhsvhscnxbcnx', ' ', '1', 1),
+(6, '2020-08-14 10:24:41', 'any 2', '2', 'Hi there', ' ', '1', 1);
 
 -- --------------------------------------------------------
 
@@ -81,7 +84,7 @@ CREATE TABLE `customer` (
   `design` varchar(30) NOT NULL,
   `email` varchar(50) NOT NULL,
   `mobile` varchar(50) NOT NULL,
-  `reg_date` datetime DEFAULT current_timestamp(),
+  `reg_date` datetime DEFAULT CURRENT_TIMESTAMP,
   `status` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -90,7 +93,9 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`cusid`, `name`, `design`, `email`, `mobile`, `reg_date`, `status`) VALUES
-('5', 'ZISHAD HOSSAIN LIMON', 'Teacher', 'zishadlimon@gmail.com', '01521428944', '2020-08-10 20:15:25', 1);
+('5', 'ZISHAD HOSSAIN LIMON', 'Teacher', 'zishadlimon@gmail.com', '01521428944', '2020-08-10 20:15:25', 1),
+('55', 'shanro', 'Customer', 'hasSha@gmail.com', '1778578380', '2020-08-14 08:49:46', 1),
+('555', 'hasib', 'customer', 'cus@gmail.com', '145454', '2020-08-14 08:58:08', 1);
 
 -- --------------------------------------------------------
 
@@ -105,7 +110,7 @@ CREATE TABLE `employee` (
   `SAL` double(10,2) NOT NULL,
   `E_MOB` varchar(14) NOT NULL,
   `E_MAIL` varchar(50) NOT NULL,
-  `JOIN_DATE` datetime NOT NULL DEFAULT current_timestamp(),
+  `JOIN_DATE` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `ADDED_BY` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -115,6 +120,9 @@ CREATE TABLE `employee` (
 
 INSERT INTO `employee` (`EmpID`, `E_NAME`, `DID`, `SAL`, `E_MOB`, `E_MAIL`, `JOIN_DATE`, `ADDED_BY`) VALUES
 ('1', 'TANVIR TANJUM SHOURAV', 1, 100000.00, '01515217821', 'tanjumtanvir@gmail.com', '2020-08-10 19:28:06', '1'),
+('2', 'hasib', 2, 21565.00, '01745455545', 'hasibsanto0@gmail.com', '2020-08-14 10:57:46', '1'),
+('3', 'shanto', 3, 15000.00, '01778578380', 'santo0@gmail.com', '2020-08-14 10:59:24', '1'),
+('4', 'Anik', 4, 15000.00, '01251654544', 'anik@gmail.com', '2020-08-14 11:00:19', '1'),
 ('A1', 'JARIN TASNIM', 1, 150000.00, '01515217001', 'shama@gmail.com', '2020-08-11 21:50:02', '1');
 
 -- --------------------------------------------------------
@@ -125,7 +133,7 @@ INSERT INTO `employee` (`EmpID`, `E_NAME`, `DID`, `SAL`, `E_MOB`, `E_MAIL`, `JOI
 
 CREATE TABLE `emp_image` (
   `IEmpID` varchar(15) DEFAULT NULL,
-  `EmpIMG` blob DEFAULT NULL
+  `EmpIMG` blob
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -150,6 +158,8 @@ INSERT INTO `log_in` (`LID`, `SID`, `PASS`) VALUES
 ('3', 3, '3333'),
 ('4', 4, '4444'),
 ('5', 5, '5555'),
+('55', 5, '5555'),
+('555', 5, '5555'),
 ('A1', 1, '12345');
 
 -- --------------------------------------------------------
@@ -205,7 +215,7 @@ CREATE TABLE `orderlist` (
   `quant` int(15) NOT NULL,
   `ammout` double(10,2) NOT NULL,
   `stat` varchar(50) NOT NULL,
-  `ord_date` datetime DEFAULT current_timestamp(),
+  `ord_date` datetime DEFAULT CURRENT_TIMESTAMP,
   `deliveryby` varchar(15) DEFAULT NULL,
   `orderby` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -215,7 +225,9 @@ CREATE TABLE `orderlist` (
 --
 
 INSERT INTO `orderlist` (`orderid`, `prodid`, `quant`, `ammout`, `stat`, `ord_date`, `deliveryby`, `orderby`) VALUES
-(15, 'L101F', 1, 16000.00, '2', '2020-08-14 02:16:46', '4', '5');
+(15, 'L101F', 1, 16000.00, '2', '2020-08-14 02:16:46', '4', '5'),
+(16, 'L101F', 1, 16000.00, '1', '2020-08-14 09:21:04', '4', '55'),
+(17, 'L101F', 2, 31000.00, '1', '2020-08-14 10:23:35', '4', '5');
 
 -- --------------------------------------------------------
 
@@ -232,7 +244,7 @@ CREATE TABLE `product` (
   `BUY_PRICE` double(10,2) NOT NULL,
   `SELL_PRICE` double(10,2) NOT NULL,
   `MOD_BY` varchar(15) NOT NULL,
-  `Add_PDate` datetime NOT NULL DEFAULT current_timestamp()
+  `Add_PDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -240,9 +252,10 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`PID`, `P_NAME`, `TYPE`, `AVAILABILITY`, `QUANTITY`, `BUY_PRICE`, `SELL_PRICE`, `MOD_BY`, `Add_PDate`) VALUES
-('L101F', 'lll', 'Laptop', 'AVAILABLE', 3, 15000.00, 16000.00, '1', '2020-08-13 15:18:23'),
+('L101F', 'lll', 'Laptop', 'AVAILABLE', 0, 15000.00, 15500.00, '1', '2020-08-13 15:18:23'),
 ('L102F', 'sf', 'Laptop', 'AVAILABLE', 117, 1500.00, 1600.00, 'A1', '2020-08-13 16:38:34'),
-('L103F', 'fff', 'Laptop', 'AVAILABLE', 15, 2000.00, 2100.00, '1', '2020-08-13 16:38:34');
+('L103F', 'fff', 'Laptop', 'AVAILABLE', 15, 2000.00, 2100.00, '1', '2020-08-13 16:38:34'),
+('L203F', 'Asus', 'Keyboard', 'UNAVAILABLE', 5, 500.00, 600.00, '2', '2020-08-14 10:22:29');
 
 -- --------------------------------------------------------
 
@@ -259,7 +272,7 @@ CREATE TABLE `sales` (
   `C_NAME` varchar(25) NOT NULL,
   `C_MOB` varchar(14) NOT NULL,
   `SOLD_BY` varchar(15) NOT NULL,
-  `Sell_SDate` datetime NOT NULL DEFAULT current_timestamp()
+  `Sell_SDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -398,7 +411,7 @@ ALTER TABLE `status`
 -- AUTO_INCREMENT for table `chat`
 --
 ALTER TABLE `chat`
-  MODIFY `MSG_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `MSG_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `complain`
@@ -410,19 +423,19 @@ ALTER TABLE `complain`
 -- AUTO_INCREMENT for table `note`
 --
 ALTER TABLE `note`
-  MODIFY `NoteID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `NoteID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `notice`
 --
 ALTER TABLE `notice`
-  MODIFY `noticeID` int(254) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `noticeID` int(254) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `orderlist`
 --
 ALTER TABLE `orderlist`
-  MODIFY `orderid` int(254) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `orderid` int(254) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `sales`
